@@ -609,3 +609,4 @@ D:\Timesheet_System\Timesheets_System\obj\Debug\Timesheets_System.csproj.CopyCom
 D:\Timesheet_System\Timesheets_System\obj\Debug\Timesheets_System.exe
 D:\Timesheet_System\Timesheets_System\obj\Debug\Timesheets_System.pdb
 D:\Timesheet_System\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTestReport.resources
+D:\Timesheet_System\Timesheets_System\obj\Debug\Timesheets_System.Views.frmGeneralReport.resources

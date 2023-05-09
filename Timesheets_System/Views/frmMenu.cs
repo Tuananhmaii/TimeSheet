@@ -234,12 +234,23 @@ namespace Timesheets_System.Views
         }
         #endregion
 
-        private void adfaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmTestReport_Click(object sender, EventArgs e)
         {
             frmTestReport form = new frmTestReport();
             form.ShowDialog();
         }
 
+        private void frmGeneralReport_Click(object sender, EventArgs e)
+        {
+            frmGeneralReport form = new frmGeneralReport();
+            form.ShowDialog();
+        }
+
+        private void frmIndividualReport_Click(object sender, EventArgs e)
+        {
+            frmIndividualReport form = new frmIndividualReport();
+            form.ShowDialog();
+        }
     }
 }
     

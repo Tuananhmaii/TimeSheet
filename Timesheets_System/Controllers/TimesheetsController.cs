@@ -50,5 +50,10 @@ namespace Timesheets_System.Controllers
         {
             _timesheetsDAO.UpdateTimesheetsByDay(_timesheetsDetailsDTO);
         }
+
+        public List<TimesheetsDTO> GetGeneralTimeSheet(string department, string team, int year, int month)
+        {
+            return _timesheetsDAO.GetGeneralTimeSheet(department, team, year, month);
+        }
     }
 }

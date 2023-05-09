@@ -172,6 +172,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Views\frmGeneralReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmGeneralReport.Designer.cs">
+      <DependentUpon>frmGeneralReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,12 @@
     </Compile>
     <Compile Include="Views\frmForgotPassword.Designer.cs">
       <DependentUpon>frmForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmIndividualReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmIndividualReport.Designer.cs">
+      <DependentUpon>frmIndividualReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmLogin.cs">
       <SubType>Form</SubType>
@@ -266,7 +278,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TimeSheetReport.rdlc" />
+    <EmbeddedResource Include="GeneralTimeSheetReport.rdlc" />
+    <EmbeddedResource Include="TestReport.rdlc" />
+    <EmbeddedResource Include="Views\frmGeneralReport.resx">
+      <DependentUpon>frmGeneralReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
