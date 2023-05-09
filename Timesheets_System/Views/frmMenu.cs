@@ -233,6 +233,13 @@ namespace Timesheets_System.Views
             panel8.BackColor = COLORS.TITLE_BACKCOLOR;
         }
         #endregion
+
+        private void adfaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestReport form = new frmTestReport();
+            form.ShowDialog();
+        }
+
     }
 }
     
