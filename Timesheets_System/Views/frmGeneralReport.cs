@@ -46,10 +46,19 @@ namespace Timesheets_System.Views
             ReportViewer report = new ReportViewer();
             report.ProcessingMode = ProcessingMode.Local;
             report.LocalReport.ReportPath = "../../RDLC/GeneralTimeSheetReport.rdlc";
-
+            
             report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDS",
                 _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(),
                 Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
+
+            ReportParameter pDepartment = new ReportParameter("pDepartment", cbDepartment.Text.ToString());
+            report.LocalReport.SetParameters(pDepartment);
+            ReportParameter pTeam = new ReportParameter("pTeam", cbTeam.Text.ToString());
+            report.LocalReport.SetParameters(pTeam);
+            ReportParameter pYear = new ReportParameter("pYear", cbYear.Text.ToString());
+            report.LocalReport.SetParameters(pYear);
+            ReportParameter pMonth = new ReportParameter("pMonth", cbMonth.Text.ToString());
+            report.LocalReport.SetParameters(pMonth);
 
             report.RefreshReport();
 
