@@ -29,55 +29,59 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txbMonth = new System.Windows.Forms.TextBox();
-            this.txbYear = new System.Windows.Forms.TextBox();
+            this.cbMonth = new System.Windows.Forms.ComboBox();
+            this.cbYear = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txbTeam = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txbDepartment = new System.Windows.Forms.TextBox();
             this.btExportData = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
+            this.cbTeam = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.txbMonth);
-            this.panel3.Controls.Add(this.txbYear);
+            this.panel3.Controls.Add(this.cbTeam);
+            this.panel3.Controls.Add(this.cbDepartment);
+            this.panel3.Controls.Add(this.cbMonth);
+            this.panel3.Controls.Add(this.cbYear);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txbTeam);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txbDepartment);
             this.panel3.Location = new System.Drawing.Point(12, 83);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(776, 282);
             this.panel3.TabIndex = 8;
             // 
-            // txbMonth
+            // cbMonth
             // 
-            this.txbMonth.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMonth.Location = new System.Drawing.Point(519, 161);
-            this.txbMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbMonth.Name = "txbMonth";
-            this.txbMonth.Size = new System.Drawing.Size(191, 31);
-            this.txbMonth.TabIndex = 21;
+            this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMonth.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMonth.FormattingEnabled = true;
+            this.cbMonth.Location = new System.Drawing.Point(519, 164);
+            this.cbMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMonth.Name = "cbMonth";
+            this.cbMonth.Size = new System.Drawing.Size(191, 33);
+            this.cbMonth.TabIndex = 23;
             // 
-            // txbYear
+            // cbYear
             // 
-            this.txbYear.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbYear.Location = new System.Drawing.Point(128, 161);
-            this.txbYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbYear.Name = "txbYear";
-            this.txbYear.Size = new System.Drawing.Size(191, 31);
-            this.txbYear.TabIndex = 20;
+            this.cbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbYear.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbYear.FormattingEnabled = true;
+            this.cbYear.Location = new System.Drawing.Point(128, 164);
+            this.cbYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbYear.Name = "cbYear";
+            this.cbYear.Size = new System.Drawing.Size(191, 33);
+            this.cbYear.TabIndex = 22;
             // 
             // label6
             // 
@@ -88,15 +92,6 @@
             this.label6.Size = new System.Drawing.Size(63, 25);
             this.label6.TabIndex = 19;
             this.label6.Text = "Tháng";
-            // 
-            // txbTeam
-            // 
-            this.txbTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTeam.Location = new System.Drawing.Point(519, 102);
-            this.txbTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbTeam.Name = "txbTeam";
-            this.txbTeam.Size = new System.Drawing.Size(191, 31);
-            this.txbTeam.TabIndex = 17;
             // 
             // label5
             // 
@@ -138,15 +133,6 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Bộ phận";
             // 
-            // txbDepartment
-            // 
-            this.txbDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDepartment.Location = new System.Drawing.Point(128, 102);
-            this.txbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbDepartment.Name = "txbDepartment";
-            this.txbDepartment.Size = new System.Drawing.Size(191, 31);
-            this.txbDepartment.TabIndex = 4;
-            // 
             // btExportData
             // 
             this.btExportData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -172,6 +158,28 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Bảng công";
             // 
+            // cbDepartment
+            // 
+            this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.Location = new System.Drawing.Point(128, 102);
+            this.cbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(191, 33);
+            this.cbDepartment.TabIndex = 24;
+            // 
+            // cbTeam
+            // 
+            this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTeam.FormattingEnabled = true;
+            this.cbTeam.Location = new System.Drawing.Point(519, 102);
+            this.cbTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTeam.Name = "cbTeam";
+            this.cbTeam.Size = new System.Drawing.Size(191, 33);
+            this.cbTeam.TabIndex = 25;
+            // 
             // frmGeneralReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -184,7 +192,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmGeneralReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đổi mật khẩu";
+            this.Text = "Bảng công ";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -195,7 +203,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txbDepartment;
         private System.Windows.Forms.Button btExportData;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -204,8 +211,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txbTeam;
-        private System.Windows.Forms.TextBox txbMonth;
-        private System.Windows.Forms.TextBox txbYear;
+        private System.Windows.Forms.ComboBox cbMonth;
+        private System.Windows.Forms.ComboBox cbYear;
+        private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.ComboBox cbTeam;
     }
 }

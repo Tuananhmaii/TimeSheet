@@ -278,8 +278,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="GeneralTimeSheetReport.rdlc" />
-    <EmbeddedResource Include="TestReport.rdlc" />
+    <EmbeddedResource Include="RDLC\GeneralTimeSheetReport.rdlc" />
+    <EmbeddedResource Include="RDLC\TestReport.rdlc" />
     <EmbeddedResource Include="Views\frmGeneralReport.resx">
       <DependentUpon>frmGeneralReport.cs</DependentUpon>
     </EmbeddedResource>
