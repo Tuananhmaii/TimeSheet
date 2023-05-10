@@ -16,35 +16,49 @@ namespace Timesheets_System.Views.User
 {
     public partial class frmDepartmentDetail : Form
     {
-        
+
         private Panel _parentPanel;
         private string _caption;
-        public bool confirm = false;
         UserController _userController = new UserController();
-        public frmDepartmentDetail(Panel parentPanel, string caption)
+        //public frmDepartmentDetail(Panel parentPanel, string caption)
+        //{
+        //    InitializeComponent();
+        //    _parentPanel = parentPanel;
+        //    _caption = caption;
+        //}
+        public frmDepartmentDetail(string caption)
         {
             InitializeComponent();
-            _parentPanel = parentPanel;
             _caption = caption;
         }
 
         private void frmDepartment_Load(object sender, EventArgs e)
         {
-            
+
+            loadTable();
+        }
+
+        private void loadTable()
+        {
             label1.Text = _caption;
             panel5.Dock = DockStyle.Fill;
             //dtgvDepartmentDetail.Dock = DockStyle.Fill;
             dtgvDepartmentDetail.Dock = DockStyle.Fill;
-            if (_caption != "All")
+            if (_caption == "Tất cả nhân viên")
             {
-                List<UserDTO> userDTOs = _userController.GetUsersByDepartment(_caption);
+                List<UserDTO> userDTOs = _userController.GetAllUsers();
 
                 dtgvDepartmentDetail.DataSource = userDTOs;
+            }
+            else if (_caption == "None")
+            {
+                List<UserDTO> userDTOs = _userController.GetAllUsersHaveDepartmentYet();
 
+                dtgvDepartmentDetail.DataSource = userDTOs;
             }
             else
             {
-                var userDTOs = _userController.GetAllUsers();
+                List<UserDTO> userDTOs = _userController.GetUsersByDepartment(_caption);
 
                 dtgvDepartmentDetail.DataSource = userDTOs;
             }
@@ -59,7 +73,7 @@ namespace Timesheets_System.Views.User
             string value = selectedRow.Cells[0].Value.ToString();
 
             // create a new instance of the form to be opened
-            fUserDetail myNewForm = new fUserDetail();
+            frmUserDetail myNewForm = new frmUserDetail();
 
             if (frmLogin.loggedUser.Auth_Group_ID != PERMISSION_AUTH_GROUP.ADMIN)
             {
@@ -71,6 +85,7 @@ namespace Timesheets_System.Views.User
 
             // Show the new form
             myNewForm.Show();
+            loadTable();
         }
 
         private bool checkDelete;
@@ -79,7 +94,7 @@ namespace Timesheets_System.Views.User
         {
             if (frmLogin.loggedUser.Auth_Group_ID == PERMISSION_AUTH_GROUP.ADMIN)
             {
-                    if (btDelete.Text == "XÓA")
+                if (btDelete.Text == "XÓA")
                 {
                     label2.Text = "Chọn nhân viên bạn muốn xóa!";
                     checkDelete = true;
@@ -110,16 +125,12 @@ namespace Timesheets_System.Views.User
                 string username = selectedRow.Cells[0].Value.ToString();
                 if (MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    frmAcceptDeleteUser frmAcceptDeleteUser = new frmAcceptDeleteUser();
-                    frmAcceptDeleteUser.getValue(username);
-                    frmAcceptDeleteUser.ShowDialog();
-                    confirm = frmAcceptDeleteUser.setValue();
-                    if (confirm)
-                    {
-                        _userController.DeleteUserByID(username);
-                        MessageBox.Show("Xóa nhân viên thành công!");
-                        label2.Text = "";
-                    }
+                    _userController.DeleteUserByID(username);
+                    MessageBox.Show("Xóa nhân viên thành công!");
+                    label2.Text = "";
+                    btDelete.Text = "XÓA";
+                    checkDelete = false;
+                    loadTable();
                 }
             }
         }
@@ -128,16 +139,22 @@ namespace Timesheets_System.Views.User
         {
             if (frmLogin.loggedUser.Auth_Group_ID == PERMISSION_AUTH_GROUP.ADMIN)
             {
-                fUserDetail newUser = new fUserDetail();
+                frmUserDetail newUser = new frmUserDetail();
                 newUser.SetUsername("");
                 newUser.createSaveButton();
                 newUser.ShowDialog();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Bạn chưa có quyền thực hiện thao tác này!");
             }
-                
 
+            loadTable();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadTable();
         }
     }
 }

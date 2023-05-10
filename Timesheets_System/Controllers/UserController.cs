@@ -19,6 +19,11 @@ namespace Timesheets_System.Controllers
             return _userDAO.GetUserByID(username);
         }
 
+        public List<UserDTO> GetAllUsersHaveDepartmentYet()
+        {
+            return _userDAO.GetAllUsersHaveDepartmentYet();
+        }
+
         public UserDTO GetForeignValue(string current_user)
         {
             return _userDAO.GetForeignValue(current_user);

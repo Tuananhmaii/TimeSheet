@@ -19,144 +19,25 @@ using Timesheets_System.Models.DTO;
 
 namespace Timesheets_System.Views.User
 {
-    public partial class fUserDetail : Form
+    public partial class frmUserDetail : Form
     {
         UserController _userController = new UserController(); // Biến cục bộ UserController để chạy các function trong DAO
         DepartmentController _departmentController = new DepartmentController();
         TeamController _teamController = new TeamController();
         PositionController _positionController = new PositionController();
         DateTime myDateTime = DateTime.Today;
-        UserDTO UserDTO = new UserDTO();
 
         private string _current_user_id = frmLogin.loggedUser.Username; // Lấy username của người dùng hiện tại với type string
-        private UserDTO _current_user; // Tạo một người dùng hiện tại cục bộ để show thông tin
+        private UserDTO _current_user; // Tạo một người dùng hiện tại cục bộ để show thông tin và chỉnh sửa thông tin vì UserDTO ở form login là static không thể sửa
         private byte[] _imageBytes;
         private bool current_User_Gender;
         private bool selectedImage;
-        
+
         //public static UserDTO loggedUser;
 
-        public fUserDetail()
+        public frmUserDetail()
         {
             InitializeComponent();
-        }
-
-        public void DisableUpdatebtn()
-        {
-            this.btnUpdate.Visible = false; this.btnUpdate.Enabled = false;
-        }
-
-        public void SetUsername(string username)
-        {
-            this._current_user_id = username;
-        }
-
-        //Check all textbox
-        private Boolean ElementCheck()
-        {
-            if (txt_Fullname.Text == string.Empty)
-            {
-                MessageBox.Show("Vui lòng nhập họ tên", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            if (dateTimePickerBirthday.Text == string.Empty)
-            {
-                dateTimePickerBirthday.Value = myDateTime;
-                return true;
-            }
-
-            if (txt_Phone.Text == string.Empty)
-            {
-                txt_Phone.Text = "";
-                return true;
-            }
-
-            if (txt_Email.Text == string.Empty)
-            {
-                txt_Email.Text = "";
-                return true;
-            }
-
-            if (txt_Taxcode.Text == string.Empty)
-            {
-                txt_Taxcode.Text = "";
-                return true;
-            }
-
-            if (txt_Ethnic.Text == string.Empty)
-            {
-                txt_Ethnic.Text = "";
-                return true;
-            }
-
-            if (txt_Religion.Text == string.Empty)
-            {
-                txt_Religion.Text = "";
-                return true;
-            }
-
-            if (txt_CitizenId.Text == string.Empty)
-            {
-                txt_CitizenId.Text = "";
-                return true;
-            }
-
-            if (txt_SocialInsuranceNo.Text == string.Empty)
-            {
-                txt_SocialInsuranceNo.Text = "";
-                return true;
-            }
-
-            if (txt_Address.Text == string.Empty)
-            {
-                txt_Address.Text = "";
-                return true;
-            }
-
-            if (txt_ContractNo.Text == string.Empty)
-            {
-                txt_ContractNo.Text = "";
-                return true;
-            }
-
-            if (cb_Department.Text == string.Empty)
-            {
-                cb_Department.Text = "Chưa có phòng";
-                return true;
-            }
-
-            if (cb_Team.Text == string.Empty)
-            {
-                cb_Team.Text = "None";
-                return true;
-            }
-
-            if (cb_Position.Text == string.Empty)
-            {
-                cb_Position.Text = "";
-                return true;
-            }
-
-            return true;
-        }
-
-        private byte[] ImageToByteArray(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                return ms.ToArray();
-            }
-        }
-
-        private Image ByteArrayToImage(byte[] byteArray)
-        {
-            using (MemoryStream ms = new MemoryStream(byteArray))
-            {
-                Image image = Image.FromStream(ms);
-                return image;
-            }
         }
 
         private void fUserDetail_Load(object sender, EventArgs e)
@@ -165,27 +46,14 @@ namespace Timesheets_System.Views.User
             loadImage();
         }
 
-        private void loadImage()
-        {
-            if (_current_user != null)
-            {
-                try
-                {
-                    byte[] imageBytes = _current_user.Photo;
-                    pictureBox1.Image = ByteArrayToImage(imageBytes);
-                }
-                catch { }
-            }
-        }
-
         private void frmInit()
-        {   //Id sẽ là biến string rỗng khi được gọi từ form DepartmentDetail
-            //Nên khi nếu bằng "" thì sẽ bỏ qua load form
+        {
             //Load department cbx
             List<DepartmentDTO> _departmentDTO = _departmentController.GetDepartmentDTO();
             cb_Department.DataSource = _departmentDTO;
             cb_Department.DisplayMember = "Department_name";
             cb_Department.ValueMember = "Department_id";
+            cb_Department.SelectedIndex = 6;
 
             //Load team cbx
             string current_department_id = cb_Department.SelectedValue.ToString();
@@ -199,9 +67,12 @@ namespace Timesheets_System.Views.User
             cb_Position.DataSource = _positionDTO;
             cb_Position.DisplayMember = "Position_name";
             cb_Position.ValueMember = "Position_id";
+            cb_Position.SelectedIndex = 2;
 
+            //Id sẽ là biến string rỗng khi được gọi từ form DepartmentDetail để thêm user
+            //Nên khi nếu bằng "" thì sẽ bỏ qua load form
             if (_current_user_id != "")
-                {
+            {
                 try
                 {
                     _current_user = _userController.GetUserByID(_current_user_id);
@@ -217,6 +88,7 @@ namespace Timesheets_System.Views.User
                         radioButtonFemale.Checked = false;
                     }
                     else { radioButtonMale.Checked = false; radioButtonFemale.Checked = true; }
+
                     if (DateTime.TryParse(_current_user.Birth_Date.ToString(), out myDateTime))
                     {
                         dateTimePickerBirthday.Value = myDateTime;
@@ -225,6 +97,7 @@ namespace Timesheets_System.Views.User
                     {
                         dateTimePickerBirthday.Value = _current_user.Birth_Date;
                     }
+
                     if (DateTime.TryParse(_current_user.Date_Hired.ToString(), out myDateTime))
                     {
                         dateTimePickerDateHired.Value = myDateTime;
@@ -233,7 +106,8 @@ namespace Timesheets_System.Views.User
                     {
                         dateTimePickerDateHired.Value = _current_user.Date_Hired;
                     }
-                    // Bình thường sẽ không có việc data = null khi thêm user. Chỉ để giảm bớt việc sửa thủ công trong database.
+
+                    // Bình thường sẽ không có chuyện data = null khi sửa user. Chỉ để tránh lỗi và giảm bớt việc sửa thủ công trong database nếu dev có thêm user mới mà data của column là null.
                     if (_current_user.Phone != null) { txt_Phone.Text = _current_user.Phone.ToString(); }
                     else { txt_Phone.Text = ""; }
                     if (_current_user.Email != null) { txt_Email.Text = _current_user.Email.ToString(); }
@@ -252,20 +126,131 @@ namespace Timesheets_System.Views.User
                     else { txt_SocialInsuranceNo.Text = ""; }
                     if (_current_user.Contract_No != null) { txt_ContractNo.Text = _current_user.Contract_No.ToString(); }
                     else { txt_ContractNo.Text = ""; }
-                    if (current_user_value != null)
-                    {
-                        if (current_user_value.Department_name != null) { cb_Department.Text = current_user_value.Department_name.ToString(); }
-                        else { cb_Department.Text = ""; }
-                        if (current_user_value.Team_name != null) { cb_Team.Text = current_user_value.Team_name.ToString(); }
-                        else { cb_Team.Text = ""; }
-                        if (current_user_value.Position_name != null) { cb_Position.Text = current_user_value.Position_name.ToString(); }
-                        else { cb_Position.Text = ""; }
-                    }else
-                    {
-                        cb_Department.Text = "";
-                        cb_Team.Text = "";
-                        cb_Position.Text = "";
-                    }
+                    if (current_user_value.Department_name != null) { cb_Department.Text = current_user_value.Department_name.ToString(); }
+                    else { cb_Department.Text = "Chưa có phòng"; }
+                    if (current_user_value.Team_name != null) { cb_Team.Text = current_user_value.Team_name.ToString(); }
+                    if (current_user_value.Position_name != null) { cb_Position.Text = current_user_value.Position_name.ToString(); }
+                    else { cb_Position.Text = "None"; }
+
+                }
+                catch { }
+            }
+        }
+
+        //Hàm kích hoạt nút chỉnh sửa khi là admin
+        public void DisableUpdatebtn()
+        {
+            this.btnUpdate.Visible = false; this.btnUpdate.Enabled = false;
+        }
+
+        //Hàm set biến username khi gọi từ form khác
+        public void SetUsername(string username)
+        {
+            this._current_user_id = username;
+        }
+
+        //Khởi tạo button save sau khi muốn thêm nhân viên mới.
+        public void createSaveButton()
+        {
+            enableControl();
+            btnCancel.Visible = false;
+            btnUpdate.Text = "XÁC NHẬN";
+        }
+
+        //Check all textbox
+        private Boolean ElementCheck()
+        {
+            if (txt_Fullname.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập họ tên", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (dateTimePickerBirthday.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập ngày sinh", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_Phone.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_Email.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập email", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_Taxcode.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập mã số thuế", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_Ethnic.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập dân tộc", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_Religion.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập tôn giáo", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_CitizenId.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập CCCD/CMND", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_SocialInsuranceNo.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập số BHXH", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (txt_Address.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        //Chuyển image về byte để lưu ảnh
+        private byte[] ImageToByteArray(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+        }
+
+        //Chuyển kiểu byte sang kiểu image
+        private Image ByteArrayToImage(byte[] byteArray)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                Image image = Image.FromStream(ms);
+                return image;
+            }
+        }
+
+        private void loadImage()
+        {
+            if (_current_user != null)
+            {
+                try
+                {
+                    byte[] imageBytes = _current_user.Photo;
+                    pictureBox1.Image = ByteArrayToImage(imageBytes);
                 }
                 catch { }
             }
@@ -278,15 +263,15 @@ namespace Timesheets_System.Views.User
             radioButtonFemale.Enabled = true;
             dateTimePickerBirthday.Enabled = true;
             btnChangePicture.Enabled = true;
-            txt_Fullname.Enabled = true;
-            txt_Phone.Enabled = true;
-            txt_Email.Enabled = true;
-            txt_Taxcode.Enabled = true;
-            txt_Ethnic.Enabled = true;
-            txt_Religion.Enabled = true;
-            txt_Address.Enabled = true;
-            txt_CitizenId.Enabled = true;
-            txt_SocialInsuranceNo.Enabled = true;
+            txt_Fullname.ReadOnly = false;
+            txt_Phone.ReadOnly = false;
+            txt_Email.ReadOnly = false;
+            txt_Taxcode.ReadOnly = false;
+            txt_Ethnic.ReadOnly = false;
+            txt_Religion.ReadOnly = false;
+            txt_Address.ReadOnly = false;
+            txt_CitizenId.ReadOnly = false;
+            txt_SocialInsuranceNo.ReadOnly = false;
 
             //Công việc
             //Nếu là admin thì mới có quyền chỉnh sửa công việc
@@ -295,7 +280,7 @@ namespace Timesheets_System.Views.User
                 cb_Department.Enabled = true;
                 cb_Team.Enabled = true;
                 cb_Position.Enabled = true;
-                txt_ContractNo.Enabled = true;
+                txt_ContractNo.ReadOnly = false;
                 dateTimePickerDateHired.Enabled = true;
             }
             btnCancel.Visible = true;
@@ -314,21 +299,22 @@ namespace Timesheets_System.Views.User
             cb_Position.Enabled = false;
             btnChangePicture.Enabled = false;
 
-            txt_Fullname.Enabled = false;
-            txt_Phone.Enabled = false;
-            txt_Email.Enabled = false;
-            txt_Taxcode.Enabled = false;
-            txt_Ethnic.Enabled = false;
-            txt_Religion.Enabled = false;
-            txt_Address.Enabled = false;
-            txt_CitizenId.Enabled = false;
-            txt_SocialInsuranceNo.Enabled = false;
-            txt_ContractNo.Enabled = false;
+            txt_Fullname.ReadOnly = true;
+            txt_Phone.ReadOnly = true;
+            txt_Email.ReadOnly = true;
+            txt_Taxcode.ReadOnly = true;
+            txt_Ethnic.ReadOnly = true;
+            txt_Religion.ReadOnly = true;
+            txt_Address.ReadOnly = true;
+            txt_CitizenId.ReadOnly = true;
+            txt_SocialInsuranceNo.ReadOnly = true;
+            txt_ContractNo.ReadOnly = true;
             btnCancel.Visible = false;
             btnUpdate.Text = "CẬP NHẬT";
             btnUpdate.Size = new Size(104, 39);
         }
 
+        //Tự động thay đổi cbteam sau khi thay đổi cbdepartment
         private void cb_Department_SelectedIndexChanged(object sender, EventArgs e)
         {
             cb_Team.Text = "";
@@ -340,14 +326,7 @@ namespace Timesheets_System.Views.User
             cb_Team.ValueMember = "Team_id";
         }
 
-        //Khởi tạo button save sau khi muốn thêm nhân viên mới.
-        public void createSaveButton()
-        {
-            enableControl();
-            btnCancel.Visible = false;
-            btnUpdate.Text = "XÁC NHẬN";  
-        }
-
+        #region "Custom title"
         private void btnCancel_Click(object sender, EventArgs e)
         {
             disableControl();
@@ -417,8 +396,11 @@ namespace Timesheets_System.Views.User
                         newUser.Position_id = cb_Position.SelectedValue.ToString();
                         _userController.CreateNewUser(newUser);
                         MessageBox.Show("Thêm mới thành công!");
+                        SetUsername("");
+                        createSaveButton();
+                        this.Close();
                     }
-                    this.Close();
+
                 }
 
                 //Sự kiện update thông tin nhân viên
@@ -514,7 +496,7 @@ namespace Timesheets_System.Views.User
             {
                 MessageBox.Show("Khởi động lại chương trình để tiếp tục chỉnh sửa hình nền!");
             }
-            
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -554,35 +536,33 @@ namespace Timesheets_System.Views.User
 
         private void panel6_MouseEnter(object sender, EventArgs e)
         {
-            panel6.BackColor = SystemColors.Window;
+            panel6.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void panel6_MouseLeave(object sender, EventArgs e)
         {
-            Color myColor = Color.FromArgb(2, 136, 209);
-            panel6.BackColor = myColor;
+            panel6.BackColor = COLORS.TITLE_BACKCOLOR;
         }
 
         private void panel7_MouseEnter(object sender, EventArgs e)
         {
-            panel7.BackColor = SystemColors.Window;
+            panel7.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void panel7_MouseLeave(object sender, EventArgs e)
         {
-            Color myColor = Color.FromArgb(2, 136, 209);
-            panel7.BackColor = myColor;
+            panel7.BackColor = COLORS.TITLE_BACKCOLOR;
         }
 
         private void panel8_MouseEnter(object sender, EventArgs e)
         {
-            panel8.BackColor = SystemColors.Window;
+            panel8.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void panel8_MouseLeave(object sender, EventArgs e)
         {
-            Color myColor = Color.FromArgb(2, 136, 209);
-            panel8.BackColor = myColor;
+            panel8.BackColor = COLORS.TITLE_BACKCOLOR;
         }
+        #endregion
     }
 }

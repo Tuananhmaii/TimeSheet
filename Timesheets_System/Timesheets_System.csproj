@@ -262,11 +262,11 @@
     <Compile Include="Views\User\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\fUserDetail.cs">
+    <Compile Include="Views\User\frmUserDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\User\fUserDetail.Designer.cs">
-      <DependentUpon>fUserDetail.cs</DependentUpon>
+    <Compile Include="Views\User\frmUserDetail.Designer.cs">
+      <DependentUpon>frmUserDetail.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -322,8 +322,8 @@
     <EmbeddedResource Include="Views\User\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\User\fUserDetail.resx">
-      <DependentUpon>fUserDetail.cs</DependentUpon>
+    <EmbeddedResource Include="Views\User\frmUserDetail.resx">
+      <DependentUpon>frmUserDetail.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Timesheets_System.Models.DTO.TimesheetsDTO.datasource" />
