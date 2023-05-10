@@ -1,6 +1,6 @@
 ﻿namespace Timesheets_System.Views.User
 {
-    partial class fUserDetail
+    partial class frmUserDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fUserDetail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserDetail));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cb_Position = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -49,6 +49,7 @@
             this.txt_Ethnic = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txt_Address = new System.Windows.Forms.TextBox();
             this.txt_SocialInsuranceNo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Taxcode = new System.Windows.Forms.TextBox();
@@ -78,7 +79,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_Address = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -195,6 +195,7 @@
             this.txt_ContractNo.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ContractNo.MaxLength = 10;
             this.txt_ContractNo.Name = "txt_ContractNo";
+            this.txt_ContractNo.ReadOnly = true;
             this.txt_ContractNo.Size = new System.Drawing.Size(210, 27);
             this.txt_ContractNo.TabIndex = 14;
             // 
@@ -281,6 +282,7 @@
             // 
             // dateTimePickerBirthday
             // 
+            this.dateTimePickerBirthday.Enabled = false;
             this.dateTimePickerBirthday.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerBirthday.Location = new System.Drawing.Point(168, 105);
@@ -296,6 +298,7 @@
             this.txt_Religion.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Religion.MaxLength = 10;
             this.txt_Religion.Name = "txt_Religion";
+            this.txt_Religion.ReadOnly = true;
             this.txt_Religion.Size = new System.Drawing.Size(280, 27);
             this.txt_Religion.TabIndex = 9;
             // 
@@ -318,6 +321,7 @@
             this.txt_Ethnic.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Ethnic.MaxLength = 10;
             this.txt_Ethnic.Name = "txt_Ethnic";
+            this.txt_Ethnic.ReadOnly = true;
             this.txt_Ethnic.Size = new System.Drawing.Size(280, 27);
             this.txt_Ethnic.TabIndex = 8;
             // 
@@ -343,6 +347,19 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Địa chỉ";
             // 
+            // txt_Address
+            // 
+            this.txt_Address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_Address.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Address.Location = new System.Drawing.Point(168, 354);
+            this.txt_Address.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_Address.MaxLength = 150;
+            this.txt_Address.Multiline = true;
+            this.txt_Address.Name = "txt_Address";
+            this.txt_Address.ReadOnly = true;
+            this.txt_Address.Size = new System.Drawing.Size(280, 69);
+            this.txt_Address.TabIndex = 12;
+            // 
             // txt_SocialInsuranceNo
             // 
             this.txt_SocialInsuranceNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -351,6 +368,7 @@
             this.txt_SocialInsuranceNo.Margin = new System.Windows.Forms.Padding(2);
             this.txt_SocialInsuranceNo.MaxLength = 10;
             this.txt_SocialInsuranceNo.Name = "txt_SocialInsuranceNo";
+            this.txt_SocialInsuranceNo.ReadOnly = true;
             this.txt_SocialInsuranceNo.Size = new System.Drawing.Size(280, 27);
             this.txt_SocialInsuranceNo.TabIndex = 12;
             // 
@@ -373,6 +391,7 @@
             this.txt_Taxcode.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Taxcode.MaxLength = 10;
             this.txt_Taxcode.Name = "txt_Taxcode";
+            this.txt_Taxcode.ReadOnly = true;
             this.txt_Taxcode.Size = new System.Drawing.Size(280, 27);
             this.txt_Taxcode.TabIndex = 7;
             // 
@@ -395,6 +414,7 @@
             this.txt_CitizenId.Margin = new System.Windows.Forms.Padding(2);
             this.txt_CitizenId.MaxLength = 10;
             this.txt_CitizenId.Name = "txt_CitizenId";
+            this.txt_CitizenId.ReadOnly = true;
             this.txt_CitizenId.Size = new System.Drawing.Size(280, 27);
             this.txt_CitizenId.TabIndex = 11;
             // 
@@ -439,6 +459,7 @@
             this.txt_Email.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Email.MaxLength = 40;
             this.txt_Email.Name = "txt_Email";
+            this.txt_Email.ReadOnly = true;
             this.txt_Email.Size = new System.Drawing.Size(280, 27);
             this.txt_Email.TabIndex = 6;
             // 
@@ -461,6 +482,7 @@
             this.txt_Phone.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Phone.MaxLength = 20;
             this.txt_Phone.Name = "txt_Phone";
+            this.txt_Phone.ReadOnly = true;
             this.txt_Phone.Size = new System.Drawing.Size(280, 27);
             this.txt_Phone.TabIndex = 5;
             // 
@@ -483,6 +505,7 @@
             this.txt_Fullname.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Fullname.MaxLength = 50;
             this.txt_Fullname.Name = "txt_Fullname";
+            this.txt_Fullname.ReadOnly = true;
             this.txt_Fullname.Size = new System.Drawing.Size(280, 27);
             this.txt_Fullname.TabIndex = 1;
             // 
@@ -698,18 +721,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(529, 507);
             this.panel2.TabIndex = 25;
-            // 
-            // txt_Address
-            // 
-            this.txt_Address.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Address.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Address.Location = new System.Drawing.Point(168, 354);
-            this.txt_Address.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_Address.MaxLength = 150;
-            this.txt_Address.Multiline = true;
-            this.txt_Address.Name = "txt_Address";
-            this.txt_Address.Size = new System.Drawing.Size(280, 69);
-            this.txt_Address.TabIndex = 12;
             // 
             // fUserDetail
             // 

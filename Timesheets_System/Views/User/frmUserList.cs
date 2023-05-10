@@ -7,17 +7,18 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
+using Timesheets_System.Common.Const;
+using Timesheets_System.Controllers;
 using Timesheets_System.Models.DTO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Timesheets_System.Views.User
 {
     public partial class frmUserList : Form
     {
-        private UserDTO _current_user;
-        private string caption;
-
+        DepartmentController _departmentController = new DepartmentController();
         public frmUserList()
         {
             InitializeComponent();
@@ -26,6 +27,66 @@ namespace Timesheets_System.Views.User
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
+        private void frmUserList_Load(object sender, EventArgs e)
+        {
+            tabPage1.Text = "Tất cả nhân viên";
+            Show_All_Employees();
+            Get_Tab();
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        //Hàm tạo page
+        private void createTab(DepartmentDTO department, string name)
+        {
+            // create a new tab page for the department
+            TabPage tabPage = new TabPage(name);
+
+            // add any controls to the tab page as needed
+            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(department.Department_id);
+            frmDepartment.TopLevel = false;
+            frmDepartment.AutoScroll = true;
+            frmDepartment.FormBorderStyle = FormBorderStyle.None;
+            frmDepartment.Dock = DockStyle.Fill;
+            frmDepartment.Show();
+
+            tabPage.Controls.Add(frmDepartment);
+
+            // add the tab page to the tab control
+            tabUserList.TabPages.Add(tabPage);
+        }
+
+        //Tạo các tab mới cho từng phòng
+        private void Get_Tab()
+        {
+            List<DepartmentDTO> _departmentDTO = _departmentController.GetDepartmentDTO();
+            int count = _departmentDTO.Count;
+            Console.WriteLine(count);
+            foreach (DepartmentDTO department in _departmentDTO)
+            {
+                if (department.Department_name != "Chưa có phòng")
+                {
+                    createTab(department, department.Department_name);
+                }
+                else
+                {
+                    createTab(department, "Tất cả nhân viên đã có phòng");
+                }
+            }
+        }
+
+        //Tab để hiển thị tất cả nhân viên
+        private void Show_All_Employees()
+        {
+            frmDepartmentDetail frmDepartmentAll = new frmDepartmentDetail(tabPage1.Text);
+            frmDepartmentAll.TopLevel = false;
+            frmDepartmentAll.AutoScroll = true;
+            frmDepartmentAll.FormBorderStyle = FormBorderStyle.None;
+            frmDepartmentAll.Dock = DockStyle.Fill;
+            frmDepartmentAll.Show();
+            tabPage1.Controls.Add(frmDepartmentAll);
+        }
+
+        #region "Custom title"
         //Move form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
@@ -46,13 +107,12 @@ namespace Timesheets_System.Views.User
 
         private void panel6_MouseEnter(object sender, EventArgs e)
         {
-            panel6.BackColor = SystemColors.Window;
+            panel6.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void panel6_MouseLeave(object sender, EventArgs e)
         {
-            Color myColor = Color.FromArgb(2, 136, 209);
-            panel6.BackColor = myColor;
+            panel6.BackColor = COLORS.TITLE_BACKCOLOR;
         }
 
         private void panel7_Click(object sender, EventArgs e)
@@ -69,13 +129,12 @@ namespace Timesheets_System.Views.User
 
         private void panel7_MouseEnter(object sender, EventArgs e)
         {
-            panel7.BackColor = SystemColors.Window;
+            panel7.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void panel7_MouseLeave(object sender, EventArgs e)
         {
-            Color myColor = Color.FromArgb(2, 136, 209);
-            panel7.BackColor = myColor;
+            panel7.BackColor = COLORS.TITLE_BACKCOLOR;
         }
 
         private void panel8_Click(object sender, EventArgs e)
@@ -85,120 +144,15 @@ namespace Timesheets_System.Views.User
 
         private void panel8_MouseEnter(object sender, EventArgs e)
         {
-            panel8.BackColor = SystemColors.Window;
+            panel8.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void panel8_MouseLeave(object sender, EventArgs e)
         {
-            Color myColor = Color.FromArgb(2, 136, 209);
-            panel8.BackColor = myColor;
+            panel8.BackColor = COLORS.TITLE_BACKCOLOR;
         }
+        #endregion
 
-        private void frmUserList_Load(object sender, EventArgs e)
-        {
-            panel3.Dock = DockStyle.Fill;
-            _current_user = frmLogin.loggedUser;
-            label3.Text = _current_user.Fullname;
-            panel7_Click(sender, e);
-            btnAllEmployees_Click(sender, e);
-        }
-
-        private void btnAllEmployees_Click(object sender, EventArgs e)
-        {
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(panel3, "All");
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            panel3.Controls.Clear();
-            frmDepartment.Size = panel3.Size;
-            frmDepartment.Dock = DockStyle.Fill;
-            panel3.BackColor = SystemColors.GrayText;
-            panel3.Controls.Add(frmDepartment);
-            frmDepartment.Show();
-        }
-
-        private void btn_Acount_Click(object sender, EventArgs e)
-        {
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(panel3, "ACCOUNT");
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            panel3.Controls.Clear();
-            frmDepartment.Size = panel3.Size;
-            frmDepartment.Dock = DockStyle.Fill;
-            panel3.BackColor = SystemColors.Window;
-            panel3.Controls.Add(frmDepartment);
-            frmDepartment.Show();
-        }
-
-        private void btn_BOD_Click(object sender, EventArgs e)
-        {
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(panel3, "BOD");
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            panel3.Controls.Clear();
-            frmDepartment.Size = panel3.Size;
-            frmDepartment.Dock = DockStyle.Fill;
-            panel3.BackColor = SystemColors.Window;
-            panel3.Controls.Add(frmDepartment);
-            frmDepartment.Show();
-        }
-
-        private void btn_DEV_Click(object sender, EventArgs e)
-        {
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(panel3, "DEV");
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            panel3.Controls.Clear();
-            frmDepartment.Size = panel3.Size;
-            frmDepartment.Dock = DockStyle.Fill;
-            panel3.BackColor = SystemColors.Window;
-            panel3.Controls.Add(frmDepartment);
-            frmDepartment.Show();
-        }
-
-        private void btn_HR_Click(object sender, EventArgs e)
-        {
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(panel3, "HR");
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            panel3.Controls.Clear();
-            frmDepartment.Size = panel3.Size;
-            frmDepartment.Dock = DockStyle.Fill;
-            panel3.BackColor = SystemColors.Window;
-            panel3.Controls.Add(frmDepartment);
-            frmDepartment.Show();
-        }
-
-        private void btn_MKT_Click(object sender, EventArgs e)
-        {
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(panel3, "MKT");
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            panel3.Controls.Clear();
-            frmDepartment.Size = panel3.Size;
-            frmDepartment.Dock = DockStyle.Fill;
-            panel3.BackColor = SystemColors.Window;
-            panel3.Controls.Add(frmDepartment);
-            frmDepartment.Show();
-        }
-
-        private void btn_PRODUCT_Click(object sender, EventArgs e)
-        {
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(panel3, "PRODUCT");
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            panel3.Controls.Clear();
-            frmDepartment.Size = panel3.Size;
-            frmDepartment.Dock = DockStyle.Fill;
-            panel3.BackColor = SystemColors.Window;
-            panel3.Controls.Add(frmDepartment);
-            frmDepartment.Show();
-        }
+        
     }
 }

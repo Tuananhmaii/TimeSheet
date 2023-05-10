@@ -31,6 +31,12 @@ namespace Timesheets_System.Models.DAO
             return _dbConnection.Query<UserDTO>(query).ToList();
         }
 
+        public List<UserDTO> GetAllUsersHaveDepartmentYet()
+        {
+            String query = "SELECT * FROM user_tb INNER JOIN team_tb ON user_tb.team_id = team_tb.team_id INNER JOIN department_tb ON team_tb.department_id = department_tb.department_id INNER JOIN position_tb ON user_tb.position_id = position_tb.position_id ";
+            return _dbConnection.Query<UserDTO>(query).ToList();
+        }
+
         //Get người dùng bằng tên đăng nhập
         public UserDTO GetUserByID(string username)
         {

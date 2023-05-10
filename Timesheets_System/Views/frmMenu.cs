@@ -148,7 +148,7 @@ namespace Timesheets_System.Views
 
         private void frmPersonalInfo_Click(object sender, EventArgs e)
         {
-            fUserDetail form = new fUserDetail();
+            frmUserDetail form = new frmUserDetail();
             form.ShowDialog();
         }
 
