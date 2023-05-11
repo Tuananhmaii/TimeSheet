@@ -1,6 +1,6 @@
 ﻿namespace Timesheets_System.Views
 {
-    partial class frmGeneralReport
+    partial class frmGeneralTimeSheetReport
     {
         /// <summary>
         /// Required designer variable.
@@ -180,7 +180,7 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Bảng công";
             // 
-            // frmGeneralReport
+            // frmGeneralTimeSheetReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,7 +190,7 @@
             this.Controls.Add(this.btExportData);
             this.Controls.Add(this.panel3);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmGeneralReport";
+            this.Name = "frmGeneralTimeSheetReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bảng công ";
             this.panel3.ResumeLayout(false);

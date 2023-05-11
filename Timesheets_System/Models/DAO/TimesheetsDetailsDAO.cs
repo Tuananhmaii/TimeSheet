@@ -44,5 +44,20 @@ namespace Timesheets_System.Models.DAO
 
             return _dbConnection.Query<TimesheetsDetailsDTO>(query, parameters).ToList();
         }
+
+        public List<TimesheetsDetailsDTO> GetIndividualReport(string username, int year, int month)
+        {
+            string query = "SELECT * FROM timesheets_details_tb " +
+                "WHERE extract(month from date) = @month AND extract(year from date) = @year " +
+                "AND username = @username " +
+                "ORDER BY timesheets_details_tb.date ASC";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("username", username);
+            parameters.Add("year", year);
+            parameters.Add("month", month);
+            return _dbConnection.Query<TimesheetsDetailsDTO>(query, parameters).ToList();
+        }
+
+
     }
 }

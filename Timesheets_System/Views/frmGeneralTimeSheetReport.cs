@@ -21,13 +21,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Timesheets_System.Views
 {
-    public partial class frmGeneralReport : Form
+    public partial class frmGeneralTimeSheetReport : Form
     {
         TimesheetsController _timeSheetController = new TimesheetsController();
         DepartmentController _departmentController = new DepartmentController();
         TeamController _teamController = new TeamController();
 
-        public frmGeneralReport()
+        public frmGeneralTimeSheetReport()
         {
             InitializeComponent();
             Load();

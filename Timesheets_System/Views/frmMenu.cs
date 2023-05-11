@@ -240,15 +240,15 @@ namespace Timesheets_System.Views
             form.ShowDialog();
         }
 
-        private void frmGeneralReport_Click(object sender, EventArgs e)
+        private void frmGeneralTimeSheetReport_Click(object sender, EventArgs e)
         {
-            frmGeneralReport form = new frmGeneralReport();
+            frmGeneralTimeSheetReport form = new frmGeneralTimeSheetReport();
             form.ShowDialog();
         }
 
-        private void frmIndividualReport_Click(object sender, EventArgs e)
+        private void frmIndividualTimeSheetReport_Click(object sender, EventArgs e)
         {
-            frmIndividualReport form = new frmIndividualReport();
+            frmIndividualTimeSheetReport form = new frmIndividualTimeSheetReport();
             form.ShowDialog();
         }
     }

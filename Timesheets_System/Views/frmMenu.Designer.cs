@@ -41,8 +41,8 @@
             this.frmRequest = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Report = new System.Windows.Forms.ToolStripMenuItem();
             this.frmTestReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.frmGeneralReport = new System.Windows.Forms.ToolStripMenuItem();
-            this.frmIndividualReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmGeneralTimeSheetReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmIndividualTimeSheetReport = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_System = new System.Windows.Forms.ToolStripMenuItem();
             this.frmPermissionGrant = new System.Windows.Forms.ToolStripMenuItem();
             this.frmFunction = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,8 +159,8 @@
             // 
             this.tsmi_Report.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.frmTestReport,
-            this.frmGeneralReport,
-            this.frmIndividualReport});
+            this.frmGeneralTimeSheetReport,
+            this.frmIndividualTimeSheetReport});
             this.tsmi_Report.Name = "tsmi_Report";
             this.tsmi_Report.Size = new System.Drawing.Size(93, 40);
             this.tsmi_Report.Text = "Báo cáo";
@@ -172,19 +172,19 @@
             this.frmTestReport.Text = "Test";
             this.frmTestReport.Click += new System.EventHandler(this.frmTestReport_Click);
             // 
-            // frmGeneralReport
+            // frmGeneralTimeSheetReport
             // 
-            this.frmGeneralReport.Name = "frmGeneralReport";
-            this.frmGeneralReport.Size = new System.Drawing.Size(234, 30);
-            this.frmGeneralReport.Text = "Báo cáo chung";
-            this.frmGeneralReport.Click += new System.EventHandler(this.frmGeneralReport_Click);
+            this.frmGeneralTimeSheetReport.Name = "frmGeneralTimeSheetReport";
+            this.frmGeneralTimeSheetReport.Size = new System.Drawing.Size(234, 30);
+            this.frmGeneralTimeSheetReport.Text = "Báo cáo chung";
+            this.frmGeneralTimeSheetReport.Click += new System.EventHandler(this.frmGeneralTimeSheetReport_Click);
             // 
-            // frmIndividualReport
+            // frmIndividualTimeSheetReport
             // 
-            this.frmIndividualReport.Name = "frmIndividualReport";
-            this.frmIndividualReport.Size = new System.Drawing.Size(234, 30);
-            this.frmIndividualReport.Text = "Báo cáo cá nhân";
-            this.frmIndividualReport.Click += new System.EventHandler(this.frmIndividualReport_Click);
+            this.frmIndividualTimeSheetReport.Name = "frmIndividualTimeSheetReport";
+            this.frmIndividualTimeSheetReport.Size = new System.Drawing.Size(234, 30);
+            this.frmIndividualTimeSheetReport.Text = "Báo cáo cá nhân";
+            this.frmIndividualTimeSheetReport.Click += new System.EventHandler(this.frmIndividualTimeSheetReport_Click);
             // 
             // tsmi_System
             // 
@@ -200,26 +200,26 @@
             // frmPermissionGrant
             // 
             this.frmPermissionGrant.Name = "frmPermissionGrant";
-            this.frmPermissionGrant.Size = new System.Drawing.Size(207, 30);
+            this.frmPermissionGrant.Size = new System.Drawing.Size(224, 30);
             this.frmPermissionGrant.Text = "Phân quyền";
             // 
             // frmFunction
             // 
             this.frmFunction.Name = "frmFunction";
-            this.frmFunction.Size = new System.Drawing.Size(207, 30);
+            this.frmFunction.Size = new System.Drawing.Size(224, 30);
             this.frmFunction.Text = "Chức năng";
             // 
             // frmChangPassword
             // 
             this.frmChangPassword.Name = "frmChangPassword";
-            this.frmChangPassword.Size = new System.Drawing.Size(207, 30);
+            this.frmChangPassword.Size = new System.Drawing.Size(224, 30);
             this.frmChangPassword.Text = "Đổi mật khẩu";
             this.frmChangPassword.Click += new System.EventHandler(this.frmChangPassword_Click);
             // 
             // tsmi_Logout
             // 
             this.tsmi_Logout.Name = "tsmi_Logout";
-            this.tsmi_Logout.Size = new System.Drawing.Size(207, 30);
+            this.tsmi_Logout.Size = new System.Drawing.Size(224, 30);
             this.tsmi_Logout.Text = "Đăng xuất";
             this.tsmi_Logout.Click += new System.EventHandler(this.tsmi_Logout_Click);
             // 
@@ -410,7 +410,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ToolStripMenuItem frmTestReport;
-        private System.Windows.Forms.ToolStripMenuItem frmGeneralReport;
-        private System.Windows.Forms.ToolStripMenuItem frmIndividualReport;
+        private System.Windows.Forms.ToolStripMenuItem frmGeneralTimeSheetReport;
+        private System.Windows.Forms.ToolStripMenuItem frmIndividualTimeSheetReport;
     }
 }

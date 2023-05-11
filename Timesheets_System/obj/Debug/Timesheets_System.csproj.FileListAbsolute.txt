@@ -762,7 +762,6 @@ D:\TimeSheet\Timesheets_System\bin\Debug\System.ValueTuple.xml
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.AssemblyReference.cache
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.SuggestedBindingRedirects.cache
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Properties.Resources.resources
-D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmGeneralReport.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmChangePassword.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmDepartment.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmForgotPassword.resources
@@ -782,3 +781,5 @@ D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.CoreCompileInp
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.CopyComplete
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.exe
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.pdb
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmIndividualTimeSheetReport.resources
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmGeneralTimeSheetReport.resources
