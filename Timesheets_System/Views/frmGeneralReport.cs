@@ -46,7 +46,7 @@ namespace Timesheets_System.Views
             ReportViewer report = new ReportViewer();
             report.ProcessingMode = ProcessingMode.Local;
             report.LocalReport.ReportPath = "../../RDLC/GeneralTimeSheetReport.rdlc";
-            
+
             report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDS",
                 _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(),
                 Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
@@ -65,10 +65,16 @@ namespace Timesheets_System.Views
             var bytes = report.LocalReport.Render("PDF", deviceInfo, out mimeType,
                    out enCoding, out extension, out streamIds, out warnings);
 
-            string fileName = @"D:\GeneralTimeSheetReport.pdf";
-            File.WriteAllBytes(fileName, bytes);
-            System.Diagnostics.Process.Start(fileName);
+            saveFileDialog1.FileName = "GeneralTimeSheetReport";
+            saveFileDialog1.DefaultExt = "pdf";
 
+            saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = saveFileDialog1.FileName;
+                File.WriteAllBytes(fileName, bytes);
+                System.Diagnostics.Process.Start(fileName);
+            }
         }
 
         private void btExportData_Click(object sender, EventArgs e)
@@ -81,9 +87,8 @@ namespace Timesheets_System.Views
             }
             else
             {
-                MessageBox.Show("Thông tin đã được xuất ra", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ExportToPDF();
             }
-            ExportToPDF();
         }
 
         private void Load()

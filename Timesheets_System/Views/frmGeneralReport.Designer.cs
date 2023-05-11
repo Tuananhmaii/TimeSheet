@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbTeam = new System.Windows.Forms.ComboBox();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
             this.cbMonth = new System.Windows.Forms.ComboBox();
             this.cbYear = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -37,10 +39,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btExportData = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbDepartment = new System.Windows.Forms.ComboBox();
-            this.cbTeam = new System.Windows.Forms.ComboBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,11 +55,33 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(12, 83);
+            this.panel3.Location = new System.Drawing.Point(12, 61);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(776, 282);
             this.panel3.TabIndex = 8;
+            // 
+            // cbTeam
+            // 
+            this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTeam.FormattingEnabled = true;
+            this.cbTeam.Location = new System.Drawing.Point(519, 102);
+            this.cbTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTeam.Name = "cbTeam";
+            this.cbTeam.Size = new System.Drawing.Size(191, 33);
+            this.cbTeam.TabIndex = 25;
+            // 
+            // cbDepartment
+            // 
+            this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.Location = new System.Drawing.Point(128, 102);
+            this.cbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(191, 33);
+            this.cbDepartment.TabIndex = 24;
             // 
             // cbMonth
             // 
@@ -139,7 +161,7 @@
             this.btExportData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btExportData.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btExportData.Location = new System.Drawing.Point(258, 369);
+            this.btExportData.Location = new System.Drawing.Point(261, 360);
             this.btExportData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btExportData.Name = "btExportData";
             this.btExportData.Size = new System.Drawing.Size(268, 43);
@@ -157,28 +179,6 @@
             this.label4.Size = new System.Drawing.Size(100, 25);
             this.label4.TabIndex = 16;
             this.label4.Text = "Bảng công";
-            // 
-            // cbDepartment
-            // 
-            this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartment.FormattingEnabled = true;
-            this.cbDepartment.Location = new System.Drawing.Point(128, 102);
-            this.cbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(191, 33);
-            this.cbDepartment.TabIndex = 24;
-            // 
-            // cbTeam
-            // 
-            this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTeam.FormattingEnabled = true;
-            this.cbTeam.Location = new System.Drawing.Point(519, 102);
-            this.cbTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbTeam.Name = "cbTeam";
-            this.cbTeam.Size = new System.Drawing.Size(191, 33);
-            this.cbTeam.TabIndex = 25;
             // 
             // frmGeneralReport
             // 
@@ -207,7 +207,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
@@ -215,5 +214,6 @@
         private System.Windows.Forms.ComboBox cbYear;
         private System.Windows.Forms.ComboBox cbDepartment;
         private System.Windows.Forms.ComboBox cbTeam;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
