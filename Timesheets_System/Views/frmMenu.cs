@@ -234,11 +234,6 @@ namespace Timesheets_System.Views
         }
         #endregion
 
-        private void frmTestReport_Click(object sender, EventArgs e)
-        {
-            frmTestReport form = new frmTestReport();
-            form.ShowDialog();
-        }
 
         private void frmGeneralTimeSheetReport_Click(object sender, EventArgs e)
         {

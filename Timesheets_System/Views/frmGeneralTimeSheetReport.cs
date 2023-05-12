@@ -14,6 +14,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Media;
+using Timesheets_System.Common.Const;
 using Timesheets_System.Common.Util;
 using Timesheets_System.Controllers;
 using Timesheets_System.Models.DTO;
@@ -107,5 +109,71 @@ namespace Timesheets_System.Views
             cbTeam.ValueMember = "team_id";
             cbTeam.SelectedIndex = -1;
         }
+
+        #region "Custom title"
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void pn_Minimize_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pn_Maximize_Click_1(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void pn_Close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void pn_Minimize_MouseEnter(object sender, EventArgs e)
+        {
+            pn_Minimize.BackColor = COLORS.TITLE_ENTERCOLOR;
+        }
+
+        private void pn_Minimize_MouseLeave(object sender, EventArgs e)
+        {
+            pn_Minimize.BackColor = COLORS.TITLE_BACKCOLOR;
+        }
+
+        private void pn_Maximize_MouseEnter(object sender, EventArgs e)
+        {
+            pn_Maximize.BackColor = COLORS.TITLE_ENTERCOLOR;
+        }
+
+        private void pn_Maximize_MouseLeave(object sender, EventArgs e)
+        {
+            pn_Maximize.BackColor = COLORS.TITLE_BACKCOLOR;
+        }
+
+        private void pn_Close_MouseEnter(object sender, EventArgs e)
+        {
+            pn_Close.BackColor = COLORS.TITLE_ENTERCOLOR;
+            btnClose.BackColor = COLORS.TITLE_ENTERCOLOR;
+        }
+
+        private void pn_Close_MouseLeave(object sender, EventArgs e)
+        {
+            pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
+            btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
+        }
+        #endregion
     }
 }

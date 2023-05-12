@@ -214,12 +214,6 @@
     <Compile Include="Views\frmTeam.Designer.cs">
       <DependentUpon>frmTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmTestReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmTestReport.Designer.cs">
-      <DependentUpon>frmTestReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,7 +274,6 @@
     </Compile>
     <EmbeddedResource Include="RDLC\IndividualTimeSheetReport.rdlc" />
     <EmbeddedResource Include="RDLC\GeneralTimeSheetReport.rdlc" />
-    <EmbeddedResource Include="RDLC\TestReport.rdlc" />
     <EmbeddedResource Include="Views\frmIndividualTimeSheetReport.resx">
       <DependentUpon>frmIndividualTimeSheetReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,9 +294,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmTeam.resx">
       <DependentUpon>frmTeam.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmTestReport.resx">
-      <DependentUpon>frmTestReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>

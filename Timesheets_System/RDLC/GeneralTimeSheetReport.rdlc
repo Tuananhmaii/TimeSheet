@@ -201,7 +201,7 @@
                   <Width>1.68333in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.80834in</Width>
+                  <Width>2.15834in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -554,10 +554,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>TimeSheetDS</DataSetName>
-            <Top>1.82223in</Top>
-            <Left>0.5in</Left>
+            <Top>1.03056in</Top>
+            <Left>0.34167in</Left>
             <Height>0.5in</Height>
-            <Width>6.35001in</Width>
+            <Width>6.70001in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -589,7 +589,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>0.725in</Top>
+            <Top>0.13333in</Top>
             <Left>1.30834in</Left>
             <Height>0.25in</Height>
             <Width>2.05833in</Width>
@@ -629,7 +629,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>1.19583in</Top>
+            <Top>0.60416in</Top>
             <Left>1.30834in</Left>
             <Height>0.25in</Height>
             <Width>2.05833in</Width>
@@ -669,44 +669,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>0.725in</Top>
+            <Top>0.13333in</Top>
             <Left>4.53833in</Left>
             <Height>0.25in</Height>
             <Width>1.775in</Width>
             <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox12">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Thông tin chung</Value>
-                    <Style>
-                      <FontFamily>Segoe UI</FontFamily>
-                      <FontSize>11pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>0.22083in</Top>
-            <Left>0.5in</Left>
-            <Height>0.25in</Height>
-            <Width>1.45in</Width>
-            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -742,11 +709,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>1.19583in</Top>
+            <Top>0.60416in</Top>
             <Left>4.53833in</Left>
             <Height>0.25in</Height>
             <Width>1.775in</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
