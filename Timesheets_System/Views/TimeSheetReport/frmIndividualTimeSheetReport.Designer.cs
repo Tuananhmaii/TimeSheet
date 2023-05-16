@@ -136,10 +136,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(426, 211);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 25);
+            this.label8.Size = new System.Drawing.Size(60, 25);
             this.label8.TabIndex = 30;
             this.label8.Text = "Tháng";
             // 
@@ -157,69 +157,70 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(29, 211);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 25);
+            this.label1.Size = new System.Drawing.Size(49, 25);
             this.label1.TabIndex = 28;
             this.label1.Text = "Năm";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(426, 144);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 25);
+            this.label7.Size = new System.Drawing.Size(48, 25);
             this.label7.TabIndex = 26;
             this.label7.Text = "Vị trí";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(29, 144);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 25);
+            this.label6.Size = new System.Drawing.Size(52, 25);
             this.label6.TabIndex = 19;
             this.label6.Text = "Team";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 23);
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(93, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 25);
+            this.label5.Size = new System.Drawing.Size(139, 25);
             this.label5.TabIndex = 16;
             this.label5.Text = "Thông tin chung";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(426, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 25);
+            this.label2.Size = new System.Drawing.Size(76, 25);
             this.label2.TabIndex = 15;
             this.label2.Text = "Bộ phận";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(29, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 25);
+            this.label3.Size = new System.Drawing.Size(38, 25);
             this.label3.TabIndex = 13;
             this.label3.Text = "Tên";
             // 
             // btExportData
             // 
-            this.btExportData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btExportData.BackColor = System.Drawing.Color.LimeGreen;
             this.btExportData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btExportData.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExportData.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExportData.ForeColor = System.Drawing.Color.Transparent;
             this.btExportData.Location = new System.Drawing.Point(261, 384);
             this.btExportData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btExportData.Name = "btExportData";
@@ -233,7 +234,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(316, 62);
+            this.label4.Location = new System.Drawing.Point(306, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 25);
             this.label4.TabIndex = 16;
