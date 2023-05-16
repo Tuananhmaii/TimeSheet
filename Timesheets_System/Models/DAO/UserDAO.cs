@@ -50,7 +50,7 @@ namespace Timesheets_System.Models.DAO
         //Get bảng có khóa ngoại với user
         public UserDTO GetForeignValue(string current_user)
         {
-            String query = "SELECT user_tb.username, team_tb.department_id, department_tb.department_name, user_tb.position_id, position_tb.position_name, user_tb.team_id, team_tb.team_name FROM user_tb INNER JOIN team_tb ON user_tb.team_id = team_tb.team_id INNER JOIN department_tb ON team_tb.department_id = department_tb.department_id INNER JOIN position_tb ON user_tb.position_id = position_tb.position_id WHERE user_tb.username = @current_user";
+            String query = "SELECT user_tb.username, user_tb.fullname, team_tb.department_id, department_tb.department_name, user_tb.position_id, position_tb.position_name, user_tb.team_id, team_tb.team_name FROM user_tb INNER JOIN team_tb ON user_tb.team_id = team_tb.team_id INNER JOIN department_tb ON team_tb.department_id = department_tb.department_id INNER JOIN position_tb ON user_tb.position_id = position_tb.position_id WHERE user_tb.username = @current_user";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("current_user", current_user);
 

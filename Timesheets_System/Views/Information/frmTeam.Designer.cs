@@ -30,12 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeam));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeam));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtvgTeam = new System.Windows.Forms.DataGridView();
+            this.Column_TeamID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_TeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_DepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,9 +57,6 @@
             this.btAdd = new System.Windows.Forms.Button();
             this.btEdit = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
-            this.Column_TeamID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_TeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_DepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtvgTeam)).BeginInit();
             this.panel3.SuspendLayout();
@@ -111,6 +111,43 @@
             this.dtvgTeam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvgTeam.Size = new System.Drawing.Size(561, 592);
             this.dtvgTeam.TabIndex = 1;
+            // 
+            // Column_TeamID
+            // 
+            this.Column_TeamID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column_TeamID.DataPropertyName = "Team_id";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column_TeamID.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column_TeamID.FillWeight = 188.1243F;
+            this.Column_TeamID.HeaderText = "Mã Team";
+            this.Column_TeamID.MinimumWidth = 6;
+            this.Column_TeamID.Name = "Column_TeamID";
+            this.Column_TeamID.ReadOnly = true;
+            this.Column_TeamID.Width = 125;
+            // 
+            // Column_TeamName
+            // 
+            this.Column_TeamName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column_TeamName.DataPropertyName = "Team_name";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column_TeamName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column_TeamName.FillWeight = 48.99667F;
+            this.Column_TeamName.HeaderText = "Tên Team";
+            this.Column_TeamName.MinimumWidth = 6;
+            this.Column_TeamName.Name = "Column_TeamName";
+            this.Column_TeamName.ReadOnly = true;
+            this.Column_TeamName.Width = 180;
+            // 
+            // Column_DepartmentID
+            // 
+            this.Column_DepartmentID.DataPropertyName = "Department_name";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column_DepartmentID.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column_DepartmentID.FillWeight = 62.87906F;
+            this.Column_DepartmentID.HeaderText = "Tên bộ phận";
+            this.Column_DepartmentID.MinimumWidth = 6;
+            this.Column_DepartmentID.Name = "Column_DepartmentID";
+            this.Column_DepartmentID.ReadOnly = true;
             // 
             // panel3
             // 
@@ -209,9 +246,9 @@
             this.label4.Location = new System.Drawing.Point(11, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 25);
+            this.label4.Size = new System.Drawing.Size(146, 25);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Danh sách bộ phận";
+            this.label4.Text = "Danh sách Team";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pn_Minimize
@@ -356,42 +393,6 @@
             this.btDelete.Text = "Xóa";
             this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click_1);
-            // 
-            // Column_TeamID
-            // 
-            this.Column_TeamID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column_TeamID.DataPropertyName = "Team_id";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column_TeamID.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column_TeamID.FillWeight = 188.1243F;
-            this.Column_TeamID.HeaderText = "Mã Team";
-            this.Column_TeamID.MinimumWidth = 6;
-            this.Column_TeamID.Name = "Column_TeamID";
-            this.Column_TeamID.ReadOnly = true;
-            // 
-            // Column_TeamName
-            // 
-            this.Column_TeamName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column_TeamName.DataPropertyName = "Team_name";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column_TeamName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column_TeamName.FillWeight = 48.99667F;
-            this.Column_TeamName.HeaderText = "Tên Team";
-            this.Column_TeamName.MinimumWidth = 6;
-            this.Column_TeamName.Name = "Column_TeamName";
-            this.Column_TeamName.ReadOnly = true;
-            this.Column_TeamName.Width = 180;
-            // 
-            // Column_DepartmentID
-            // 
-            this.Column_DepartmentID.DataPropertyName = "Department_name";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column_DepartmentID.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column_DepartmentID.FillWeight = 62.87906F;
-            this.Column_DepartmentID.HeaderText = "Tên bộ phận";
-            this.Column_DepartmentID.MinimumWidth = 6;
-            this.Column_DepartmentID.Name = "Column_DepartmentID";
-            this.Column_DepartmentID.ReadOnly = true;
             // 
             // frmTeam
             // 
