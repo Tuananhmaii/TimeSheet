@@ -1,6 +1,6 @@
 ﻿namespace Timesheets_System.Views
 {
-    partial class frmChangePassword
+    partial class frmGeneralTimeSheetReport
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangePassword));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGeneralTimeSheetReport));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbTeam = new System.Windows.Forms.ComboBox();
+            this.cbDepartment = new System.Windows.Forms.ComboBox();
+            this.cbMonth = new System.Windows.Forms.ComboBox();
+            this.cbYear = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txbNewPasswordConfirm = new System.Windows.Forms.TextBox();
-            this.txbNewPassword = new System.Windows.Forms.TextBox();
-            this.txbOldPassword = new System.Windows.Forms.TextBox();
-            this.btChangePassword = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.pn_Minimize = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pn_Maximize = new System.Windows.Forms.Panel();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.pn_Close = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btExportData = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pn_Minimize.SuspendLayout();
@@ -55,96 +59,129 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.cbTeam);
+            this.panel3.Controls.Add(this.cbDepartment);
+            this.panel3.Controls.Add(this.cbMonth);
+            this.panel3.Controls.Add(this.cbYear);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txbNewPasswordConfirm);
-            this.panel3.Controls.Add(this.txbNewPassword);
-            this.panel3.Controls.Add(this.txbOldPassword);
-            this.panel3.Location = new System.Drawing.Point(64, 76);
+            this.panel3.Location = new System.Drawing.Point(8, 88);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(661, 258);
+            this.panel3.Size = new System.Drawing.Size(776, 272);
             this.panel3.TabIndex = 8;
+            // 
+            // cbTeam
+            // 
+            this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTeam.FormattingEnabled = true;
+            this.cbTeam.Location = new System.Drawing.Point(521, 93);
+            this.cbTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTeam.Name = "cbTeam";
+            this.cbTeam.Size = new System.Drawing.Size(191, 33);
+            this.cbTeam.TabIndex = 25;
+            // 
+            // cbDepartment
+            // 
+            this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartment.FormattingEnabled = true;
+            this.cbDepartment.Location = new System.Drawing.Point(130, 93);
+            this.cbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDepartment.Name = "cbDepartment";
+            this.cbDepartment.Size = new System.Drawing.Size(191, 33);
+            this.cbDepartment.TabIndex = 24;
+            // 
+            // cbMonth
+            // 
+            this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMonth.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMonth.FormattingEnabled = true;
+            this.cbMonth.Location = new System.Drawing.Point(521, 155);
+            this.cbMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMonth.Name = "cbMonth";
+            this.cbMonth.Size = new System.Drawing.Size(191, 33);
+            this.cbMonth.TabIndex = 23;
+            // 
+            // cbYear
+            // 
+            this.cbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbYear.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbYear.FormattingEnabled = true;
+            this.cbYear.Location = new System.Drawing.Point(130, 155);
+            this.cbYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbYear.Name = "cbYear";
+            this.cbYear.Size = new System.Drawing.Size(191, 33);
+            this.cbYear.TabIndex = 22;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(416, 158);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 25);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Tháng";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(71, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(139, 25);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Thông tin chung";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 111);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 25);
+            this.label2.Size = new System.Drawing.Size(49, 25);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Mật khẩu mới";
+            this.label2.Text = "Năm";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 179);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(416, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 25);
+            this.label1.Size = new System.Drawing.Size(52, 25);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Xác nhận mật khẩu";
+            this.label1.Text = "Team";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 43);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 25);
+            this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Mật khẩu cũ";
+            this.label3.Text = "Bộ phận";
             // 
-            // txbNewPasswordConfirm
+            // label4
             // 
-            this.txbNewPasswordConfirm.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNewPasswordConfirm.Location = new System.Drawing.Point(259, 178);
-            this.txbNewPasswordConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbNewPasswordConfirm.Name = "txbNewPasswordConfirm";
-            this.txbNewPasswordConfirm.Size = new System.Drawing.Size(345, 31);
-            this.txbNewPasswordConfirm.TabIndex = 5;
-            this.txbNewPasswordConfirm.UseSystemPasswordChar = true;
-            // 
-            // txbNewPassword
-            // 
-            this.txbNewPassword.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNewPassword.Location = new System.Drawing.Point(259, 111);
-            this.txbNewPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbNewPassword.Name = "txbNewPassword";
-            this.txbNewPassword.Size = new System.Drawing.Size(345, 31);
-            this.txbNewPassword.TabIndex = 4;
-            this.txbNewPassword.UseSystemPasswordChar = true;
-            // 
-            // txbOldPassword
-            // 
-            this.txbOldPassword.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbOldPassword.Location = new System.Drawing.Point(259, 39);
-            this.txbOldPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbOldPassword.Name = "txbOldPassword";
-            this.txbOldPassword.Size = new System.Drawing.Size(345, 31);
-            this.txbOldPassword.TabIndex = 3;
-            // 
-            // btChangePassword
-            // 
-            this.btChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btChangePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btChangePassword.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btChangePassword.Location = new System.Drawing.Point(252, 371);
-            this.btChangePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btChangePassword.Name = "btChangePassword";
-            this.btChangePassword.Size = new System.Drawing.Size(268, 43);
-            this.btChangePassword.TabIndex = 13;
-            this.btChangePassword.Text = "Đổi mật khẩu";
-            this.btChangePassword.UseVisualStyleBackColor = false;
-            this.btChangePassword.Click += new System.EventHandler(this.btChangePassword_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(305, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(156, 25);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Bảng công chung";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.pn_Minimize);
             this.panel2.Controls.Add(this.pn_Maximize);
             this.panel2.Controls.Add(this.pn_Close);
@@ -156,19 +193,19 @@
             this.panel2.TabIndex = 56;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
-            // label4
+            // label7
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(11, 10);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Đổi mật khẩu";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(11, 10);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(155, 25);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Bảng công chung";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pn_Minimize
             // 
@@ -180,9 +217,9 @@
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
             this.pn_Minimize.TabIndex = 7;
-            this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click);
-            this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter_1);
-            this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave_1);
+            this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click_1);
+            this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter);
+            this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave);
             // 
             // btnMinimize
             // 
@@ -211,9 +248,9 @@
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
             this.pn_Maximize.TabIndex = 6;
-            this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click);
-            this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter_1);
-            this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave_1);
+            this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click_1);
+            this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter);
+            this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave);
             // 
             // btnMaximize
             // 
@@ -242,9 +279,9 @@
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(55, 44);
             this.pn_Close.TabIndex = 5;
-            this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click);
-            this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter_1);
-            this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave_1);
+            this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click_1);
+            this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter);
+            this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave);
             // 
             // btnClose
             // 
@@ -264,20 +301,35 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // frmChangePassword
+            // btExportData
+            // 
+            this.btExportData.BackColor = System.Drawing.Color.LimeGreen;
+            this.btExportData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btExportData.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btExportData.ForeColor = System.Drawing.Color.Transparent;
+            this.btExportData.Location = new System.Drawing.Point(254, 377);
+            this.btExportData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btExportData.Name = "btExportData";
+            this.btExportData.Size = new System.Drawing.Size(268, 43);
+            this.btExportData.TabIndex = 14;
+            this.btExportData.Text = "Xuất thông tin";
+            this.btExportData.UseVisualStyleBackColor = false;
+            // 
+            // frmGeneralTimeSheetReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btExportData);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btChangePassword);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "frmChangePassword";
+            this.Name = "frmGeneralTimeSheetReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đổi mật khẩu";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -286,27 +338,32 @@
             this.pn_Maximize.ResumeLayout(false);
             this.pn_Close.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txbNewPasswordConfirm;
-        private System.Windows.Forms.TextBox txbNewPassword;
-        private System.Windows.Forms.TextBox txbOldPassword;
-        private System.Windows.Forms.Button btChangePassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbMonth;
+        private System.Windows.Forms.ComboBox cbYear;
+        private System.Windows.Forms.ComboBox cbDepartment;
+        private System.Windows.Forms.ComboBox cbTeam;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pn_Minimize;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Panel pn_Maximize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Panel pn_Close;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btExportData;
     }
 }

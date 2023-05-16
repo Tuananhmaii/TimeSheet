@@ -21,5 +21,9 @@ namespace Timesheets_System.Controllers
         {
             return _timesheetsDetailsDAO.GetUserTimeSheetDetailByMonth(_timesheetsDetailDTO);
         }
+        public List<TimesheetsDetailsDTO> GetIndividualReport(string username, int year, int month)
+        {
+            return _timesheetsDetailsDAO.GetIndividualReport(username, year, month);
+        }
     }
 }
