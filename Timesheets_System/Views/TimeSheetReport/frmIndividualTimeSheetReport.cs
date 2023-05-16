@@ -46,7 +46,7 @@ namespace Timesheets_System.Views
 
             ReportViewer report = new ReportViewer();
             report.ProcessingMode = ProcessingMode.Local;
-            report.LocalReport.ReportPath = "../../RDLC/IndividualTimeSheetReport.rdlc";
+            report.LocalReport.ReportPath = "../../bin/debug/RDLC/IndividualTimeSheetReport.rdlc";
 
             report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDetailDS",
                 _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));

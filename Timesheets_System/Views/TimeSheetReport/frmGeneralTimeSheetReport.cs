@@ -47,7 +47,7 @@ namespace Timesheets_System.Views
 
             ReportViewer report = new ReportViewer();
             report.ProcessingMode = ProcessingMode.Local;
-            report.LocalReport.ReportPath = "../../RDLC/GeneralTimeSheetReport.rdlc";
+            report.LocalReport.ReportPath = "../../bin/debug/RDLC/GeneralTimeSheetReport.rdlc";
 
             report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDS",
                 _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(),
@@ -101,11 +101,15 @@ namespace Timesheets_System.Views
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = DateTime.Now.Year;
 
-            cbDepartment.DataSource = _departmentController.GetDepartmentDTO();
+            List<DepartmentDTO> departments = _departmentController.GetDepartmentDTO();
+            departments.Insert(0, new DepartmentDTO { Department_id = "", Department_name = "", Descriptions = "" });
+            cbDepartment.DataSource = departments;
             cbDepartment.ValueMember = "department_id";
             cbDepartment.SelectedIndex = -1;
 
-            cbTeam.DataSource = _teamController.GetTeamDTO();
+            List<TeamDTO> teams = _teamController.GetTeamDTO();
+            teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
+            cbTeam.DataSource = teams;
             cbTeam.ValueMember = "team_id";
             cbTeam.SelectedIndex = -1;
         }
