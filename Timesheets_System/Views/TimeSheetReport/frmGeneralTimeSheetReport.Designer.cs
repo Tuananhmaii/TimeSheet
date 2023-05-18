@@ -68,10 +68,10 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(8, 88);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(6, 72);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(776, 272);
+            this.panel3.Size = new System.Drawing.Size(582, 221);
             this.panel3.TabIndex = 8;
             // 
             // cbTeam
@@ -79,10 +79,10 @@
             this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTeam.FormattingEnabled = true;
-            this.cbTeam.Location = new System.Drawing.Point(521, 93);
-            this.cbTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTeam.Location = new System.Drawing.Point(391, 76);
+            this.cbTeam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbTeam.Name = "cbTeam";
-            this.cbTeam.Size = new System.Drawing.Size(191, 33);
+            this.cbTeam.Size = new System.Drawing.Size(144, 33);
             this.cbTeam.TabIndex = 25;
             // 
             // cbDepartment
@@ -90,10 +90,10 @@
             this.cbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartment.FormattingEnabled = true;
-            this.cbDepartment.Location = new System.Drawing.Point(130, 93);
-            this.cbDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDepartment.Location = new System.Drawing.Point(98, 76);
+            this.cbDepartment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbDepartment.Name = "cbDepartment";
-            this.cbDepartment.Size = new System.Drawing.Size(191, 33);
+            this.cbDepartment.Size = new System.Drawing.Size(144, 33);
             this.cbDepartment.TabIndex = 24;
             // 
             // cbMonth
@@ -101,10 +101,10 @@
             this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonth.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMonth.FormattingEnabled = true;
-            this.cbMonth.Location = new System.Drawing.Point(521, 155);
-            this.cbMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbMonth.Location = new System.Drawing.Point(391, 126);
+            this.cbMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(191, 33);
+            this.cbMonth.Size = new System.Drawing.Size(144, 33);
             this.cbMonth.TabIndex = 23;
             // 
             // cbYear
@@ -112,17 +112,18 @@
             this.cbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbYear.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(130, 155);
-            this.cbYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbYear.Location = new System.Drawing.Point(98, 126);
+            this.cbYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(191, 33);
+            this.cbYear.Size = new System.Drawing.Size(144, 33);
             this.cbYear.TabIndex = 22;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(416, 158);
+            this.label6.Location = new System.Drawing.Point(312, 128);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 25);
             this.label6.TabIndex = 19;
@@ -132,7 +133,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(71, 26);
+            this.label5.Location = new System.Drawing.Point(53, 21);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 25);
             this.label5.TabIndex = 16;
@@ -142,7 +144,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 158);
+            this.label2.Location = new System.Drawing.Point(14, 128);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 25);
             this.label2.TabIndex = 15;
@@ -152,7 +155,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(416, 96);
+            this.label1.Location = new System.Drawing.Point(312, 78);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 25);
             this.label1.TabIndex = 14;
@@ -162,7 +166,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 96);
+            this.label3.Location = new System.Drawing.Point(14, 78);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 13;
@@ -172,7 +177,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(305, 61);
+            this.label4.Location = new System.Drawing.Point(229, 50);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(156, 25);
             this.label4.TabIndex = 16;
@@ -187,9 +193,8 @@
             this.panel2.Controls.Add(this.pn_Close);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 44);
+            this.panel2.Size = new System.Drawing.Size(600, 36);
             this.panel2.TabIndex = 56;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
@@ -199,8 +204,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(11, 10);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(8, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 25);
             this.label7.TabIndex = 0;
@@ -212,10 +216,9 @@
             this.pn_Minimize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Minimize.Controls.Add(this.btnMinimize);
             this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Minimize.Location = new System.Drawing.Point(630, 0);
-            this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Minimize.Location = new System.Drawing.Point(473, 0);
             this.pn_Minimize.Name = "pn_Minimize";
-            this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
+            this.pn_Minimize.Size = new System.Drawing.Size(44, 36);
             this.pn_Minimize.TabIndex = 7;
             this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click_1);
             this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter);
@@ -231,10 +234,9 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Location = new System.Drawing.Point(17, 15);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMinimize.Location = new System.Drawing.Point(13, 12);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(20, 18);
+            this.btnMinimize.Size = new System.Drawing.Size(15, 15);
             this.btnMinimize.TabIndex = 4;
             this.btnMinimize.UseVisualStyleBackColor = false;
             // 
@@ -243,10 +245,9 @@
             this.pn_Maximize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Maximize.Controls.Add(this.btnMaximize);
             this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Maximize.Location = new System.Drawing.Point(689, 0);
-            this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Maximize.Location = new System.Drawing.Point(517, 0);
             this.pn_Maximize.Name = "pn_Maximize";
-            this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
+            this.pn_Maximize.Size = new System.Drawing.Size(42, 36);
             this.pn_Maximize.TabIndex = 6;
             this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click_1);
             this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter);
@@ -263,10 +264,9 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.Location = new System.Drawing.Point(16, 15);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaximize.Location = new System.Drawing.Point(12, 12);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(20, 18);
+            this.btnMaximize.Size = new System.Drawing.Size(15, 15);
             this.btnMaximize.TabIndex = 3;
             this.btnMaximize.UseVisualStyleBackColor = false;
             // 
@@ -274,10 +274,9 @@
             // 
             this.pn_Close.Controls.Add(this.btnClose);
             this.pn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Close.Location = new System.Drawing.Point(745, 0);
-            this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Close.Location = new System.Drawing.Point(559, 0);
             this.pn_Close.Name = "pn_Close";
-            this.pn_Close.Size = new System.Drawing.Size(55, 44);
+            this.pn_Close.Size = new System.Drawing.Size(41, 36);
             this.pn_Close.TabIndex = 5;
             this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click_1);
             this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter);
@@ -294,10 +293,9 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.Location = new System.Drawing.Point(19, 15);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Location = new System.Drawing.Point(14, 12);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(20, 18);
+            this.btnClose.Size = new System.Drawing.Size(15, 15);
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
@@ -308,26 +306,27 @@
             this.btExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btExportData.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btExportData.ForeColor = System.Drawing.Color.Transparent;
-            this.btExportData.Location = new System.Drawing.Point(254, 377);
-            this.btExportData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btExportData.Location = new System.Drawing.Point(190, 306);
+            this.btExportData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btExportData.Name = "btExportData";
-            this.btExportData.Size = new System.Drawing.Size(268, 43);
+            this.btExportData.Size = new System.Drawing.Size(201, 35);
             this.btExportData.TabIndex = 14;
             this.btExportData.Text = "Xuất thông tin";
             this.btExportData.UseVisualStyleBackColor = false;
+            this.btExportData.Click += new System.EventHandler(this.btExportData_Click_1);
             // 
             // frmGeneralTimeSheetReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btExportData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmGeneralTimeSheetReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel3.ResumeLayout(false);
