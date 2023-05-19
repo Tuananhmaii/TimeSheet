@@ -111,7 +111,7 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("team", team);
             parameters.Add("year", year);
             parameters.Add("month", month);
-            return _dbConnection.Query<TimesheetsDTO>(query, parameters).ToList();
+            return _dbConnection.Query<TimesheetsDTO>(fullQuery, parameters).ToList();
         }
     }
 }
