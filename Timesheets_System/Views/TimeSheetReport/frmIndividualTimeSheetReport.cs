@@ -176,5 +176,7 @@ namespace Timesheets_System.Views
             btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
         }
         #endregion
+
+
     }
 }
