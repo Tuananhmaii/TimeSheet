@@ -73,5 +73,10 @@ namespace Timesheets_System.Controllers
         {
             return _userDAO.ChangePassword(username, newPassword);
         }
+
+        public UserDTO GetUserWithFullInfo(string username)
+        {
+            return _userDAO.GetUserWithFullInfo(username);
+        }
     }
 }

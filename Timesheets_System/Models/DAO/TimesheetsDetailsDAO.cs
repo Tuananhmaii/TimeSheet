@@ -34,13 +34,14 @@ namespace Timesheets_System.Models.DAO
             return _dbConnection.QueryFirstOrDefault<TimesheetsDetailsDTO>(query, parameters);
         }
 
-        public List<TimesheetsDetailsDTO> GetUserTimeSheetDetailByMonth(TimesheetsDetailsDTO _timesheetsDetailsDTO)
+        public List<TimesheetsDetailsDTO> GetUserTimeSheetDetailByMonth(string fullname, int year, int month)
         {
-            string query = "SELECT * FROM timesheets_details_tb WHERE fullname = @fullname and extract(year FROM date) = @year AND extract(month from date) = @month";
+            string query = "SELECT * FROM timesheets_details_tb WHERE fullname = @fullname and extract(year FROM date) = @year AND extract(month from date) = @month " +
+                "ORDER BY timesheets_details_tb.date ASC";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("fullname", _timesheetsDetailsDTO.Fullname);
-            parameters.Add("year", _timesheetsDetailsDTO.Date.Year);
-            parameters.Add("month", _timesheetsDetailsDTO.Date.Month);
+            parameters.Add("fullname", fullname);
+            parameters.Add("year", year);
+            parameters.Add("month", month);
 
             return _dbConnection.Query<TimesheetsDetailsDTO>(query, parameters).ToList();
         }

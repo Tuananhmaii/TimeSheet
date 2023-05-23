@@ -38,7 +38,7 @@ namespace Timesheets_System.Views
         private void frmTimesheets_Load(object sender, EventArgs e)
         {
             frmInit();
-            foundDayInMonth();
+            MonthAndYear();
         }
 
         private void frmInit()
@@ -46,9 +46,7 @@ namespace Timesheets_System.Views
             curren_user = frmLogin.loggedUser;
             UserDTO current_user_value = _userController.GetForeignValue(curren_user.Username);
         }
-
-        // Tìm số ngày trong tháng
-        private void foundDayInMonth()
+        private void MonthAndYear()
         {
             cbMonth.DataSource = Enumerable.Range(1, 12).ToList();
             cbMonth.SelectedItem = DateTime.Now.Month - 1;
@@ -214,45 +212,19 @@ namespace Timesheets_System.Views
             dtvgTimeSheet.Columns["month"].Visible = false;
             dtvgTimeSheet.Columns["year"].Visible = false;
 
-            if(dtvgTimeSheet.Rows.Count == 0)
+            if (dtvgTimeSheet.Rows.Count == 0)
             {
                 MessageBox.Show("Không có data", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
+        private void dtvgTimeSheet_DoubleClick(object sender, EventArgs e)
+        {
+            string selected = dtvgTimeSheet.Rows[dtvgTimeSheet.CurrentRow.Index].Cells[0].Value.ToString();
+            frmPersonalTimesheet f = new frmPersonalTimesheet(selected, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            f.ShowDialog();
+        }
 
-        //private void listView1_DoubleClick(object sender, EventArgs e)
-        //{
-        //    if (listView1.SelectedItems.Count > 0)
-        //    {
-        //        ListViewItem selected = listView1.SelectedItems[0];
-        //        string current_user_name = selected.SubItems[0].Text;
-        //        UserDTO selectedUser = new UserDTO();
-        //        selectedUser = _userController.GetUserByFullname(current_user_name);
-        //        string current_user_id = selectedUser.Username.ToString();
-
-        //        string yearMonthString = $"{cbYear.Text}-{cbMonth.Text}";
-        //        string format = "yyyy-MM";
-        //        DateTime seletedDateTime = new DateTime();
-
-        //        seletedDateTime = DateTime.ParseExact(yearMonthString, format, CultureInfo.InvariantCulture);
-
-
-        //        if (string.IsNullOrEmpty(current_user_id))
-        //        {
-        //            MessageBox.Show("Cannot derect!");
-        //        }
-        //        else
-        //        {
-        //            frmPersonalTimesheet frmPersonalTimesheet = new frmPersonalTimesheet(current_user_id, seletedDateTime);
-        //            frmPersonalTimesheet.ShowDialog();
-        //        }
-
-
-        //        //MessageBox.Show("Current user: " + current_user);
-        //        // do something with the selected item
-        //    }
-        //}
         #region "Custom title"
         //Move form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -322,9 +294,5 @@ namespace Timesheets_System.Views
 
         #endregion
 
-        private void dtvgTimeSheet_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
     }
 }
