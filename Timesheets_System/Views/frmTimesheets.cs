@@ -321,5 +321,10 @@ namespace Timesheets_System.Views
 
 
         #endregion
+
+        private void dtvgTimeSheet_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
