@@ -85,43 +85,33 @@ namespace Timesheets_System.Models.DAO
         public List<TimesheetsDTO> GetGeneralTimeSheet(string department, string team, int year, int month)
         {
             DynamicParameters parameters = new DynamicParameters();
-            string query = "";
-            if (String.IsNullOrEmpty(department) && String.IsNullOrEmpty(team) /*department == "" && team == ""*/)
-            {
-                query = "SELECT * from timesheets_tb JOIN user_tb ON timesheets_tb.username = user_tb.username " +
+            string query = "SELECT * from timesheets_tb JOIN user_tb ON timesheets_tb.username = user_tb.username " +
                     "JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
                     "JOIN department_tb ON team_tb.department_id = department_tb.department_id " +
-                    "WHERE year = @year and month = @month " +
-                    "ORDER BY user_tb.username DESC";
+                    "WHERE year = @year and month = @month ";
+            string order = "ORDER BY user_tb.username DESC";
+            string fullQuery = "";
+            if (String.IsNullOrEmpty(department) && String.IsNullOrEmpty(team) /*department == "" && team == ""*/)
+            {
+                fullQuery = query + order;
             }
             if (!String.IsNullOrEmpty(department) && String.IsNullOrEmpty(team)/*department != "" && team == ""*/)
             {
-                query = "SELECT * from timesheets_tb JOIN user_tb ON timesheets_tb.username = user_tb.username " +
-                    "JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
-                    "JOIN department_tb ON team_tb.department_id = department_tb.department_id " +
-                    "WHERE year = @year and month = @month and LOWER(team_tb.department_id) = LOWER(@department) " +
-                    "ORDER BY user_tb.username DESC";
+                fullQuery = query + "and LOWER(team_tb.department_id) = LOWER(@department) " + order;
             }
             if (String.IsNullOrEmpty(department) && !String.IsNullOrEmpty(team)/*department == "" && team != ""*/)
             {
-                query = "SELECT * from timesheets_tb JOIN user_tb ON timesheets_tb.username = user_tb.username " +
-                    "JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
-                    "WHERE year = @year and month = @month and LOWER(user_tb.team_id) = LOWER(@team) " +
-                    "ORDER BY user_tb.username DESC";
+                fullQuery = query + "and LOWER(user_tb.team_id) = LOWER(@team) " + order;
             }
-            if(!String.IsNullOrEmpty(department) && !String.IsNullOrEmpty(team))
+            if (!String.IsNullOrEmpty(department) && !String.IsNullOrEmpty(team))
             {
-                query = "SELECT * from timesheets_tb JOIN user_tb ON timesheets_tb.username = user_tb.username " +
-                    "JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
-                    "JOIN department_tb ON team_tb.department_id = department_tb.department_id " +
-                    "WHERE year = @year and month = @month and LOWER(user_tb.team_id) = LOWER(@team) and LOWER(team_tb.department_id) = LOWER(@department) " +
-                    "ORDER BY user_tb.username DESC";
+                fullQuery = query + "and LOWER(user_tb.team_id) = LOWER(@team) and LOWER(team_tb.department_id) = LOWER(@department) " + order;
             }
             parameters.Add("department", department);
             parameters.Add("team", team);
             parameters.Add("year", year);
             parameters.Add("month", month);
-            return _dbConnection.Query<TimesheetsDTO>(query, parameters).ToList();
+            return _dbConnection.Query<TimesheetsDTO>(fullQuery, parameters).ToList();
         }
     }
 }

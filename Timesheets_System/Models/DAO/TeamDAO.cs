@@ -22,9 +22,9 @@ namespace Timesheets_System.Models.DAO
         //Get Team
         public List<TeamDTO> GetTeamDTO(string current_department_id)
         {
-            String query = "SELECT * FROM public.team_tb WHERE LOWER(team_id)=LOWER(@team_id)";
+            String query = "SELECT * FROM public.team_tb WHERE LOWER(department_id)=LOWER(@department_id)";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("team_id", current_department_id);
+            parameters.Add("department_id", current_department_id);
             return _dbConnection.Query<TeamDTO>(query, parameters).ToList();
         }
 
