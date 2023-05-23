@@ -806,8 +806,6 @@ D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timeshee
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmUser.resources
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmMenu.resources
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTimesheets.resources
-D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmPersonalTimesheet.resources
-D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmDepartmentDetail.resources
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmAcceptDeleteUser.resources
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserList.resources
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserDetail.resources
@@ -816,3 +814,4 @@ D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timeshee
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.CopyComplete
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.exe
 D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.pdb
+D:\Goline\Goline_TimeSheet_System\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.frmPersonalTimesheet.resources

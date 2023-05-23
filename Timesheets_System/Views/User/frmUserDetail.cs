@@ -137,13 +137,18 @@ namespace Timesheets_System.Views.User
 
                     //}
                     
-
-                    if (current_user_value.Department_name != null) { cb_Department.Text = current_user_value.Department_name.ToString(); }
-                    else { cb_Department.Text = "Chưa có phòng"; }
-                    if (current_user_value.Team_name != null) { cb_Team.Text = current_user_value.Team_name.ToString(); }
-                    if (current_user_value.Position_name != null) { cb_Position.Text = current_user_value.Position_name.ToString(); }
-                    else { cb_Position.Text = "None"; }
-
+                    if (current_user_value != null) 
+                    {
+                        if (current_user_value.Department_name != null) { cb_Department.Text = current_user_value.Department_name.ToString(); }
+                        else { cb_Department.Text = "Chưa có phòng"; }
+                        if (current_user_value.Team_name != null) { cb_Team.Text = current_user_value.Team_name.ToString(); }
+                        if (current_user_value.Position_name != null) { cb_Position.Text = current_user_value.Position_name.ToString(); }
+                        else { cb_Position.Text = "None"; }
+                    }
+                    else
+                    {
+                        cb_Department.Text = cb_Team.Text = cb_Position.Text = "None";
+                    }
                 }
                 catch { }
             }
@@ -517,18 +522,6 @@ namespace Timesheets_System.Views.User
         }
         #region "Custom title"
 
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -557,16 +550,6 @@ namespace Timesheets_System.Views.User
             panel6.BackColor = COLORS.TITLE_BACKCOLOR;
         }
 
-        private void panel7_MouseEnter(object sender, EventArgs e)
-        {
-            panel7.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel7_MouseLeave(object sender, EventArgs e)
-        {
-            panel7.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
         private void panel8_MouseEnter(object sender, EventArgs e)
         {
             panel8.BackColor = COLORS.TITLE_ENTERCOLOR;
@@ -576,6 +559,16 @@ namespace Timesheets_System.Views.User
         {
             panel8.BackColor = COLORS.TITLE_BACKCOLOR;
         }
-#endregion
+        #endregion
+
+        private void dateTimePickerDateHired_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePickerDateHired.Format = DateTimePickerFormat.Short;
+        }
+
+        private void dateTimePickerBirthday_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePickerBirthday.Format = DateTimePickerFormat.Short;
+        }
     }
 }

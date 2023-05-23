@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Timesheets_System.Common.Const;
 using Timesheets_System.Controllers;
 using Timesheets_System.Models.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Timesheets_System.Views.User
 {
@@ -22,8 +23,7 @@ namespace Timesheets_System.Views.User
         DepartmentController _departmentController = new DepartmentController();
         TeamController _teamController = new TeamController();
         PositionController _positionController = new PositionController();
-        List<UserDTO> userDTOs = new List<UserDTO> { new UserDTO() };
-        List<UserDTO> UserListByTeam = new List<UserDTO>();
+        List<UserDTO> userDTOs = new List<UserDTO>();
         public frmUserList()
         {
             InitializeComponent();
@@ -35,6 +35,7 @@ namespace Timesheets_System.Views.User
 
         private void FormInit()
         {
+            dtgvDepartmentDetail.DataSource = _userController.GetAllUsers();
             cb_Department.Items.Clear();
             cb_Position.Items.Clear();
             cb_Team.Items.Clear();
@@ -51,25 +52,22 @@ namespace Timesheets_System.Views.User
             cb_Team.ValueMember = "Team_id";
             cb_Team.Text = "";
             cb_Position.Text = "";
-            LoadData(current_department_id, 0);
+            LoadData();
         }
 
         private void cb_Team_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                string current_team_id = cb_Team.SelectedValue.ToString();
                 cb_Position.Text = "";
-                LoadData(current_team_id, 1);
+                LoadData();
             }
             catch { }
-            
         }
 
         private void cb_Position_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            string current_position_id = cb_Position.SelectedValue.ToString();
-            LoadData(current_position_id, 2);
+            LoadData();
         }
 
         private void cb_Department_MouseClick(object sender, MouseEventArgs e)
@@ -90,23 +88,29 @@ namespace Timesheets_System.Views.User
             cb_Position.ValueMember = "Position_id";
         }
 
-        private void LoadData(string caption, int from)
+        // Code xử lý load gridView theo 3 cbBox
+        private void LoadData( )
         {
-            if (from == 0)
+            try
             {
-                userDTOs = _userController.GetUsersByDepartment(caption);
-                dtgvDepartmentDetail.DataSource = userDTOs;
+                if (cb_Department.Text == "") { dtgvDepartmentDetail.DataSource = _userController.GetAllUsers(); }
+                else if (cb_Department.SelectedValue.ToString() == "None")
+                {
+                    dtgvDepartmentDetail.DataSource = _userController.GetUsersHaveNoDepartment();
+                }
+                else
+                {
+                    userDTOs = _userController.GetUsersByDepartment(cb_Department.SelectedValue.ToString());
+                    if (cb_Team.Text != "" && cb_Position.Text == "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Team_id == cb_Team.SelectedValue.ToString()).ToList(); }
+                    else if (cb_Team.Text == "" && cb_Position.Text != "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList(); }
+                    else if (cb_Team.Text != "" && cb_Position.Text != "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Team_id == cb_Team.SelectedValue.ToString() && userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList(); }
+                    dtgvDepartmentDetail.DataSource = userDTOs;
+                }                
             }
-            if (from == 1)
+            catch
             {
-                UserListByTeam = userDTOs.Where(userDTOs => userDTOs.Team_id == caption).ToList();
-                dtgvDepartmentDetail.DataSource = UserListByTeam;
-            }
-            if (from == 2)
-            {
-                var UsersByPosition = userDTOs.Where(UserListByTeam => UserListByTeam.Position_id == caption && UserListByTeam.Team_id == cb_Team.SelectedValue.ToString()).ToList();
-                dtgvDepartmentDetail.DataSource = UsersByPosition;
-            }            
+                MessageBox.Show("Có lỗi xảy ra!");
+            }    
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -122,6 +126,7 @@ namespace Timesheets_System.Views.User
             {
                 MessageBox.Show("Bạn chưa có quyền thực hiện thao tác này!");
             }
+            LoadData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -137,12 +142,43 @@ namespace Timesheets_System.Views.User
                 {
                     _userController.DeleteUserByID(username);
                     MessageBox.Show("Xóa nhân viên thành công!");
+                    LoadData();
                 }
             }
             catch 
             {
                 MessageBox.Show("Bạn cần chọn nhận viên để xóa!");
             }
+        }
+
+        private void dtgvDepartmentDetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Get the selected row
+            DataGridViewRow selectedRow = dtgvDepartmentDetail.SelectedRows[0];
+
+            // Get the value of the first column of the selected row
+            string value = selectedRow.Cells[0].Value.ToString();
+
+            // create a new instance of the form to be opened
+            frmUserDetail myNewForm = new frmUserDetail();
+
+            if (frmLogin.loggedUser.Auth_Group_ID != PERMISSION_AUTH_GROUP.ADMIN)
+            {
+                myNewForm.DisableUpdatebtn();
+            }
+            // Set any necessary properties on the new form here...
+            // For example, you can pass the value of the first column to the new form
+            myNewForm.SetUsername(value);
+
+            // Show the new form
+            myNewForm.Show();
+
+            LoadData();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dtgvDepartmentDetail.DataSource = _userController.GetAllUsers();
         }
 
         #region "Custom title"
@@ -218,27 +254,5 @@ namespace Timesheets_System.Views.User
 
         #endregion
 
-        private void dtgvDepartmentDetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Get the selected row
-            DataGridViewRow selectedRow = dtgvDepartmentDetail.SelectedRows[0];
-
-            // Get the value of the first column of the selected row
-            string value = selectedRow.Cells[0].Value.ToString();
-
-            // create a new instance of the form to be opened
-            frmUserDetail myNewForm = new frmUserDetail();
-
-            if (frmLogin.loggedUser.Auth_Group_ID != PERMISSION_AUTH_GROUP.ADMIN)
-            {
-                myNewForm.DisableUpdatebtn();
-            }
-            // Set any necessary properties on the new form here...
-            // For example, you can pass the value of the first column to the new form
-            myNewForm.SetUsername(value);
-
-            // Show the new form
-            myNewForm.Show();
-        }
     }
 }

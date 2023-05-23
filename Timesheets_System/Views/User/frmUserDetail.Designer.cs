@@ -70,8 +70,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnMaximize = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -83,7 +81,6 @@
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -105,9 +102,9 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(30, 290);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(332, 213);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -186,13 +183,14 @@
             this.dateTimePickerDateHired.Name = "dateTimePickerDateHired";
             this.dateTimePickerDateHired.Size = new System.Drawing.Size(210, 27);
             this.dateTimePickerDateHired.TabIndex = 13;
+            this.dateTimePickerDateHired.ValueChanged += new System.EventHandler(this.dateTimePickerDateHired_ValueChanged);
             // 
             // txt_ContractNo
             // 
             this.txt_ContractNo.BackColor = System.Drawing.SystemColors.Window;
             this.txt_ContractNo.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ContractNo.Location = new System.Drawing.Point(102, 64);
-            this.txt_ContractNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_ContractNo.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ContractNo.MaxLength = 10;
             this.txt_ContractNo.Name = "txt_ContractNo";
             this.txt_ContractNo.ReadOnly = true;
@@ -248,9 +246,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(30, 30);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(475, 473);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
@@ -259,6 +257,7 @@
             // radioButtonFemale
             // 
             this.radioButtonFemale.AutoSize = true;
+            this.radioButtonFemale.Enabled = false;
             this.radioButtonFemale.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonFemale.Location = new System.Drawing.Point(334, 74);
             this.radioButtonFemale.Name = "radioButtonFemale";
@@ -271,6 +270,7 @@
             // 
             this.radioButtonMale.AutoSize = true;
             this.radioButtonMale.Checked = true;
+            this.radioButtonMale.Enabled = false;
             this.radioButtonMale.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonMale.Location = new System.Drawing.Point(168, 74);
             this.radioButtonMale.Name = "radioButtonMale";
@@ -289,12 +289,13 @@
             this.dateTimePickerBirthday.Name = "dateTimePickerBirthday";
             this.dateTimePickerBirthday.Size = new System.Drawing.Size(280, 27);
             this.dateTimePickerBirthday.TabIndex = 4;
+            this.dateTimePickerBirthday.ValueChanged += new System.EventHandler(this.dateTimePickerBirthday_ValueChanged);
             // 
             // txt_Religion
             // 
             this.txt_Religion.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Religion.Location = new System.Drawing.Point(168, 261);
-            this.txt_Religion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Religion.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Religion.MaxLength = 10;
             this.txt_Religion.Name = "txt_Religion";
             this.txt_Religion.ReadOnly = true;
@@ -316,7 +317,7 @@
             // 
             this.txt_Ethnic.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Ethnic.Location = new System.Drawing.Point(168, 230);
-            this.txt_Ethnic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Ethnic.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Ethnic.MaxLength = 10;
             this.txt_Ethnic.Name = "txt_Ethnic";
             this.txt_Ethnic.ReadOnly = true;
@@ -349,7 +350,7 @@
             // 
             this.txt_Address.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Address.Location = new System.Drawing.Point(168, 354);
-            this.txt_Address.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Address.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Address.MaxLength = 150;
             this.txt_Address.Multiline = true;
             this.txt_Address.Name = "txt_Address";
@@ -361,7 +362,7 @@
             // 
             this.txt_SocialInsuranceNo.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_SocialInsuranceNo.Location = new System.Drawing.Point(168, 323);
-            this.txt_SocialInsuranceNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_SocialInsuranceNo.Margin = new System.Windows.Forms.Padding(2);
             this.txt_SocialInsuranceNo.MaxLength = 10;
             this.txt_SocialInsuranceNo.Name = "txt_SocialInsuranceNo";
             this.txt_SocialInsuranceNo.ReadOnly = true;
@@ -383,7 +384,7 @@
             // 
             this.txt_Taxcode.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Taxcode.Location = new System.Drawing.Point(168, 199);
-            this.txt_Taxcode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Taxcode.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Taxcode.MaxLength = 10;
             this.txt_Taxcode.Name = "txt_Taxcode";
             this.txt_Taxcode.ReadOnly = true;
@@ -405,7 +406,7 @@
             // 
             this.txt_CitizenId.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_CitizenId.Location = new System.Drawing.Point(168, 292);
-            this.txt_CitizenId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_CitizenId.Margin = new System.Windows.Forms.Padding(2);
             this.txt_CitizenId.MaxLength = 10;
             this.txt_CitizenId.Name = "txt_CitizenId";
             this.txt_CitizenId.ReadOnly = true;
@@ -449,7 +450,7 @@
             // 
             this.txt_Email.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Email.Location = new System.Drawing.Point(168, 168);
-            this.txt_Email.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Email.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Email.MaxLength = 40;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.ReadOnly = true;
@@ -471,7 +472,7 @@
             // 
             this.txt_Phone.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Phone.Location = new System.Drawing.Point(168, 137);
-            this.txt_Phone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Phone.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Phone.MaxLength = 20;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.ReadOnly = true;
@@ -493,7 +494,7 @@
             // 
             this.txt_Fullname.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Fullname.Location = new System.Drawing.Point(168, 43);
-            this.txt_Fullname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Fullname.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Fullname.MaxLength = 50;
             this.txt_Fullname.Name = "txt_Fullname";
             this.txt_Fullname.ReadOnly = true;
@@ -529,12 +530,13 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(235)))));
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Location = new System.Drawing.Point(666, 549);
+            this.btnCancel.Location = new System.Drawing.Point(694, 557);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 39);
             this.btnCancel.TabIndex = 18;
@@ -545,12 +547,13 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(235)))));
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Transparent;
-            this.btnUpdate.Location = new System.Drawing.Point(760, 549);
+            this.btnUpdate.Location = new System.Drawing.Point(788, 557);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(104, 39);
             this.btnUpdate.TabIndex = 19;
@@ -562,7 +565,6 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel4.Controls.Add(this.panel8);
-            this.panel4.Controls.Add(this.panel7);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -577,7 +579,7 @@
             // 
             this.panel8.Controls.Add(this.btnMinimize);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(788, 0);
+            this.panel8.Location = new System.Drawing.Point(830, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(44, 36);
             this.panel8.TabIndex = 8;
@@ -600,35 +602,6 @@
             this.btnMinimize.Size = new System.Drawing.Size(15, 15);
             this.btnMinimize.TabIndex = 4;
             this.btnMinimize.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnMaximize);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(832, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(42, 36);
-            this.panel7.TabIndex = 7;
-            this.panel7.Click += new System.EventHandler(this.btnMaximize_Click);
-            this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
-            this.panel7.MouseLeave += new System.EventHandler(this.panel7_MouseLeave);
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMaximize.BackgroundImage")));
-            this.btnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMaximize.Enabled = false;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.Location = new System.Drawing.Point(12, 12);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(15, 15);
-            this.btnMaximize.TabIndex = 3;
-            this.btnMaximize.UseVisualStyleBackColor = false;
             // 
             // panel6
             // 
@@ -683,10 +656,10 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnChangePicture);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 36);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 572);
@@ -697,7 +670,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Location = new System.Drawing.Point(30, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(332, 213);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -706,8 +679,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(386, 36);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(529, 507);
@@ -735,7 +708,6 @@
             this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -793,8 +765,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnMinimize;
         public System.Windows.Forms.TextBox txt_Address;

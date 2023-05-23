@@ -153,6 +153,12 @@
     <Compile Include="Controllers\TimesheetsRawDataController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Common\Const\CONSTANTS.cs" />
+    <Compile Include="Views\frmPersonalTimesheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmPersonalTimesheet.Designer.cs">
+      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAO\DepartmentDAO.cs" />
     <Compile Include="Models\DAO\PositionDAO.cs" />
     <Compile Include="Models\DAO\ScreenAuthDAO.cs" />
@@ -232,18 +238,6 @@
     <Compile Include="Views\frmTimesheets.Designer.cs">
       <DependentUpon>frmTimesheets.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmPersonalTimesheet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmPersonalTimesheet.Designer.cs">
-      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\frmDepartmentDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmDepartmentDetail.Designer.cs">
-      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\User\frmAcceptDeleteUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +268,9 @@
     </Compile>
     <EmbeddedResource Include="bin\Debug\RDLC\IndividualTimeSheetReport.rdlc" />
     <EmbeddedResource Include="bin\Debug\RDLC\GeneralTimeSheetReport.rdlc" />
+    <EmbeddedResource Include="Views\frmPersonalTimesheet.resx">
+      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TimeSheetReport\frmIndividualTimeSheetReport.resx">
       <DependentUpon>frmIndividualTimeSheetReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,12 +300,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmTimesheets.resx">
       <DependentUpon>frmTimesheets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmPersonalTimesheet.resx">
-      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmDepartmentDetail.resx">
-      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\frmAcceptDeleteUser.resx">
       <DependentUpon>frmAcceptDeleteUser.cs</DependentUpon>

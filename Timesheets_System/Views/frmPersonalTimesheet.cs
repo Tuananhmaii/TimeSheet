@@ -1,29 +1,31 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timesheets_System.Common.Const;
 using Timesheets_System.Controllers;
 using Timesheets_System.Models.DTO;
+using Timesheets_System.Views;
 
-namespace Timesheets_System.Views
+namespace Timesheets_System
 {
     public partial class frmPersonalTimesheet : Form
     {
-        Point mouseOffset;
         UserController _userController = new UserController();
         TimesheetsDetailsController _timesSheetDetailController = new TimesheetsDetailsController();
         string userName = frmLogin.loggedUser.Username;
-
         public frmPersonalTimesheet(string current_user_id, DateTime dateTime)
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         private void frmPersonalTimesheet_Load(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace Timesheets_System.Views
             lTeam.Text = user.Team_name;
         }
 
-        private void btn_Submit_Click_1(object sender, EventArgs e)
+        private void btn_Submit_Click(object sender, EventArgs e)
         {
             dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (dtvgPersonalTimeSheet.Rows.Count == 0)
@@ -55,22 +57,74 @@ namespace Timesheets_System.Views
             dtvgPersonalTimeSheet.Columns["Username"].Visible = false;
         }
 
-        private void pn_Title_MouseDown(object sender, MouseEventArgs e)
+        #region "Custom title"
+        //Move form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void panel6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel6_MouseEnter(object sender, EventArgs e)
+        {
+            panel6.BackColor = COLORS.TITLE_ENTERCOLOR;
+        }
+
+        private void panel6_MouseLeave(object sender, EventArgs e)
+        {
+            panel6.BackColor = COLORS.TITLE_BACKCOLOR;
+        }
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
             {
-                mouseOffset = new Point(-e.X, -e.Y);
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
             }
         }
 
-        private void pn_Title_MouseMove(object sender, MouseEventArgs e)
+        private void panel7_MouseEnter(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                Point mousePos = Control.MousePosition;
-                mousePos.Offset(mouseOffset.X, mouseOffset.Y);
-                Location = mousePos;
-            }
+            panel7.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
+
+        private void panel7_MouseLeave(object sender, EventArgs e)
+        {
+            panel7.BackColor = COLORS.TITLE_BACKCOLOR;
+        }
+
+        private void panel8_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel8_MouseEnter(object sender, EventArgs e)
+        {
+            panel8.BackColor = COLORS.TITLE_ENTERCOLOR;
+        }
+
+        private void panel8_MouseLeave(object sender, EventArgs e)
+        {
+            panel8.BackColor = COLORS.TITLE_BACKCOLOR;
+        }
+
+        #endregion
+
+        
     }
 }
