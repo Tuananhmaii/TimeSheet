@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIndividualTimeSheetReport));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txbTeam = new System.Windows.Forms.TextBox();
-            this.txbPosition = new System.Windows.Forms.TextBox();
-            this.txbDepartment = new System.Windows.Forms.TextBox();
-            this.txbName = new System.Windows.Forms.TextBox();
+            this.lPosition = new System.Windows.Forms.Label();
+            this.lDepartment = new System.Windows.Forms.Label();
+            this.lTeam = new System.Windows.Forms.Label();
+            this.lName = new System.Windows.Forms.Label();
             this.cbMonth = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbYear = new System.Windows.Forms.ComboBox();
@@ -63,10 +63,10 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.txbTeam);
-            this.panel3.Controls.Add(this.txbPosition);
-            this.panel3.Controls.Add(this.txbDepartment);
-            this.panel3.Controls.Add(this.txbName);
+            this.panel3.Controls.Add(this.lPosition);
+            this.panel3.Controls.Add(this.lDepartment);
+            this.panel3.Controls.Add(this.lTeam);
+            this.panel3.Controls.Add(this.lName);
             this.panel3.Controls.Add(this.cbMonth);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.cbYear);
@@ -82,45 +82,49 @@
             this.panel3.Size = new System.Drawing.Size(776, 282);
             this.panel3.TabIndex = 8;
             // 
-            // txbTeam
+            // lPosition
             // 
-            this.txbTeam.Enabled = false;
-            this.txbTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTeam.Location = new System.Drawing.Point(140, 138);
-            this.txbTeam.MaxLength = 20;
-            this.txbTeam.Name = "txbTeam";
-            this.txbTeam.Size = new System.Drawing.Size(191, 31);
-            this.txbTeam.TabIndex = 35;
+            this.lPosition.AutoSize = true;
+            this.lPosition.BackColor = System.Drawing.SystemColors.Control;
+            this.lPosition.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPosition.Location = new System.Drawing.Point(526, 144);
+            this.lPosition.Name = "lPosition";
+            this.lPosition.Size = new System.Drawing.Size(58, 25);
+            this.lPosition.TabIndex = 39;
+            this.lPosition.Text = "label4";
             // 
-            // txbPosition
+            // lDepartment
             // 
-            this.txbPosition.Enabled = false;
-            this.txbPosition.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPosition.Location = new System.Drawing.Point(531, 138);
-            this.txbPosition.MaxLength = 20;
-            this.txbPosition.Name = "txbPosition";
-            this.txbPosition.Size = new System.Drawing.Size(191, 31);
-            this.txbPosition.TabIndex = 34;
+            this.lDepartment.AutoSize = true;
+            this.lDepartment.BackColor = System.Drawing.SystemColors.Control;
+            this.lDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lDepartment.Location = new System.Drawing.Point(526, 80);
+            this.lDepartment.Name = "lDepartment";
+            this.lDepartment.Size = new System.Drawing.Size(58, 25);
+            this.lDepartment.TabIndex = 38;
+            this.lDepartment.Text = "label4";
             // 
-            // txbDepartment
+            // lTeam
             // 
-            this.txbDepartment.Enabled = false;
-            this.txbDepartment.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDepartment.Location = new System.Drawing.Point(531, 77);
-            this.txbDepartment.MaxLength = 20;
-            this.txbDepartment.Name = "txbDepartment";
-            this.txbDepartment.Size = new System.Drawing.Size(191, 31);
-            this.txbDepartment.TabIndex = 33;
+            this.lTeam.AutoSize = true;
+            this.lTeam.BackColor = System.Drawing.SystemColors.Control;
+            this.lTeam.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTeam.Location = new System.Drawing.Point(135, 144);
+            this.lTeam.Name = "lTeam";
+            this.lTeam.Size = new System.Drawing.Size(58, 25);
+            this.lTeam.TabIndex = 37;
+            this.lTeam.Text = "label4";
             // 
-            // txbName
+            // lName
             // 
-            this.txbName.Enabled = false;
-            this.txbName.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbName.Location = new System.Drawing.Point(140, 80);
-            this.txbName.MaxLength = 20;
-            this.txbName.Name = "txbName";
-            this.txbName.Size = new System.Drawing.Size(191, 31);
-            this.txbName.TabIndex = 32;
+            this.lName.AutoSize = true;
+            this.lName.BackColor = System.Drawing.SystemColors.Control;
+            this.lName.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lName.Location = new System.Drawing.Point(135, 80);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(58, 25);
+            this.lName.TabIndex = 36;
+            this.lName.Text = "label4";
             // 
             // cbMonth
             // 
@@ -200,9 +204,9 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(426, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 25);
+            this.label2.Size = new System.Drawing.Size(62, 25);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Bộ phận";
+            this.label2.Text = "Phòng";
             // 
             // label3
             // 
@@ -405,10 +409,6 @@
         private System.Windows.Forms.ComboBox cbYear;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbMonth;
-        private System.Windows.Forms.TextBox txbTeam;
-        private System.Windows.Forms.TextBox txbPosition;
-        private System.Windows.Forms.TextBox txbDepartment;
-        private System.Windows.Forms.TextBox txbName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel pn_Minimize;
@@ -417,5 +417,9 @@
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Panel pn_Close;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lPosition;
+        private System.Windows.Forms.Label lDepartment;
+        private System.Windows.Forms.Label lTeam;
+        private System.Windows.Forms.Label lName;
     }
 }

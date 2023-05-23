@@ -128,41 +128,51 @@ namespace Timesheets_System.Views
 
         private void pn_Maximize_Click(object sender, EventArgs e)
         {
-
+            if (WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void pn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void pn_Minimize_MouseEnter_1(object sender, EventArgs e)
         {
-
+            pn_Minimize.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void pn_Minimize_MouseLeave_1(object sender, EventArgs e)
         {
-
+            pn_Minimize.BackColor = COLORS.TITLE_BACKCOLOR;
         }
 
         private void pn_Maximize_MouseEnter_1(object sender, EventArgs e)
         {
-
+            pn_Maximize.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void pn_Maximize_MouseLeave_1(object sender, EventArgs e)
         {
-
+            pn_Maximize.BackColor = COLORS.TITLE_BACKCOLOR;
         }
 
         private void pn_Close_MouseEnter_1(object sender, EventArgs e)
         {
-
+            pn_Close.BackColor = COLORS.TITLE_ENTERCOLOR;
+            btnClose.BackColor = COLORS.TITLE_ENTERCOLOR;
         }
 
         private void pn_Close_MouseLeave_1(object sender, EventArgs e)
         {
-
+            pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
+            btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
         }
         #endregion
     }
