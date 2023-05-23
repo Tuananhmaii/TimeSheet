@@ -44,7 +44,6 @@ namespace Timesheets_System.Views.User
         {
             frmInit();
             loadImage();
-            disableControl();
         }
 
         private void frmInit()
@@ -165,7 +164,7 @@ namespace Timesheets_System.Views.User
         //Khởi tạo button save sau khi muốn thêm nhân viên mới.
         public void createSaveButton()
         {
-            enableControl();
+            this.enableControl();
             btnCancel.Visible = false;
             btnUpdate.Text = "XÁC NHẬN";
         }
@@ -269,7 +268,7 @@ namespace Timesheets_System.Views.User
             }
         }
 
-        private void enableControl()
+        public void enableControl()
         {
             // Cá nhân
             radioButtonMale.Enabled = true;
@@ -293,7 +292,7 @@ namespace Timesheets_System.Views.User
                 cb_Department.Enabled = true;
                 cb_Team.Enabled = true;
                 cb_Position.Enabled = true;
-                txt_ContractNo.Enabled = true;
+                txt_ContractNo.ReadOnly = false;
                 dateTimePickerDateHired.Enabled = true;
             }
             btnCancel.Visible = true;
@@ -311,7 +310,6 @@ namespace Timesheets_System.Views.User
             cb_Team.Enabled = false;
             cb_Position.Enabled = false;
             btnChangePicture.Enabled = false;
-            txt_ContractNo.Enabled = false;
 
             txt_Fullname.ReadOnly = true;
             txt_Phone.ReadOnly = true;
