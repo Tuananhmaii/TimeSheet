@@ -116,11 +116,10 @@ namespace Timesheets_System.Views
         {
             try
             {
-                //Check username, password textbox
-                if (!ElementCheck()) return;
-
                 //Get user by username
                 UserDTO _userDTO = _userController.GetUserByID(txt_Username.Text);
+                //Check username, password textbox
+                if (!ElementCheck()) return;
 
                 //Check username is exist
                 if (_userDTO == null)

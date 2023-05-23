@@ -44,6 +44,7 @@ namespace Timesheets_System.Views.User
         {
             frmInit();
             loadImage();
+            disableControl();
         }
 
         private void frmInit()
@@ -53,7 +54,7 @@ namespace Timesheets_System.Views.User
             cb_Department.DataSource = _departmentDTO;
             cb_Department.DisplayMember = "Department_name";
             cb_Department.ValueMember = "Department_id";
-            cb_Department.SelectedIndex = 6;
+            //cb_Department.SelectedIndex = 6;
 
             //Load team cbx
             string current_department_id = cb_Department.SelectedValue.ToString();
@@ -67,7 +68,7 @@ namespace Timesheets_System.Views.User
             cb_Position.DataSource = _positionDTO;
             cb_Position.DisplayMember = "Position_name";
             cb_Position.ValueMember = "Position_id";
-            cb_Position.SelectedIndex = 2;
+            //cb_Position.SelectedIndex = 2;
 
             //Id sẽ là biến string rỗng khi được gọi từ form DepartmentDetail để thêm user
             //Nên khi nếu bằng "" thì sẽ bỏ qua load form
@@ -89,18 +90,20 @@ namespace Timesheets_System.Views.User
                     }
                     else { radioButtonMale.Checked = false; radioButtonFemale.Checked = true; }
 
-                    if (DateTime.TryParse(_current_user.Birth_Date.ToString(), out myDateTime))
+                    if (_current_user.Birth_Date == DateTime.MinValue)
                     {
-                        dateTimePickerBirthday.Value = myDateTime;
+                        dateTimePickerBirthday.CustomFormat = " ";
+                        dateTimePickerBirthday.Format = DateTimePickerFormat.Custom;
                     }
                     else
                     {
                         dateTimePickerBirthday.Value = _current_user.Birth_Date;
                     }
 
-                    if (DateTime.TryParse(_current_user.Date_Hired.ToString(), out myDateTime))
+                    if (_current_user.Date_Hired == DateTime.MinValue)
                     {
-                        dateTimePickerDateHired.Value = myDateTime;
+                        dateTimePickerDateHired.CustomFormat = " ";
+                        dateTimePickerDateHired.Format = DateTimePickerFormat.Custom;
                     }
                     else
                     {
@@ -126,6 +129,16 @@ namespace Timesheets_System.Views.User
                     else { txt_SocialInsuranceNo.Text = ""; }
                     if (_current_user.Contract_No != null) { txt_ContractNo.Text = _current_user.Contract_No.ToString(); }
                     else { txt_ContractNo.Text = ""; }
+
+                    //if (_current_user.Date_Hired != null) { dateTimePickerDateHired.Value = _current_user.Date_Hired; }
+                    //else
+                    //{
+                    //    dateTimePickerDateHired.CustomFormat = " ";
+                    //    dateTimePickerDateHired.Format = DateTimePickerFormat.Custom;
+
+                    //}
+                    
+
                     if (current_user_value.Department_name != null) { cb_Department.Text = current_user_value.Department_name.ToString(); }
                     else { cb_Department.Text = "Chưa có phòng"; }
                     if (current_user_value.Team_name != null) { cb_Team.Text = current_user_value.Team_name.ToString(); }
@@ -280,7 +293,7 @@ namespace Timesheets_System.Views.User
                 cb_Department.Enabled = true;
                 cb_Team.Enabled = true;
                 cb_Position.Enabled = true;
-                txt_ContractNo.ReadOnly = false;
+                txt_ContractNo.Enabled = true;
                 dateTimePickerDateHired.Enabled = true;
             }
             btnCancel.Visible = true;
@@ -298,6 +311,7 @@ namespace Timesheets_System.Views.User
             cb_Team.Enabled = false;
             cb_Position.Enabled = false;
             btnChangePicture.Enabled = false;
+            txt_ContractNo.Enabled = false;
 
             txt_Fullname.ReadOnly = true;
             txt_Phone.ReadOnly = true;
@@ -309,6 +323,7 @@ namespace Timesheets_System.Views.User
             txt_CitizenId.ReadOnly = true;
             txt_SocialInsuranceNo.ReadOnly = true;
             txt_ContractNo.ReadOnly = true;
+
             btnCancel.Visible = false;
             btnUpdate.Text = "CẬP NHẬT";
             btnUpdate.Size = new Size(104, 39);
@@ -326,7 +341,6 @@ namespace Timesheets_System.Views.User
             cb_Team.ValueMember = "Team_id";
         }
 
-        #region "Custom title"
         private void btnCancel_Click(object sender, EventArgs e)
         {
             disableControl();
@@ -503,6 +517,7 @@ namespace Timesheets_System.Views.User
         {
             this.Close();
         }
+        #region "Custom title"
 
         private void btnMaximize_Click(object sender, EventArgs e)
         {
@@ -563,6 +578,6 @@ namespace Timesheets_System.Views.User
         {
             panel8.BackColor = COLORS.TITLE_BACKCOLOR;
         }
-        #endregion
+#endregion
     }
 }

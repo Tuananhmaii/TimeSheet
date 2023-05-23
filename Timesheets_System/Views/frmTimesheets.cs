@@ -18,7 +18,7 @@ using Timesheets_System.Models.DTO;
 using Timesheets_System.Common.Const;
 
 namespace Timesheets_System.Views
-{ 
+{
     public partial class frmTimesheets : Form
     {
         UserController _userController = new UserController();
@@ -38,40 +38,23 @@ namespace Timesheets_System.Views
         private void frmTimesheets_Load(object sender, EventArgs e)
         {
             frmInit();
+            foundDayInMonth();
         }
 
         private void frmInit()
         {
             curren_user = frmLogin.loggedUser;
-            lblAdmin.Text = curren_user.Fullname.ToString();
             UserDTO current_user_value = _userController.GetForeignValue(curren_user.Username);
-            lblDepartment.Text = current_user_value.Department_name;
         }
 
         // Tìm số ngày trong tháng
         private void foundDayInMonth()
         {
-            int start = 0; // index of the name column
+            cbMonth.DataSource = Enumerable.Range(1, 12).ToList();
+            cbMonth.SelectedItem = DateTime.Now.Month - 1;
 
-            int daysInMonth = DateTime.DaysInMonth(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month); // lấy số ngày trong tháng
-            for (int i = 0; i < listView1.Columns.Count; i++)
-            {
-                if (i == start)
-                {
-                    listView1.Columns[i].Width = 160;
-                }
-                if (i < daysInMonth + 1 && i > start)
-                {
-                    listView1.Columns[i].Width = 60;
-                }
-                else
-                {
-                    listView1.Columns[i].Width = 0;
-                }
-            }
-            listView1.Columns[32].Width = 100;
-            listView1.Columns[33].Width = 100;
-
+            cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
+            cbYear.SelectedItem = DateTime.Now.Year;
         }
 
         private void btn_UploadData_Click(object sender, EventArgs e)
@@ -222,171 +205,54 @@ namespace Timesheets_System.Views
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
-            try
+            TimesheetsDTO timesheetsDTO = new TimesheetsDTO();
+            timesheetsDTO.Year = Int32.Parse(cbYear.Text);
+            timesheetsDTO.Month = Int32.Parse(cbMonth.Text);
+
+            dtvgTimeSheet.DataSource = _timesheetsController.GetTimeSheetsByMonth(timesheetsDTO);
+            dtvgTimeSheet.AutoGenerateColumns = false;
+            dtvgTimeSheet.Columns["month"].Visible = false;
+            dtvgTimeSheet.Columns["year"].Visible = false;
+
+            if(dtvgTimeSheet.Rows.Count == 0)
             {
-                
-                TimesheetsDTO timesheetsDTO = new TimesheetsDTO();
-                timesheetsDTO.Year = dateTimePicker1.Value.Year;
-                timesheetsDTO.Month = dateTimePicker1.Value.Month;
-                //timesheetsDetailsDTO.month = dateTimePicker1.Value.Month;
-
-                List<TimesheetsDTO> _timesheetsDTO = _timesheetsController.GetTimeSheetsByMonth(timesheetsDTO);
-                //Display data in the materialListView
-                listView1.Columns.Clear();
-                listView1.Items.Clear();
-                listView1.FullRowSelect = true;
-            
-                listView1.Columns.Add("fullname");
-                listView1.Columns.Add("d1");
-                listView1.Columns.Add("d2");
-                listView1.Columns.Add("d3");
-                listView1.Columns.Add("d4");
-                listView1.Columns.Add("d5");
-                listView1.Columns.Add("d6");
-                listView1.Columns.Add("d7");
-                listView1.Columns.Add("d8");
-                listView1.Columns.Add("d9");
-                listView1.Columns.Add("d10");
-                listView1.Columns.Add("d11");
-                listView1.Columns.Add("d12");
-                listView1.Columns.Add("d13");
-                listView1.Columns.Add("d14");
-                listView1.Columns.Add("d15");
-                listView1.Columns.Add("d16");
-                listView1.Columns.Add("d17");
-                listView1.Columns.Add("d18");
-                listView1.Columns.Add("d19");
-                listView1.Columns.Add("d20");
-                listView1.Columns.Add("d21");
-                listView1.Columns.Add("d22");
-                listView1.Columns.Add("d23");
-                listView1.Columns.Add("d24");
-                listView1.Columns.Add("d25");
-                listView1.Columns.Add("d26");
-                listView1.Columns.Add("d27");
-                listView1.Columns.Add("d28");
-                listView1.Columns.Add("d29");
-                listView1.Columns.Add("d30");
-                listView1.Columns.Add("d31");
-                listView1.Columns.Add("total_working_days");
-                listView1.Columns.Add("total_working_hours");
-
-                // customize the appearance of the control
-                listView1.UseCompatibleStateImageBehavior = false;
-                listView1.View = View.Details;
-                               
-                listView1.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-
-                // Change the background color of the column headers
-                listView1.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-                //listView1.HeaderBackColor = Color.FromArgb(55, 71, 79);
-
-                // Set the font and foreground color of the column headers
-                listView1.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-                //listView1.HeaderFont = new Font("Segoe UI", 9, FontStyle.Bold);
-                //listView1.HeaderForeColor = Color.White;
-
-                // Change the background color of the items in the control
-                listView1.BackColor = Color.White;
-                //listView1.AlternateBackColor = Color.FromArgb(242, 242, 242);
-
-                // Set the font and foreground color of the items in the control
-                listView1.ForeColor = Color.Black;
-                listView1.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-
-                // Set the alignment of the columns
-                listView1.Columns[0].TextAlign = HorizontalAlignment.Center;
-
-                // customize the appearance of the columns
-                foundDayInMonth();
-                listView1.Columns[0].Width = 160;
-
-                // customize the text of the columns
-                listView1.Columns[0].Text = "Họ và tên";
-
-                int days = 1;
-                for (int i = 1; i < 32; i++)
-                {
-                    listView1.Columns[days].Text = days.ToString();
-                    days += 1;
-                }
-                listView1.Columns[32].Text = "Tổng ngày làm";
-                listView1.Columns[33].Text = "Tổng giờ làm";
-
-                foreach (TimesheetsDTO items in _timesheetsDTO)
-                {
-                    var item = new ListViewItem(new[]
-                    {
-                        items.Fullname,
-                        items.D1.ToString(),
-                        items.D2.ToString(),
-                        items.D3.ToString(),
-                        items.D4.ToString(),
-                        items.D5.ToString(),
-                        items.D6.ToString(),
-                        items.D7.ToString(),
-                        items.D8.ToString(),
-                        items.D9.ToString(),
-                        items.D10.ToString(),
-                        items.D11.ToString(),
-                        items.D12.ToString(),
-                        items.D13.ToString(),
-                        items.D14.ToString(),
-                        items.D15.ToString(),
-                        items.D16.ToString(),
-                        items.D17.ToString(),
-                        items.D18.ToString(),
-                        items.D19.ToString(),
-                        items.D20.ToString(),
-                        items.D21.ToString(),
-                        items.D22.ToString(),
-                        items.D23.ToString(),
-                        items.D24.ToString(),
-                        items.D25.ToString(),
-                        items.D26.ToString(),
-                        items.D27.ToString(),
-                        items.D28.ToString(),
-                        items.D29.ToString(),
-                        items.D30.ToString(),
-                        items.D31.ToString(),
-                        items.Total_Working_Days.ToString(),
-                        items.Total_Working_Hours.ToString()
-                    });
-                    listView1.Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" + ex.Message);
+                MessageBox.Show("Không có data", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
         }
 
-        private void listView1_DoubleClick(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                ListViewItem selected = listView1.SelectedItems[0];
-                string current_user_name = selected.SubItems[0].Text;
-                UserDTO selectedUser = new UserDTO();
-                selectedUser = _userController.GetUserByFullname(current_user_name);
-                string current_user_id = selectedUser.Username.ToString();
-                DateTime seletedDateTime = new DateTime();
-                seletedDateTime = dateTimePicker1.Value;
-                if (string.IsNullOrEmpty(current_user_id))
-                {
-                    MessageBox.Show("Cannot derect!");
-                }
-                else
-                {
-                    frmPersonalTimesheet frmPersonalTimesheet = new frmPersonalTimesheet(current_user_id, seletedDateTime);
-                    frmPersonalTimesheet.ShowDialog();
-                }
-                
-                
-                //MessageBox.Show("Current user: " + current_user);
-                // do something with the selected item
-            }
-        }
+        //private void listView1_DoubleClick(object sender, EventArgs e)
+        //{
+        //    if (listView1.SelectedItems.Count > 0)
+        //    {
+        //        ListViewItem selected = listView1.SelectedItems[0];
+        //        string current_user_name = selected.SubItems[0].Text;
+        //        UserDTO selectedUser = new UserDTO();
+        //        selectedUser = _userController.GetUserByFullname(current_user_name);
+        //        string current_user_id = selectedUser.Username.ToString();
+
+        //        string yearMonthString = $"{cbYear.Text}-{cbMonth.Text}";
+        //        string format = "yyyy-MM";
+        //        DateTime seletedDateTime = new DateTime();
+
+        //        seletedDateTime = DateTime.ParseExact(yearMonthString, format, CultureInfo.InvariantCulture);
+
+
+        //        if (string.IsNullOrEmpty(current_user_id))
+        //        {
+        //            MessageBox.Show("Cannot derect!");
+        //        }
+        //        else
+        //        {
+        //            frmPersonalTimesheet frmPersonalTimesheet = new frmPersonalTimesheet(current_user_id, seletedDateTime);
+        //            frmPersonalTimesheet.ShowDialog();
+        //        }
+
+
+        //        //MessageBox.Show("Current user: " + current_user);
+        //        // do something with the selected item
+        //    }
+        //}
         #region "Custom title"
         //Move form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

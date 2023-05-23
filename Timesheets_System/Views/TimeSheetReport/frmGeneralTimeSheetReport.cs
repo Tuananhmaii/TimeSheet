@@ -79,7 +79,7 @@ namespace Timesheets_System.Views
             }
         }
 
-        private void btExportData_Click(object sender, EventArgs e)
+        private void btExportData_Click_1(object sender, EventArgs e)
         {
             var list = _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(), Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (!list.Any())
@@ -179,5 +179,6 @@ namespace Timesheets_System.Views
             btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
         }
         #endregion
+
     }
 }
