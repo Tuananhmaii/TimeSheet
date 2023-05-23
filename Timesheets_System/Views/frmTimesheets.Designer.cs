@@ -75,7 +75,6 @@
             this.btnMaximize = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btn_Submit = new System.Windows.Forms.Button();
             this.btn_UploadData = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -256,20 +255,6 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // materialLabel1
-            // 
-            this.materialLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(72, 23);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(72, 19);
-            this.materialLabel1.TabIndex = 36;
-            this.materialLabel1.Text = "Thời gian:";
-            // 
             // btn_Submit
             // 
             this.btn_Submit.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -278,7 +263,7 @@
             this.btn_Submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Submit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Submit.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_Submit.Location = new System.Drawing.Point(925, 52);
+            this.btn_Submit.Location = new System.Drawing.Point(848, 44);
             this.btn_Submit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(139, 48);
@@ -295,7 +280,7 @@
             this.btn_UploadData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_UploadData.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_UploadData.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_UploadData.Location = new System.Drawing.Point(1156, 52);
+            this.btn_UploadData.Location = new System.Drawing.Point(1078, 44);
             this.btn_UploadData.Margin = new System.Windows.Forms.Padding(4);
             this.btn_UploadData.Name = "btn_UploadData";
             this.btn_UploadData.Size = new System.Drawing.Size(183, 48);
@@ -312,7 +297,6 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btn_UploadData);
             this.panel2.Controls.Add(this.btn_Submit);
-            this.panel2.Controls.Add(this.materialLabel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 44);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -325,7 +309,7 @@
             this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMonth.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMonth.FormattingEnabled = true;
-            this.cbMonth.Location = new System.Drawing.Point(544, 59);
+            this.cbMonth.Location = new System.Drawing.Point(463, 59);
             this.cbMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMonth.Name = "cbMonth";
             this.cbMonth.Size = new System.Drawing.Size(191, 33);
@@ -335,7 +319,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(439, 67);
+            this.label8.Location = new System.Drawing.Point(458, 24);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 25);
             this.label8.TabIndex = 48;
@@ -346,7 +330,7 @@
             this.cbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbYear.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbYear.FormattingEnabled = true;
-            this.cbYear.Location = new System.Drawing.Point(153, 59);
+            this.cbYear.Location = new System.Drawing.Point(41, 59);
             this.cbYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbYear.Name = "cbYear";
             this.cbYear.Size = new System.Drawing.Size(191, 33);
@@ -356,7 +340,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(42, 67);
+            this.label2.Location = new System.Drawing.Point(36, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 25);
             this.label2.TabIndex = 46;
@@ -367,7 +351,7 @@
             this.dtvgTimeSheet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtvgTimeSheet.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dtvgTimeSheet.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
@@ -430,6 +414,7 @@
             this.dtvgTimeSheet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvgTimeSheet.Size = new System.Drawing.Size(1920, 895);
             this.dtvgTimeSheet.TabIndex = 50;
+            this.dtvgTimeSheet.DoubleClick += new System.EventHandler(this.dtvgTimeSheet_DoubleClick);
             // 
             // Column1
             // 
@@ -926,7 +911,6 @@
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnClose;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.Button btn_Submit;
         private System.Windows.Forms.Button btn_UploadData;
         private System.Windows.Forms.Panel panel2;
