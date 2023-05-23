@@ -18,72 +18,131 @@ namespace Timesheets_System.Views.User
 {
     public partial class frmUserList : Form
     {
+        UserController _userController = new UserController();
         DepartmentController _departmentController = new DepartmentController();
+        TeamController _teamController = new TeamController();
+        PositionController _positionController = new PositionController();
+        List<UserDTO> userDTOs = new List<UserDTO> { new UserDTO() };
+        List<UserDTO> UserListByTeam = new List<UserDTO>();
         public frmUserList()
         {
             InitializeComponent();
+            FormInit();
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        private void frmUserList_Load(object sender, EventArgs e)
+        private void FormInit()
         {
-            tabPage1.Text = "Tất cả nhân viên";
-            Show_All_Employees();
-            Get_Tab();
-            this.WindowState = FormWindowState.Maximized;
+            cb_Department.Items.Clear();
+            cb_Position.Items.Clear();
+            cb_Team.Items.Clear();
         }
 
-        //Hàm tạo page
-        private void createTab(DepartmentDTO department, string name)
+        //Tự động thay đổi cbteam sau khi thay đổi cbdepartment
+        private void cb_Department_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            // create a new tab page for the department
-            TabPage tabPage = new TabPage(name);
-
-            // add any controls to the tab page as needed
-            frmDepartmentDetail frmDepartment = new frmDepartmentDetail(department.Department_id);
-            frmDepartment.TopLevel = false;
-            frmDepartment.AutoScroll = true;
-            frmDepartment.FormBorderStyle = FormBorderStyle.None;
-            frmDepartment.Dock = DockStyle.Fill;
-            frmDepartment.Show();
-
-            tabPage.Controls.Add(frmDepartment);
-
-            // add the tab page to the tab control
-            tabUserList.TabPages.Add(tabPage);
+            //Load team cbx
+            string current_department_id = cb_Department.SelectedValue.ToString();
+            List<TeamDTO> _teamDTO = _teamController.GetTeamDTO(current_department_id);
+            cb_Team.DataSource = _teamDTO;
+            cb_Team.DisplayMember = "Team_name";
+            cb_Team.ValueMember = "Team_id";
+            cb_Team.Text = "";
+            cb_Position.Text = "";
+            LoadData(current_department_id, 0);
         }
 
-        //Tạo các tab mới cho từng phòng
-        private void Get_Tab()
+        private void cb_Team_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            List<DepartmentDTO> _departmentDTO = _departmentController.GetDepartmentDTO();
-            int count = _departmentDTO.Count;
-            Console.WriteLine(count);
-            foreach (DepartmentDTO department in _departmentDTO)
+            try
             {
-                if (department.Department_name != "Chưa có phòng")
-                {
-                    createTab(department, department.Department_name);
-                }
-                else
-                {
-                    createTab(department, "Tất cả nhân viên đã có phòng");
-                }
+                string current_team_id = cb_Team.SelectedValue.ToString();
+                cb_Position.Text = "";
+                LoadData(current_team_id, 1);
+            }
+            catch { }
+            
+        }
+
+        private void cb_Position_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string current_position_id = cb_Position.SelectedValue.ToString();
+            LoadData(current_position_id, 2);
+        }
+
+        private void cb_Department_MouseClick(object sender, MouseEventArgs e)
+        {
+            //Load department cbx
+            List<DepartmentDTO> _departmentDTO = _departmentController.GetDepartmentDTO();
+            cb_Department.DataSource = _departmentDTO;
+            cb_Department.DisplayMember = "Department_name";
+            cb_Department.ValueMember = "Department_id";
+        }
+
+        private void cb_Position_MouseClick(object sender, MouseEventArgs e)
+        {
+            //Load position cbx
+            List<PositionDTO> _positionDTO = _positionController.GetPositionDTO();
+            cb_Position.DataSource = _positionDTO;
+            cb_Position.DisplayMember = "Position_name";
+            cb_Position.ValueMember = "Position_id";
+        }
+
+        private void LoadData(string caption, int from)
+        {
+            if (from == 0)
+            {
+                userDTOs = _userController.GetUsersByDepartment(caption);
+                dtgvDepartmentDetail.DataSource = userDTOs;
+            }
+            if (from == 1)
+            {
+                UserListByTeam = userDTOs.Where(userDTOs => userDTOs.Team_id == caption).ToList();
+                dtgvDepartmentDetail.DataSource = UserListByTeam;
+            }
+            if (from == 2)
+            {
+                var UsersByPosition = userDTOs.Where(UserListByTeam => UserListByTeam.Position_id == caption && UserListByTeam.Team_id == cb_Team.SelectedValue.ToString()).ToList();
+                dtgvDepartmentDetail.DataSource = UsersByPosition;
+            }            
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (frmLogin.loggedUser.Auth_Group_ID == PERMISSION_AUTH_GROUP.ADMIN)
+            {
+                frmUserDetail newUser = new frmUserDetail();
+                newUser.SetUsername("");
+                newUser.createSaveButton();
+                newUser.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa có quyền thực hiện thao tác này!");
             }
         }
 
-        //Tab để hiển thị tất cả nhân viên
-        private void Show_All_Employees()
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            frmDepartmentDetail frmDepartmentAll = new frmDepartmentDetail(tabPage1.Text);
-            frmDepartmentAll.TopLevel = false;
-            frmDepartmentAll.AutoScroll = true;
-            frmDepartmentAll.FormBorderStyle = FormBorderStyle.None;
-            frmDepartmentAll.Dock = DockStyle.Fill;
-            frmDepartmentAll.Show();
-            tabPage1.Controls.Add(frmDepartmentAll);
+            try
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = dtgvDepartmentDetail.SelectedRows[0];
+
+                // Get the username of the first column of the selected row
+                string username = selectedRow.Cells[0].Value.ToString();
+                if (MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    _userController.DeleteUserByID(username);
+                    MessageBox.Show("Xóa nhân viên thành công!");
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("Bạn cần chọn nhận viên để xóa!");
+            }
         }
 
         #region "Custom title"
@@ -151,6 +210,11 @@ namespace Timesheets_System.Views.User
         {
             panel8.BackColor = COLORS.TITLE_BACKCOLOR;
         }
+
+
+
+
+
         #endregion
 
         
