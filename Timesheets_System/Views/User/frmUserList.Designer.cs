@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -43,6 +43,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.cb_Position = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cb_Team = new System.Windows.Forms.ComboBox();
@@ -52,30 +53,29 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dtgvDepartmentDetail = new System.Windows.Forms.DataGridView();
-            this.Photo = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Birth_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Team_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ethnic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Religion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Citizen_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tax_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Social_Insurance_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date_Hired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contract_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Auth_Group_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tax_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Department_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Team_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Auth_Group_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.Social_Insurance_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Photo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_Hired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -227,6 +227,22 @@
             this.panel2.Size = new System.Drawing.Size(1084, 49);
             this.panel2.TabIndex = 4;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(235)))));
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Location = new System.Drawing.Point(750, 10);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(104, 31);
+            this.btnRefresh.TabIndex = 33;
+            this.btnRefresh.Text = "LÀM MỚI";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // cb_Position
             // 
             this.cb_Position.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
@@ -326,52 +342,52 @@
             this.dtgvDepartmentDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvDepartmentDetail.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dtgvDepartmentDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDepartmentDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDepartmentDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvDepartmentDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDepartmentDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Photo,
-            this.Username,
-            this.Password,
             this.Fullname,
             this.Email,
             this.Birth_Date,
             this.Phone,
+            this.Address,
+            this.Department_name,
+            this.Team_name,
+            this.Position_name,
+            this.Gender,
+            this.Username,
+            this.Password,
             this.Ethnic,
             this.Religion,
             this.Citizen_ID,
-            this.Tax_Code,
-            this.Social_Insurance_No,
-            this.Address,
-            this.Date_Hired,
             this.Contract_No,
+            this.Auth_Group_ID,
+            this.Tax_Code,
             this.Department_id,
             this.Team_id,
-            this.Department_name,
-            this.Team_name,
             this.Position_id,
-            this.Position_name,
-            this.Auth_Group_ID,
-            this.Gender});
+            this.Social_Insurance_No,
+            this.Photo,
+            this.Date_Hired});
             this.dtgvDepartmentDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvDepartmentDetail.GridColor = System.Drawing.SystemColors.Highlight;
             this.dtgvDepartmentDetail.Location = new System.Drawing.Point(0, 85);
             this.dtgvDepartmentDetail.Margin = new System.Windows.Forms.Padding(2);
             this.dtgvDepartmentDetail.Name = "dtgvDepartmentDetail";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDepartmentDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDepartmentDetail.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvDepartmentDetail.RowHeadersVisible = false;
             this.dtgvDepartmentDetail.RowHeadersWidth = 51;
             this.dtgvDepartmentDetail.RowTemplate.Height = 24;
@@ -379,32 +395,6 @@
             this.dtgvDepartmentDetail.Size = new System.Drawing.Size(1084, 444);
             this.dtgvDepartmentDetail.TabIndex = 5;
             this.dtgvDepartmentDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDepartmentDetail_CellDoubleClick);
-            // 
-            // Photo
-            // 
-            this.Photo.DataPropertyName = "Photo";
-            this.Photo.HeaderText = "Ảnh đại diện";
-            this.Photo.Name = "Photo";
-            this.Photo.ReadOnly = true;
-            this.Photo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Photo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Photo.Visible = false;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Tài khoản";
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            this.Username.Visible = false;
-            // 
-            // Password
-            // 
-            this.Password.DataPropertyName = "Password";
-            this.Password.HeaderText = "Mật khẩu";
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            this.Password.Visible = false;
             // 
             // Fullname
             // 
@@ -434,84 +424,12 @@
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
             // 
-            // Ethnic
-            // 
-            this.Ethnic.DataPropertyName = "Ethnic";
-            this.Ethnic.HeaderText = "Dân tộc";
-            this.Ethnic.Name = "Ethnic";
-            this.Ethnic.ReadOnly = true;
-            this.Ethnic.Visible = false;
-            // 
-            // Religion
-            // 
-            this.Religion.DataPropertyName = "Religion";
-            this.Religion.HeaderText = "Tôn giáo";
-            this.Religion.Name = "Religion";
-            this.Religion.ReadOnly = true;
-            this.Religion.Visible = false;
-            // 
-            // Citizen_ID
-            // 
-            this.Citizen_ID.DataPropertyName = "Citizen_ID";
-            this.Citizen_ID.HeaderText = "CCCD/CMND";
-            this.Citizen_ID.Name = "Citizen_ID";
-            this.Citizen_ID.ReadOnly = true;
-            this.Citizen_ID.Visible = false;
-            // 
-            // Tax_Code
-            // 
-            this.Tax_Code.DataPropertyName = "Tax_Code";
-            this.Tax_Code.HeaderText = "Mã số thuế";
-            this.Tax_Code.Name = "Tax_Code";
-            this.Tax_Code.ReadOnly = true;
-            this.Tax_Code.Visible = false;
-            // 
-            // Social_Insurance_No
-            // 
-            this.Social_Insurance_No.DataPropertyName = "Social_Insurance_No";
-            this.Social_Insurance_No.HeaderText = "Mã số BHXH";
-            this.Social_Insurance_No.Name = "Social_Insurance_No";
-            this.Social_Insurance_No.ReadOnly = true;
-            this.Social_Insurance_No.Visible = false;
-            // 
             // Address
             // 
             this.Address.DataPropertyName = "Address";
             this.Address.HeaderText = "Địa chỉ";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
-            // 
-            // Date_Hired
-            // 
-            this.Date_Hired.DataPropertyName = "Date_Hired";
-            this.Date_Hired.HeaderText = "Ngày vào";
-            this.Date_Hired.Name = "Date_Hired";
-            this.Date_Hired.ReadOnly = true;
-            this.Date_Hired.Visible = false;
-            // 
-            // Contract_No
-            // 
-            this.Contract_No.DataPropertyName = "Contract_No";
-            this.Contract_No.HeaderText = "Hợp đồng số";
-            this.Contract_No.Name = "Contract_No";
-            this.Contract_No.ReadOnly = true;
-            this.Contract_No.Visible = false;
-            // 
-            // Department_id
-            // 
-            this.Department_id.DataPropertyName = "Department_id";
-            this.Department_id.HeaderText = "Phòng";
-            this.Department_id.Name = "Department_id";
-            this.Department_id.ReadOnly = true;
-            this.Department_id.Visible = false;
-            // 
-            // Team_id
-            // 
-            this.Team_id.DataPropertyName = "Team_id";
-            this.Team_id.HeaderText = "Team";
-            this.Team_id.Name = "Team_id";
-            this.Team_id.ReadOnly = true;
-            this.Team_id.Visible = false;
             // 
             // Department_name
             // 
@@ -525,26 +443,11 @@
             this.Team_name.HeaderText = "Team";
             this.Team_name.Name = "Team_name";
             // 
-            // Position_id
-            // 
-            this.Position_id.DataPropertyName = "Position_id";
-            this.Position_id.HeaderText = "Chức vụ";
-            this.Position_id.Name = "Position_id";
-            this.Position_id.ReadOnly = true;
-            this.Position_id.Visible = false;
-            // 
             // Position_name
             // 
             this.Position_name.DataPropertyName = "Position_name";
             this.Position_name.HeaderText = "Chức vụ";
             this.Position_name.Name = "Position_name";
-            // 
-            // Auth_Group_ID
-            // 
-            this.Auth_Group_ID.DataPropertyName = "Auth_Group_ID";
-            this.Auth_Group_ID.HeaderText = "Quyền";
-            this.Auth_Group_ID.Name = "Auth_Group_ID";
-            this.Auth_Group_ID.Visible = false;
             // 
             // Gender
             // 
@@ -553,21 +456,103 @@
             this.Gender.Name = "Gender";
             this.Gender.Visible = false;
             // 
-            // btnRefresh
+            // Username
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(235)))));
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Location = new System.Drawing.Point(750, 10);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(104, 31);
-            this.btnRefresh.TabIndex = 33;
-            this.btnRefresh.Text = "LÀM MỚI";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Taikhoan";
+            this.Username.Name = "Username";
+            this.Username.Visible = false;
+            // 
+            // Password
+            // 
+            this.Password.DataPropertyName = "Password";
+            this.Password.HeaderText = "Mat khau";
+            this.Password.Name = "Password";
+            this.Password.Visible = false;
+            // 
+            // Ethnic
+            // 
+            this.Ethnic.DataPropertyName = "Ethnic";
+            this.Ethnic.HeaderText = "Ethnic";
+            this.Ethnic.Name = "Ethnic";
+            this.Ethnic.Visible = false;
+            // 
+            // Religion
+            // 
+            this.Religion.DataPropertyName = "Religion";
+            this.Religion.HeaderText = "Religion";
+            this.Religion.Name = "Religion";
+            this.Religion.Visible = false;
+            // 
+            // Citizen_ID
+            // 
+            this.Citizen_ID.DataPropertyName = "Citizen_ID";
+            this.Citizen_ID.HeaderText = "Citizen_ID";
+            this.Citizen_ID.Name = "Citizen_ID";
+            this.Citizen_ID.Visible = false;
+            // 
+            // Contract_No
+            // 
+            this.Contract_No.DataPropertyName = "Contract_No";
+            this.Contract_No.HeaderText = "Contract_No";
+            this.Contract_No.Name = "Contract_No";
+            this.Contract_No.Visible = false;
+            // 
+            // Auth_Group_ID
+            // 
+            this.Auth_Group_ID.DataPropertyName = "Auth_Group_ID";
+            this.Auth_Group_ID.HeaderText = "Auth_Group_ID";
+            this.Auth_Group_ID.Name = "Auth_Group_ID";
+            this.Auth_Group_ID.Visible = false;
+            // 
+            // Tax_Code
+            // 
+            this.Tax_Code.DataPropertyName = "Tax_Code";
+            this.Tax_Code.HeaderText = "Tax_Code";
+            this.Tax_Code.Name = "Tax_Code";
+            this.Tax_Code.Visible = false;
+            // 
+            // Department_id
+            // 
+            this.Department_id.DataPropertyName = "Department_id";
+            this.Department_id.HeaderText = "Department_id";
+            this.Department_id.Name = "Department_id";
+            this.Department_id.Visible = false;
+            // 
+            // Team_id
+            // 
+            this.Team_id.DataPropertyName = "Team_id";
+            this.Team_id.HeaderText = "Team_id";
+            this.Team_id.Name = "Team_id";
+            this.Team_id.Visible = false;
+            // 
+            // Position_id
+            // 
+            this.Position_id.DataPropertyName = "Position_id";
+            this.Position_id.HeaderText = "Position_id";
+            this.Position_id.Name = "Position_id";
+            this.Position_id.Visible = false;
+            // 
+            // Social_Insurance_No
+            // 
+            this.Social_Insurance_No.DataPropertyName = "Social_Insurance_No";
+            this.Social_Insurance_No.HeaderText = "Social_Insurance_No";
+            this.Social_Insurance_No.Name = "Social_Insurance_No";
+            this.Social_Insurance_No.Visible = false;
+            // 
+            // Photo
+            // 
+            this.Photo.DataPropertyName = "Photo";
+            this.Photo.HeaderText = "Photo";
+            this.Photo.Name = "Photo";
+            this.Photo.Visible = false;
+            // 
+            // Date_Hired
+            // 
+            this.Date_Hired.DataPropertyName = "Date_Hired";
+            this.Date_Hired.HeaderText = "Date_Hired";
+            this.Date_Hired.Name = "Date_Hired";
+            this.Date_Hired.Visible = false;
             // 
             // frmUserList
             // 
@@ -614,29 +599,29 @@
         private System.Windows.Forms.ComboBox cb_Department;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dtgvDepartmentDetail;
-        private System.Windows.Forms.DataGridViewImageColumn Photo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Birth_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Department_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Team_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position_name;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ethnic;
         private System.Windows.Forms.DataGridViewTextBoxColumn Religion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Citizen_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tax_Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Social_Insurance_No;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date_Hired;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contract_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Auth_Group_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tax_Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Department_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Team_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Department_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Team_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Position_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Auth_Group_ID;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Gender;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Social_Insurance_No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Photo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date_Hired;
     }
 }
