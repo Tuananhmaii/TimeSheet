@@ -51,13 +51,13 @@ namespace Timesheets_System.Views
             report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDetailDS",
                 _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
 
-            ReportParameter pName = new ReportParameter("pName", txbName.Text.ToString());
+            ReportParameter pName = new ReportParameter("pName", lName.Text.ToString());
             report.LocalReport.SetParameters(pName);
-            ReportParameter pDepartment = new ReportParameter("pDepartment", txbDepartment.Text.ToString());
+            ReportParameter pDepartment = new ReportParameter("pDepartment", lDepartment.Text.ToString());
             report.LocalReport.SetParameters(pDepartment);
-            ReportParameter pTeam = new ReportParameter("pTeam", txbTeam.Text.ToString());
+            ReportParameter pTeam = new ReportParameter("pTeam", lTeam.Text.ToString());
             report.LocalReport.SetParameters(pTeam);
-            ReportParameter pPosition = new ReportParameter("pPosition", txbPosition.Text.ToString());
+            ReportParameter pPosition = new ReportParameter("pPosition", lPosition.Text.ToString());
             report.LocalReport.SetParameters(pPosition);
             ReportParameter pYear = new ReportParameter("pYear", cbYear.Text.ToString());
             report.LocalReport.SetParameters(pYear);
@@ -92,10 +92,10 @@ namespace Timesheets_System.Views
             string userId = frmLogin.loggedUser.Username;
             UserDTO user = _userController.GetForeignValue(userId);
 
-            txbName.Text = user.Fullname;
-            txbPosition.Text = user.Position_name;
-            txbDepartment.Text = user.Department_name;
-            txbTeam.Text = user.Team_name;
+            lName.Text = user.Fullname;
+            lPosition.Text = user.Position_name;
+            lDepartment.Text = user.Department_name;
+            lTeam.Text = user.Team_name;
 
         }
         private void btExportData_Click(object sender, EventArgs e)
