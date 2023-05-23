@@ -14,7 +14,7 @@ using Timesheets_System.Models.DTO;
 
 namespace Timesheets_System.Views
 {
-    public partial class frmPersonalTimesheet : MaterialForm
+    public partial class frmPersonalTimesheet : Form
     {
         Point mouseOffset;
         UserController _userController = new UserController();
@@ -24,10 +24,6 @@ namespace Timesheets_System.Views
         public frmPersonalTimesheet(string current_user_id, DateTime dateTime)
         {
             InitializeComponent();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.LightBlue800, Primary.LightBlue700, Primary.LightBlue500, Accent.LightBlue200, TextShade.WHITE);
         }
 
         private void frmPersonalTimesheet_Load(object sender, EventArgs e)

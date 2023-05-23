@@ -136,29 +136,29 @@ namespace Timesheets_System.Views
                 }
 
                 //Get authentication of user with menu screen
-                //ScreenAuthDTO _screenAuthDTO = new ScreenAuthDTO();
-                //_screenAuthDTO.Auth_Group_ID = _userDTO.Auth_Group_ID;
-                //_screenAuthDTO.Screen_ID = "frmMenu";
-                //_screenAuthDTO.Allowed_To_Open = PERMISSION_TO_OPEN_SCREEN.ALLOWED;
+                ScreenAuthDTO _screenAuthDTO = new ScreenAuthDTO();
+                _screenAuthDTO.Auth_Group_ID = _userDTO.Auth_Group_ID;
+                _screenAuthDTO.Screen_ID = "frmMenu";
+                _screenAuthDTO.Allowed_To_Open = PERMISSION_TO_OPEN_SCREEN.ALLOWED;
 
-                //_screenAuthDTO = _screenAuthController.GetScreenAuthByAuthGrID(_screenAuthDTO);
+                _screenAuthDTO = _screenAuthController.GetScreenAuthByAuthGrID(_screenAuthDTO);
 
-                //if (_screenAuthDTO == null)
-                //{
-                //    //User not permission to access menu
-                //    MessageBox.Show("Bạn chưa có quyền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    return;
-                //}
-                //else
-                //{
-                //User can access menu
-                frmMenu frmMenu = new frmMenu();
+                if (_screenAuthDTO == null)
+                {
+                    //User not permission to access menu
+                    MessageBox.Show("Bạn chưa có quyền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    //User can access menu
+                    frmMenu frmMenu = new frmMenu();
                 loggedUser = _userDTO;
                 user_id = _userDTO.Username;
                 Thread.Sleep(500);
                 frmMenu.Show();
                 this.Hide();
-                //}
+                }
             }
             catch (Exception ex)
             {

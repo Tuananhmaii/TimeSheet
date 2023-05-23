@@ -215,8 +215,30 @@ namespace Timesheets_System.Views.User
 
 
 
+
         #endregion
 
-        
+        private void dtgvDepartmentDetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Get the selected row
+            DataGridViewRow selectedRow = dtgvDepartmentDetail.SelectedRows[0];
+
+            // Get the value of the first column of the selected row
+            string value = selectedRow.Cells[0].Value.ToString();
+
+            // create a new instance of the form to be opened
+            frmUserDetail myNewForm = new frmUserDetail();
+
+            if (frmLogin.loggedUser.Auth_Group_ID != PERMISSION_AUTH_GROUP.ADMIN)
+            {
+                myNewForm.DisableUpdatebtn();
+            }
+            // Set any necessary properties on the new form here...
+            // For example, you can pass the value of the first column to the new form
+            myNewForm.SetUsername(value);
+
+            // Show the new form
+            myNewForm.Show();
+        }
     }
 }
