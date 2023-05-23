@@ -19,37 +19,57 @@ namespace Timesheets_System.Views
         Point mouseOffset;
         UserController _userController = new UserController();
         TimesheetsDetailsController _timesSheetDetailController = new TimesheetsDetailsController();
-        string userName = frmLogin.loggedUser.Username;
 
-        public frmPersonalTimesheet(string current_user_id, DateTime dateTime)
+        public frmPersonalTimesheet(string userName, int year, int month)
         {
             InitializeComponent();
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.LightBlue800, Primary.LightBlue700, Primary.LightBlue500, Accent.LightBlue200, TextShade.WHITE);
+            UserDTO user = _userController.GetUserWithFullInfo(userName);
+
+            lName.Text = user.Fullname;
+            lPosition.Text = user.Position_name;
+            lDepartment.Text = user.Department_name;
+            lTeam.Text = user.Team_name;
+
+            cbMonth.DataSource = Enumerable.Range(1, 12).ToList();
+            cbMonth.SelectedItem = month;
+
+            cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
+            cbYear.SelectedItem = year;
+
+            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetIndividualReport(userName, year, month);
+            dtvgPersonalTimeSheet.AutoGenerateColumns = false;
+            dtvgPersonalTimeSheet.Columns["Username"].Visible = false;
         }
 
-        private void frmPersonalTimesheet_Load(object sender, EventArgs e)
+        public frmPersonalTimesheet()
         {
+            InitializeComponent();
+            Load();
+        }
+
+        private void Load()
+        {
+            UserDTO user = _userController.GetUserWithFullInfo(frmLogin.user_id);
+
+            lName.Text = user.Fullname;
+            lPosition.Text = user.Position_name;
+            lDepartment.Text = user.Department_name;
+            lTeam.Text = user.Team_name;
+
             cbMonth.DataSource = Enumerable.Range(1, 12).ToList();
             cbMonth.SelectedItem = DateTime.Now.Month - 1;
 
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = DateTime.Now.Year;
 
-            string userId = frmLogin.loggedUser.Username;
-            UserDTO user = _userController.GetForeignValue(userId);
-
-            lName.Text = user.Fullname;
-            lPosition.Text = user.Position_name;
-            lDepartment.Text = user.Department_name;
-            lTeam.Text = user.Team_name;
+            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetIndividualReport(user.Username, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            dtvgPersonalTimeSheet.AutoGenerateColumns = false;
+            dtvgPersonalTimeSheet.Columns["Username"].Visible = false;
         }
 
         private void btn_Submit_Click_1(object sender, EventArgs e)
         {
-            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetUserTimeSheetDetailByMonth(lName.Text, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (dtvgPersonalTimeSheet.Rows.Count == 0)
             {
                 MessageBox.Show("Không có data", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

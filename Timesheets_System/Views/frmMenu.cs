@@ -141,8 +141,7 @@ namespace Timesheets_System.Views
 
         private void frmPersonalTimesheet_Click(object sender, EventArgs e)
         {
-            DateTime currentDateTime = DateTime.Now;
-            frmPersonalTimesheet form = new frmPersonalTimesheet(current_user_id, currentDateTime);
+            frmPersonalTimesheet form = new frmPersonalTimesheet();
             form.ShowDialog();
         }
 

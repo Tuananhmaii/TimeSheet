@@ -163,5 +163,18 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("newPassword", newPassword);
             return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
         }
+
+        // Lấy user với department, team và position
+        public UserDTO GetUserWithFullInfo(string username)
+        {
+            String query = "SELECT * FROM user_tb " +
+                "FULL JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
+                "FULL JOIN department_tb ON team_tb.department_id = department_tb.department_id " +
+                "FULL JOIN position_tb ON user_tb.position_id = position_tb.position_id " +
+                "where username = @username";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("username", username);
+            return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
+        }
     }
 }

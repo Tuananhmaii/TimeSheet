@@ -399,7 +399,9 @@
             this.dtvgTimeSheet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtvgTimeSheet.GridColor = System.Drawing.SystemColors.Highlight;
             this.dtvgTimeSheet.Location = new System.Drawing.Point(0, 156);
+            this.dtvgTimeSheet.MultiSelect = false;
             this.dtvgTimeSheet.Name = "dtvgTimeSheet";
+            this.dtvgTimeSheet.ReadOnly = true;
             dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
