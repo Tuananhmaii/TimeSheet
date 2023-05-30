@@ -164,6 +164,17 @@ namespace Timesheets_System.Views.User
         public void SetUsername(string username)
         {
             this._current_user_id = username;
+            this.label1.Text += " *";
+            this.label2.Text += " *";
+            this.label3.Text += " *";
+            this.label4.Text += " *";
+            this.label5.Text += " *";
+            this.label6.Text += " *";
+            this.label7.Text += " *";
+            this.label8.Text += " *";
+            this.label9.Text += " *";
+            this.label14.Text += " *";
+            this.label15.Text += " *";
         }
 
         //Khởi tạo button save sau khi muốn thêm nhân viên mới.

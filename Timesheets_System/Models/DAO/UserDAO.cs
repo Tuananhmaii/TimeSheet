@@ -27,7 +27,7 @@ namespace Timesheets_System.Models.DAO
 
         public List<UserDTO> GetAllUsers()
         {
-            String query = "SELECT fullname, birth_date, email, phone, address, gender, department_name, team_name, position_name FROM user_tb LEFT JOIN team_tb ON user_tb.team_id = team_tb.team_id LEFT JOIN department_tb ON team_tb.department_id = department_tb.department_id LEFT JOIN position_tb ON user_tb.position_id = position_tb.position_id";
+            String query = "SELECT * FROM user_tb LEFT JOIN team_tb ON user_tb.team_id = team_tb.team_id LEFT JOIN department_tb ON team_tb.department_id = department_tb.department_id LEFT JOIN position_tb ON user_tb.position_id = position_tb.position_id";
             return _dbConnection.Query<UserDTO>(query).ToList();
         }
 
