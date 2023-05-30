@@ -10,6 +10,9 @@ namespace Timesheets_System.Models.DTO
     {
         public string Username { get; set; }
         public string Fullname { get; set; }
+        public string Team_name { get; set; }
+        public string Department_name { get; set; }
+        public string Position_name { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
         public float D1 { get; set; }
