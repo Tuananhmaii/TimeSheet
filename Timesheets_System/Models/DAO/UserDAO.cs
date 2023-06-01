@@ -23,8 +23,14 @@ namespace Timesheets_System.Models.DAO
             _dbConnection = new NpgsqlConnection(CONSTANTS.CONNECTIONSTRING);
         }
 
-        //Get tất cả người dùng trong Hệ thống
+        //Get tất cả username
+        public List<UserDTO> GetAllUsernames()
+        {
+            String query = "Select username from user_tb;";
+            return _dbConnection.Query<UserDTO>(query).ToList();
+        }
 
+        //Get tất cả người dùng trong Hệ thống
         public List<UserDTO> GetAllUsers()
         {
             String query = "SELECT * FROM user_tb LEFT JOIN team_tb ON user_tb.team_id = team_tb.team_id LEFT JOIN department_tb ON team_tb.department_id = department_tb.department_id LEFT JOIN position_tb ON user_tb.position_id = position_tb.position_id";
@@ -96,9 +102,10 @@ namespace Timesheets_System.Models.DAO
 
         public UserDTO CreateNewUser(UserDTO userDTO)
         {
-            String query = "INSERT INTO user_tb  (username, password, fullname, gender, birth_date, email, phone, address, ethnic, religion, citizen_id, tax_code, social_insurance_no, date_hired, contract_no, team_id, position_id) VALUES(@username, '', @fullname, @gender, @birth_date, @email, @phone, @address, @ethnic, @religion, @citizen_id, @tax_code, @social_insurance_no, @date_hired, @contract_no, @team_id, @position_id) ";
+            String query = "INSERT INTO user_tb  (username, password, fullname, gender, birth_date, email, phone, address, ethnic, religion, citizen_id, tax_code, social_insurance_no, date_hired, contract_no, auth_group_id , team_id, position_id) VALUES(@username, @password, @fullname, @gender, @birth_date, @email, @phone, @address, @ethnic, @religion, @citizen_id, @tax_code, @social_insurance_no, @date_hired, @contract_no, 'User', @team_id, @position_id) ";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("username", userDTO.Username);
+            parameters.Add("password", userDTO.Password);
             parameters.Add("fullname", userDTO.Fullname);
             parameters.Add("gender", userDTO.Gender);
             parameters.Add("birth_date", userDTO.Birth_Date);

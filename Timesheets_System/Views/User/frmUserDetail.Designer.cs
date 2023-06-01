@@ -41,6 +41,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.radioButtonFemale = new System.Windows.Forms.RadioButton();
             this.radioButtonMale = new System.Windows.Forms.RadioButton();
             this.dateTimePickerBirthday = new System.Windows.Forms.DateTimePicker();
@@ -102,9 +104,9 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(30, 290);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(332, 213);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -190,7 +192,7 @@
             this.txt_ContractNo.BackColor = System.Drawing.SystemColors.Window;
             this.txt_ContractNo.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_ContractNo.Location = new System.Drawing.Point(102, 64);
-            this.txt_ContractNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_ContractNo.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ContractNo.MaxLength = 10;
             this.txt_ContractNo.Name = "txt_ContractNo";
             this.txt_ContractNo.ReadOnly = true;
@@ -221,6 +223,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtUsername);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.radioButtonFemale);
             this.groupBox1.Controls.Add(this.radioButtonMale);
             this.groupBox1.Controls.Add(this.dateTimePickerBirthday);
@@ -246,20 +250,44 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(30, 30);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(475, 473);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cá nhân";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(168, 26);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUsername.MaxLength = 50;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(280, 27);
+            this.txtUsername.TabIndex = 14;
+            this.txtUsername.Visible = false;
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
+            this.label18.Location = new System.Drawing.Point(24, 26);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(80, 20);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "Tài khoản *";
+            this.label18.Visible = false;
             // 
             // radioButtonFemale
             // 
             this.radioButtonFemale.AutoSize = true;
             this.radioButtonFemale.Enabled = false;
             this.radioButtonFemale.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonFemale.Location = new System.Drawing.Point(334, 74);
+            this.radioButtonFemale.Location = new System.Drawing.Point(334, 88);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(47, 24);
             this.radioButtonFemale.TabIndex = 3;
@@ -272,7 +300,7 @@
             this.radioButtonMale.Checked = true;
             this.radioButtonMale.Enabled = false;
             this.radioButtonMale.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonMale.Location = new System.Drawing.Point(168, 74);
+            this.radioButtonMale.Location = new System.Drawing.Point(168, 88);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(59, 24);
             this.radioButtonMale.TabIndex = 2;
@@ -285,7 +313,7 @@
             this.dateTimePickerBirthday.Enabled = false;
             this.dateTimePickerBirthday.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerBirthday.Location = new System.Drawing.Point(168, 105);
+            this.dateTimePickerBirthday.Location = new System.Drawing.Point(168, 119);
             this.dateTimePickerBirthday.Name = "dateTimePickerBirthday";
             this.dateTimePickerBirthday.Size = new System.Drawing.Size(280, 27);
             this.dateTimePickerBirthday.TabIndex = 4;
@@ -294,8 +322,8 @@
             // txt_Religion
             // 
             this.txt_Religion.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Religion.Location = new System.Drawing.Point(168, 261);
-            this.txt_Religion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Religion.Location = new System.Drawing.Point(168, 275);
+            this.txt_Religion.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Religion.MaxLength = 10;
             this.txt_Religion.Name = "txt_Religion";
             this.txt_Religion.ReadOnly = true;
@@ -306,7 +334,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label15.Location = new System.Drawing.Point(24, 263);
+            this.label15.Location = new System.Drawing.Point(24, 277);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 20);
@@ -316,8 +344,8 @@
             // txt_Ethnic
             // 
             this.txt_Ethnic.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ethnic.Location = new System.Drawing.Point(168, 230);
-            this.txt_Ethnic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Ethnic.Location = new System.Drawing.Point(168, 244);
+            this.txt_Ethnic.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Ethnic.MaxLength = 10;
             this.txt_Ethnic.Name = "txt_Ethnic";
             this.txt_Ethnic.ReadOnly = true;
@@ -328,7 +356,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label14.Location = new System.Drawing.Point(24, 232);
+            this.label14.Location = new System.Drawing.Point(24, 246);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(60, 20);
@@ -339,7 +367,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label9.Location = new System.Drawing.Point(24, 357);
+            this.label9.Location = new System.Drawing.Point(24, 371);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 20);
@@ -349,8 +377,8 @@
             // txt_Address
             // 
             this.txt_Address.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Address.Location = new System.Drawing.Point(168, 354);
-            this.txt_Address.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Address.Location = new System.Drawing.Point(168, 368);
+            this.txt_Address.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Address.MaxLength = 150;
             this.txt_Address.Multiline = true;
             this.txt_Address.Name = "txt_Address";
@@ -361,8 +389,8 @@
             // txt_SocialInsuranceNo
             // 
             this.txt_SocialInsuranceNo.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_SocialInsuranceNo.Location = new System.Drawing.Point(168, 323);
-            this.txt_SocialInsuranceNo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_SocialInsuranceNo.Location = new System.Drawing.Point(168, 337);
+            this.txt_SocialInsuranceNo.Margin = new System.Windows.Forms.Padding(2);
             this.txt_SocialInsuranceNo.MaxLength = 10;
             this.txt_SocialInsuranceNo.Name = "txt_SocialInsuranceNo";
             this.txt_SocialInsuranceNo.ReadOnly = true;
@@ -373,7 +401,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label8.Location = new System.Drawing.Point(24, 325);
+            this.label8.Location = new System.Drawing.Point(24, 339);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 20);
@@ -383,8 +411,8 @@
             // txt_Taxcode
             // 
             this.txt_Taxcode.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Taxcode.Location = new System.Drawing.Point(168, 199);
-            this.txt_Taxcode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Taxcode.Location = new System.Drawing.Point(168, 213);
+            this.txt_Taxcode.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Taxcode.MaxLength = 10;
             this.txt_Taxcode.Name = "txt_Taxcode";
             this.txt_Taxcode.ReadOnly = true;
@@ -395,7 +423,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label7.Location = new System.Drawing.Point(24, 201);
+            this.label7.Location = new System.Drawing.Point(24, 215);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 20);
@@ -405,8 +433,8 @@
             // txt_CitizenId
             // 
             this.txt_CitizenId.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_CitizenId.Location = new System.Drawing.Point(168, 292);
-            this.txt_CitizenId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_CitizenId.Location = new System.Drawing.Point(168, 306);
+            this.txt_CitizenId.Margin = new System.Windows.Forms.Padding(2);
             this.txt_CitizenId.MaxLength = 10;
             this.txt_CitizenId.Name = "txt_CitizenId";
             this.txt_CitizenId.ReadOnly = true;
@@ -417,7 +445,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label6.Location = new System.Drawing.Point(24, 294);
+            this.label6.Location = new System.Drawing.Point(24, 308);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 20);
@@ -428,7 +456,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label3.Location = new System.Drawing.Point(24, 110);
+            this.label3.Location = new System.Drawing.Point(24, 124);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
@@ -439,7 +467,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label2.Location = new System.Drawing.Point(24, 76);
+            this.label2.Location = new System.Drawing.Point(24, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 20);
@@ -449,8 +477,8 @@
             // txt_Email
             // 
             this.txt_Email.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Email.Location = new System.Drawing.Point(168, 168);
-            this.txt_Email.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Email.Location = new System.Drawing.Point(168, 182);
+            this.txt_Email.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Email.MaxLength = 40;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.ReadOnly = true;
@@ -461,7 +489,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label5.Location = new System.Drawing.Point(24, 170);
+            this.label5.Location = new System.Drawing.Point(24, 184);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 20);
@@ -471,8 +499,8 @@
             // txt_Phone
             // 
             this.txt_Phone.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Phone.Location = new System.Drawing.Point(168, 137);
-            this.txt_Phone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Phone.Location = new System.Drawing.Point(168, 151);
+            this.txt_Phone.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Phone.MaxLength = 20;
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.ReadOnly = true;
@@ -483,7 +511,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label4.Location = new System.Drawing.Point(24, 139);
+            this.label4.Location = new System.Drawing.Point(24, 153);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 20);
@@ -493,8 +521,8 @@
             // txt_Fullname
             // 
             this.txt_Fullname.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Fullname.Location = new System.Drawing.Point(168, 43);
-            this.txt_Fullname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Fullname.Location = new System.Drawing.Point(168, 57);
+            this.txt_Fullname.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Fullname.MaxLength = 50;
             this.txt_Fullname.Name = "txt_Fullname";
             this.txt_Fullname.ReadOnly = true;
@@ -505,7 +533,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 11F);
-            this.label1.Location = new System.Drawing.Point(24, 45);
+            this.label1.Location = new System.Drawing.Point(24, 59);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 20);
@@ -670,7 +698,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Location = new System.Drawing.Point(30, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(332, 213);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -768,5 +796,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnMinimize;
         public System.Windows.Forms.TextBox txt_Address;
+        public System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label18;
     }
 }

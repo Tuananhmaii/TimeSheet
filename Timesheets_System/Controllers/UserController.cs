@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Timesheets_System.Models.DAO;
 using Timesheets_System.Models.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace Timesheets_System.Controllers
@@ -13,6 +14,11 @@ namespace Timesheets_System.Controllers
     public class UserController
     {
         UserDAO _userDAO = new UserDAO();
+
+        public List<UserDTO> GetAllUsernames()
+        {
+            return _userDAO.GetAllUsernames();
+        }
 
         public UserDTO GetUserByID(string username)
         {

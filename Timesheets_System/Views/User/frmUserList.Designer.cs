@@ -76,7 +76,6 @@
             this.Social_Insurance_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Photo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_Hired = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -213,7 +212,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnSubmit);
             this.panel2.Controls.Add(this.btnRefresh);
             this.panel2.Controls.Add(this.cb_Position);
             this.panel2.Controls.Add(this.label4);
@@ -421,7 +419,7 @@
             // Phone
             // 
             this.Phone.DataPropertyName = "Phone";
-            this.Phone.HeaderText = "Sđt";
+            this.Phone.HeaderText = "Số điện thoại";
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
             // 
@@ -555,22 +553,6 @@
             this.Date_Hired.Name = "Date_Hired";
             this.Date_Hired.Visible = false;
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(235)))));
-            this.btnSubmit.FlatAppearance.BorderSize = 0;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSubmit.Location = new System.Drawing.Point(666, 10);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(78, 31);
-            this.btnSubmit.TabIndex = 34;
-            this.btnSubmit.Text = "XÁC NHẬN";
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
             // frmUserList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -640,6 +622,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Social_Insurance_No;
         private System.Windows.Forms.DataGridViewTextBoxColumn Photo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date_Hired;
-        private System.Windows.Forms.Button btnSubmit;
     }
 }

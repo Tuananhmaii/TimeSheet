@@ -50,33 +50,34 @@ namespace Timesheets_System.Views.User
         }
 
         // Code xử lý load gridView theo 3 cbBox
-        private void LoadData( )
+        private void LoadData()
         {
             try
             {
-                if (cb_Department.Text != "")
+                if (cb_Department.SelectedIndex == 0)
                 {
-                    userDTOs = _userController.GetUsersByDepartment(cb_Department.SelectedValue.ToString());
-                    if (cb_Department.SelectedValue.ToString() == "None")
-                    {
-                        userDTOs = _userController.GetUsersHaveNoDepartment();
-                    }
-                    
-                    else if (cb_Team.Text != "" && cb_Position.Text == "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Team_id == cb_Team.SelectedValue.ToString()).ToList(); }
-                    else if (cb_Team.Text == "" && cb_Position.Text != "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList(); }
-                    else if (cb_Team.Text != "" && cb_Position.Text != "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Team_id == cb_Team.SelectedValue.ToString() && userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList(); }
-                }
-                else
-                {   
-                    if (cb_Team.Text == "" && cb_Position.Text == "")
-                    {
-                        userDTOs = _userController.GetAllUsers();
-                    }
-                    else if (cb_Team.Text == "" && cb_Position.Text != "")
+                    userDTOs = _userController.GetAllUsers();
+                    if (cb_Team.Text == "" && cb_Position.Text != "")
                     {
                         userDTOs = _userController.GetAllUsersHaveDepartmentYet();
                         userDTOs = userDTOs.Where(userDTOs => userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList();
                     }
+                }
+                
+                else
+                {
+                    if (cb_Department.SelectedValue.ToString() == "None")
+                    {
+                        userDTOs = _userController.GetUsersHaveNoDepartment();
+                    }
+                    else
+                    {
+                        userDTOs = _userController.GetUsersByDepartment(cb_Department.SelectedValue.ToString());
+                    }
+                    if (cb_Team.Text != "" && cb_Position.Text == "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Team_id == cb_Team.SelectedValue.ToString()).ToList(); }
+                    else if (cb_Team.Text == "" && cb_Position.Text != "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList(); }
+                    else if (cb_Team.Text != "" && cb_Position.Text != "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Team_id == cb_Team.SelectedValue.ToString() && userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList(); }
+
                 }
                 
                 dtgvDepartmentDetail.DataSource = userDTOs;
@@ -100,6 +101,7 @@ namespace Timesheets_System.Views.User
             cb_Team.ValueMember = "Team_id";
             cb_Team.Text = "";
             cb_Position.Text = "";
+            LoadData();
         }
 
         private void cb_Team_SelectionChangeCommitted(object sender, EventArgs e)
@@ -107,12 +109,14 @@ namespace Timesheets_System.Views.User
             try
             {
                 cb_Position.Text = "";
+                LoadData();
             }
             catch { }
         }
 
         private void cb_Position_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            LoadData();
         }
 
         private void cb_Position_MouseClick(object sender, MouseEventArgs e)
@@ -196,14 +200,9 @@ namespace Timesheets_System.Views.User
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            cb_Department.Text = "";
             cb_Team.Text = "";
             cb_Position.Text = "";
-            LoadData();
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
+            cb_Department.SelectedIndex = 0;
             LoadData();
         }
 

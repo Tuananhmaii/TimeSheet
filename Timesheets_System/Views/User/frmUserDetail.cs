@@ -14,6 +14,7 @@ using Dapper;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using Timesheets_System.Common.Const;
+using Timesheets_System.Common.Util;
 using Timesheets_System.Controllers;
 using Timesheets_System.Models.DTO;
 
@@ -154,6 +155,19 @@ namespace Timesheets_System.Views.User
             }
         }
 
+        private Boolean CheckUserName()
+        {
+            List<UserDTO> usernames = _userController.GetAllUsernames();
+            foreach (UserDTO username in usernames){
+                if (txtUsername.Text == username.Username)
+                {
+                    MessageBox.Show("Username đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            return true;    
+        }
+
         //Hàm kích hoạt nút chỉnh sửa khi là admin
         public void DisableUpdatebtn()
         {
@@ -183,6 +197,8 @@ namespace Timesheets_System.Views.User
             this.enableControl();
             btnCancel.Visible = false;
             btnUpdate.Text = "XÁC NHẬN";
+            txtUsername.Visible = true;
+            label18.Visible = true;
         }
 
         //Check all textbox
@@ -405,8 +421,12 @@ namespace Timesheets_System.Views.User
                         enableControl();
                         btnUpdate.Text = "XÁC NHẬN";
                     }
+                    if (!CheckUserName()) return;
+
                     else
                     {
+                        newUser.Username = txtUsername.Text;
+                        newUser.Password = StringUtil.Encrytion("Goline@123");
                         newUser.Fullname = txt_Fullname.Text;
                         newUser.Gender = new_User_Gender;
                         newUser.Birth_Date = dateTimePickerBirthday.Value;
@@ -425,6 +445,8 @@ namespace Timesheets_System.Views.User
                         _userController.CreateNewUser(newUser);
                         MessageBox.Show("Thêm mới thành công!");
                         SetUsername("");
+                        label18.Visible = false;
+                        txtUsername.Visible = false;
                         createSaveButton();
                         this.Close();
                     }
@@ -580,6 +602,11 @@ namespace Timesheets_System.Views.User
         private void dateTimePickerBirthday_ValueChanged(object sender, EventArgs e)
         {
             dateTimePickerBirthday.Format = DateTimePickerFormat.Short;
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (!CheckUserName()) return;
         }
     }
 }
