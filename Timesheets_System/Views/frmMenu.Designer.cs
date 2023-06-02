@@ -78,8 +78,8 @@
             this.tsmi_System});
             this.ms_Menu.Location = new System.Drawing.Point(0, 0);
             this.ms_Menu.Name = "ms_Menu";
-            this.ms_Menu.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.ms_Menu.Size = new System.Drawing.Size(1170, 44);
+            this.ms_Menu.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.ms_Menu.Size = new System.Drawing.Size(878, 36);
             this.ms_Menu.TabIndex = 32;
             this.ms_Menu.Text = "menuStrip1";
             this.ms_Menu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ms_Menu_MouseDown);
@@ -91,20 +91,20 @@
             this.frmPersonalTimesheet});
             this.tsmi_Personal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tsmi_Personal.Name = "tsmi_Personal";
-            this.tsmi_Personal.Size = new System.Drawing.Size(93, 40);
+            this.tsmi_Personal.Size = new System.Drawing.Size(74, 32);
             this.tsmi_Personal.Text = "Cá nhân";
             // 
             // frmPersonalInfo
             // 
             this.frmPersonalInfo.Name = "frmPersonalInfo";
-            this.frmPersonalInfo.Size = new System.Drawing.Size(255, 30);
+            this.frmPersonalInfo.Size = new System.Drawing.Size(203, 24);
             this.frmPersonalInfo.Text = "Thông tin cá nhân";
             this.frmPersonalInfo.Click += new System.EventHandler(this.frmPersonalInfo_Click);
             // 
             // frmPersonalTimesheet
             // 
             this.frmPersonalTimesheet.Name = "frmPersonalTimesheet";
-            this.frmPersonalTimesheet.Size = new System.Drawing.Size(255, 30);
+            this.frmPersonalTimesheet.Size = new System.Drawing.Size(203, 24);
             this.frmPersonalTimesheet.Text = "Bảng công cá nhân";
             this.frmPersonalTimesheet.Click += new System.EventHandler(this.frmPersonalTimesheet_Click);
             // 
@@ -117,41 +117,41 @@
             this.frmTimesheets,
             this.frmRequest});
             this.tsmi_Personnel.Name = "tsmi_Personnel";
-            this.tsmi_Personnel.Size = new System.Drawing.Size(94, 40);
+            this.tsmi_Personnel.Size = new System.Drawing.Size(75, 32);
             this.tsmi_Personnel.Text = "Nhân sự";
             // 
             // frmEmployeeList
             // 
             this.frmEmployeeList.Name = "frmEmployeeList";
-            this.frmEmployeeList.Size = new System.Drawing.Size(266, 30);
+            this.frmEmployeeList.Size = new System.Drawing.Size(211, 24);
             this.frmEmployeeList.Text = "Danh sách nhân viên";
             this.frmEmployeeList.Click += new System.EventHandler(this.frmEmployeeList_Click);
             // 
             // frmDepartment
             // 
             this.frmDepartment.Name = "frmDepartment";
-            this.frmDepartment.Size = new System.Drawing.Size(266, 30);
+            this.frmDepartment.Size = new System.Drawing.Size(211, 24);
             this.frmDepartment.Text = "Danh sách bộ phận";
             this.frmDepartment.Click += new System.EventHandler(this.frmDepartment_Click);
             // 
             // frmTeam
             // 
             this.frmTeam.Name = "frmTeam";
-            this.frmTeam.Size = new System.Drawing.Size(266, 30);
+            this.frmTeam.Size = new System.Drawing.Size(211, 24);
             this.frmTeam.Text = "Danh sách team";
             this.frmTeam.Click += new System.EventHandler(this.frmTeam_Click);
             // 
             // frmTimesheets
             // 
             this.frmTimesheets.Name = "frmTimesheets";
-            this.frmTimesheets.Size = new System.Drawing.Size(266, 30);
+            this.frmTimesheets.Size = new System.Drawing.Size(211, 24);
             this.frmTimesheets.Text = "Bảng công";
             this.frmTimesheets.Click += new System.EventHandler(this.frmTimesheets_Click);
             // 
             // frmRequest
             // 
             this.frmRequest.Name = "frmRequest";
-            this.frmRequest.Size = new System.Drawing.Size(266, 30);
+            this.frmRequest.Size = new System.Drawing.Size(211, 24);
             this.frmRequest.Text = "Yêu cầu";
             // 
             // tsmi_Report
@@ -160,20 +160,20 @@
             this.frmGeneralTimeSheetReport,
             this.frmIndividualTimeSheetReport});
             this.tsmi_Report.Name = "tsmi_Report";
-            this.tsmi_Report.Size = new System.Drawing.Size(93, 40);
+            this.tsmi_Report.Size = new System.Drawing.Size(74, 32);
             this.tsmi_Report.Text = "Báo cáo";
             // 
             // frmGeneralTimeSheetReport
             // 
             this.frmGeneralTimeSheetReport.Name = "frmGeneralTimeSheetReport";
-            this.frmGeneralTimeSheetReport.Size = new System.Drawing.Size(234, 30);
+            this.frmGeneralTimeSheetReport.Size = new System.Drawing.Size(186, 24);
             this.frmGeneralTimeSheetReport.Text = "Báo cáo chung";
             this.frmGeneralTimeSheetReport.Click += new System.EventHandler(this.frmGeneralTimeSheetReport_Click);
             // 
             // frmIndividualTimeSheetReport
             // 
             this.frmIndividualTimeSheetReport.Name = "frmIndividualTimeSheetReport";
-            this.frmIndividualTimeSheetReport.Size = new System.Drawing.Size(234, 30);
+            this.frmIndividualTimeSheetReport.Size = new System.Drawing.Size(186, 24);
             this.frmIndividualTimeSheetReport.Text = "Báo cáo cá nhân";
             this.frmIndividualTimeSheetReport.Click += new System.EventHandler(this.frmIndividualTimeSheetReport_Click);
             // 
@@ -185,32 +185,33 @@
             this.frmChangPassword,
             this.tsmi_Logout});
             this.tsmi_System.Name = "tsmi_System";
-            this.tsmi_System.Size = new System.Drawing.Size(102, 40);
+            this.tsmi_System.Size = new System.Drawing.Size(82, 32);
             this.tsmi_System.Text = "Hệ thống";
             // 
             // frmPermissionGrant
             // 
             this.frmPermissionGrant.Name = "frmPermissionGrant";
-            this.frmPermissionGrant.Size = new System.Drawing.Size(207, 30);
+            this.frmPermissionGrant.Size = new System.Drawing.Size(180, 24);
             this.frmPermissionGrant.Text = "Phân quyền";
+            this.frmPermissionGrant.Click += new System.EventHandler(this.frmPermissionGrant_Click);
             // 
             // frmFunction
             // 
             this.frmFunction.Name = "frmFunction";
-            this.frmFunction.Size = new System.Drawing.Size(207, 30);
+            this.frmFunction.Size = new System.Drawing.Size(180, 24);
             this.frmFunction.Text = "Chức năng";
             // 
             // frmChangPassword
             // 
             this.frmChangPassword.Name = "frmChangPassword";
-            this.frmChangPassword.Size = new System.Drawing.Size(207, 30);
+            this.frmChangPassword.Size = new System.Drawing.Size(180, 24);
             this.frmChangPassword.Text = "Đổi mật khẩu";
             this.frmChangPassword.Click += new System.EventHandler(this.frmChangPassword_Click);
             // 
             // tsmi_Logout
             // 
             this.tsmi_Logout.Name = "tsmi_Logout";
-            this.tsmi_Logout.Size = new System.Drawing.Size(207, 30);
+            this.tsmi_Logout.Size = new System.Drawing.Size(180, 24);
             this.tsmi_Logout.Text = "Đăng xuất";
             this.tsmi_Logout.Click += new System.EventHandler(this.tsmi_Logout_Click);
             // 
@@ -221,9 +222,8 @@
             this.Panel2.Controls.Add(this.lbl_Username);
             this.Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel2.Location = new System.Drawing.Point(0, 0);
-            this.Panel2.Margin = new System.Windows.Forms.Padding(4);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(1281, 624);
+            this.Panel2.Size = new System.Drawing.Size(961, 507);
             this.Panel2.TabIndex = 34;
             // 
             // lbl_Username
@@ -233,10 +233,9 @@
             this.lbl_Username.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Username.Font = new System.Drawing.Font("Segoe UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Username.ForeColor = System.Drawing.Color.Ivory;
-            this.lbl_Username.Location = new System.Drawing.Point(15, 583);
-            this.lbl_Username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Username.Location = new System.Drawing.Point(11, 474);
             this.lbl_Username.Name = "lbl_Username";
-            this.lbl_Username.Size = new System.Drawing.Size(84, 23);
+            this.lbl_Username.Size = new System.Drawing.Size(65, 17);
             this.lbl_Username.TabIndex = 0;
             this.lbl_Username.Text = "LOGGED: ";
             // 
@@ -248,9 +247,8 @@
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1281, 44);
+            this.panel1.Size = new System.Drawing.Size(961, 36);
             this.panel1.TabIndex = 35;
             // 
             // panel8
@@ -258,10 +256,9 @@
             this.panel8.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel8.Controls.Add(this.btnMinimize);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(1111, 0);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Location = new System.Drawing.Point(834, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(59, 44);
+            this.panel8.Size = new System.Drawing.Size(44, 36);
             this.panel8.TabIndex = 38;
             this.panel8.Click += new System.EventHandler(this.btnMinimize_Click);
             this.panel8.MouseEnter += new System.EventHandler(this.panel8_MouseEnter);
@@ -277,10 +274,9 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Location = new System.Drawing.Point(17, 15);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMinimize.Location = new System.Drawing.Point(13, 12);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(20, 18);
+            this.btnMinimize.Size = new System.Drawing.Size(15, 15);
             this.btnMinimize.TabIndex = 4;
             this.btnMinimize.UseVisualStyleBackColor = false;
             // 
@@ -289,10 +285,9 @@
             this.panel7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel7.Controls.Add(this.btnMaximize);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(1170, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Location = new System.Drawing.Point(878, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(56, 44);
+            this.panel7.Size = new System.Drawing.Size(42, 36);
             this.panel7.TabIndex = 37;
             this.panel7.Click += new System.EventHandler(this.btnMaximize_Click);
             this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
@@ -309,10 +304,9 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.Location = new System.Drawing.Point(16, 15);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaximize.Location = new System.Drawing.Point(12, 12);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(20, 18);
+            this.btnMaximize.Size = new System.Drawing.Size(15, 15);
             this.btnMaximize.TabIndex = 3;
             this.btnMaximize.UseVisualStyleBackColor = false;
             // 
@@ -321,10 +315,9 @@
             this.panel6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel6.Controls.Add(this.btnClose);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(1226, 0);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Location = new System.Drawing.Point(920, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(55, 44);
+            this.panel6.Size = new System.Drawing.Size(41, 36);
             this.panel6.TabIndex = 36;
             this.panel6.Click += new System.EventHandler(this.btnClose_Click);
             this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
@@ -341,22 +334,20 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.Location = new System.Drawing.Point(19, 15);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Location = new System.Drawing.Point(14, 12);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(20, 18);
+            this.btnClose.Size = new System.Drawing.Size(15, 15);
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
             // frmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 624);
+            this.ClientSize = new System.Drawing.Size(961, 507);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenu";

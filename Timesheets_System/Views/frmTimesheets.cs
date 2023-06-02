@@ -31,7 +31,6 @@ namespace Timesheets_System.Views
             InitializeComponent();
             this.Text = string.Empty;
             this.ControlBox = false;
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
 

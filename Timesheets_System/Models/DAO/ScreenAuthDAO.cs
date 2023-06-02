@@ -19,6 +19,21 @@ namespace Timesheets_System.Models.DAO
             _dbConnection = new NpgsqlConnection(CONSTANTS.CONNECTIONSTRING);
         }
 
+        public List<ScreenAuthDTO> GetScreenRoles()
+        {
+            //string query = "select screen_auth_tb.screen_id, sum(CASE auth_group_id WHEN 'Admin' THEN 1 ELSE 0 END) AS Admin, sum(CASE auth_group_id WHEN 'User' THEN 1 ELSE 0 END) AS User from screen_auth_tb group by screen_auth_tb.screen_id";
+            string query = "SELECT\r\n    screen_tb.screen_name,\r\n    SUM(CASE auth_group_id WHEN 'Admin' THEN 1 ELSE 0 END) AS Admin,\r\n    SUM(CASE auth_group_id WHEN 'User' THEN 1 ELSE 0 END) AS User\r\nFROM\r\n    screen_auth_tb\r\nRIGHT JOIN\r\n    screen_tb ON screen_auth_tb.screen_id = screen_tb.screen_id\r\nGROUP BY\r\n    screen_tb.screen_name";
+            return _dbConnection.Query<ScreenAuthDTO>(query).ToList();
+        }
+
+        public List<ScreenAuthDTO> GetScreen()
+        {
+            string query = "SELECT * FROM public.screen_tb ORDER BY screen_id ASC ";
+            return _dbConnection.Query<ScreenAuthDTO>(query).ToList();
+        }
+
+
+
         public ScreenAuthDTO GetScreenAuthByAuthGrID(ScreenAuthDTO _screenAuthDTO)
         {
             string query = @"SELECT auth_group_id, screen_id, allowed_to_open " +

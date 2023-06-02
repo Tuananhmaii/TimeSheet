@@ -992,3 +992,5 @@ D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.CoreCom
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.CopyComplete
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.exe
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.pdb
+D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmPermissionGrant.resources
+D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Screen.frmScreen.resources
