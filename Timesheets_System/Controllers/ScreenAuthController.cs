@@ -33,7 +33,12 @@ namespace Timesheets_System.Controllers
             return _screenAuthDAO.GetScreenAuthList(_screenAuthDTO);
         }
 
+        public void UpdateAllowScreenAuth(string screen_id, string auth_group_id, string allowed_to_open)
+        {
+            _screenAuthDAO.UpdateAllowScreenAuth(screen_id, auth_group_id, allowed_to_open);
+        }
 
-     
+
+
     }
 }

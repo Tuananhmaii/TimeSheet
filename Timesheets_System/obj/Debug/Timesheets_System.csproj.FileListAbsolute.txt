@@ -744,8 +744,6 @@ D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTeam.resourc
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmUser.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmMenu.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTimesheets.resources
-D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmPersonalTimesheet.resources
-D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmDepartmentDetail.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmAcceptDeleteUser.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserList.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserDetail.resources
@@ -994,3 +992,6 @@ D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.exe
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.pdb
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmPermissionGrant.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Screen.frmScreen.resources
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.frmPersonalTimesheet.resources
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmPermissionGrant.resources
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Screen.frmScreen.resources
