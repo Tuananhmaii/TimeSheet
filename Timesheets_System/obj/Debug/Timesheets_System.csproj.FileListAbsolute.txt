@@ -995,3 +995,4 @@ D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Screen.f
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.frmPersonalTimesheet.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmPermissionGrant.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Screen.frmScreen.resources
+D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Screen.frmUserRole.resources

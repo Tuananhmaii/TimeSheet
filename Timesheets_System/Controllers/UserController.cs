@@ -45,6 +45,11 @@ namespace Timesheets_System.Controllers
             return _userDAO.GetUserByFullname(fullname);
         }
 
+        public UserDTO UpdateAuth_Group_ID(string username, string auth_group_id)
+        {
+            return _userDAO.UpdateAuth_Group_ID(username, auth_group_id);
+        }
+
         public UserDTO UpDatePhotoByID(string username, byte[] imageBytes)
         {
             return _userDAO.UpdatePhotoByID(username, imageBytes);

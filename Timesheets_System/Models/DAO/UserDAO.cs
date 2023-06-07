@@ -80,6 +80,17 @@ namespace Timesheets_System.Models.DAO
             return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
         }
 
+        //Update Auth_Group_Id
+        public UserDTO UpdateAuth_Group_ID(string username, string auth_group_id)
+        {
+            String query = "UPDATE user_tb SET auth_group_id = @auth_group_id WHERE username = @username";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("auth_group_id", auth_group_id);
+            parameters.Add("username", username);
+
+            return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
+        }
+
         //Update ảnh đại diện bằng tên đăng nhập
         public UserDTO UpdatePhotoByID(string current_user, byte[] imageBytes)
         {

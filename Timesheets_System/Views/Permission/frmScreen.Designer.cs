@@ -35,11 +35,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.dtgvScreen = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Screen_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Screen_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.User = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvScreen)).BeginInit();
             this.panel2.SuspendLayout();
@@ -49,10 +49,9 @@
             // 
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 486);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 395);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1067, 68);
+            this.panel1.Size = new System.Drawing.Size(800, 55);
             this.panel1.TabIndex = 0;
             // 
             // btnSave
@@ -63,10 +62,9 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSave.Location = new System.Drawing.Point(894, 17);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Location = new System.Drawing.Point(670, 14);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(139, 38);
+            this.btnSave.Size = new System.Drawing.Size(104, 31);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "LƯU";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -74,7 +72,7 @@
             // 
             // dtgvScreen
             // 
-            this.dtgvScreen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvScreen.AllowDrop = true;
             this.dtgvScreen.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -90,24 +88,14 @@
             this.Screen_ID,
             this.Admin,
             this.User});
+            this.dtgvScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvScreen.Location = new System.Drawing.Point(0, 0);
-            this.dtgvScreen.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvScreen.Name = "dtgvScreen";
             this.dtgvScreen.RowHeadersVisible = false;
             this.dtgvScreen.RowHeadersWidth = 51;
             this.dtgvScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvScreen.Size = new System.Drawing.Size(1067, 486);
+            this.dtgvScreen.Size = new System.Drawing.Size(800, 395);
             this.dtgvScreen.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dtgvScreen);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1067, 486);
-            this.panel2.TabIndex = 24;
             // 
             // Screen_name
             // 
@@ -164,14 +152,22 @@
             this.User.TrueValue = "1";
             this.User.Width = 125;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dtgvScreen);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 395);
+            this.panel2.TabIndex = 24;
+            // 
             // frmScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmScreen";
             this.Text = "frmScreen";
             this.panel1.ResumeLayout(false);

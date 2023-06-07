@@ -295,6 +295,9 @@
     <EmbeddedResource Include="Views\Permission\frmScreen.resx">
       <DependentUpon>frmScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Permission\frmUserRole.resx">
+      <DependentUpon>frmUserRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TimeSheetReport\frmIndividualTimeSheetReport.resx">
       <DependentUpon>frmIndividualTimeSheetReport.cs</DependentUpon>
     </EmbeddedResource>
