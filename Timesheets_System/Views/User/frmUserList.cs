@@ -65,7 +65,11 @@ namespace Timesheets_System.Views.User
                 
                 else
                 {
-                    if (cb_Department.SelectedValue.ToString() == "None")
+                    if (cb_Department.SelectedValue == null)
+                    {
+                        userDTOs = _userController.GetAllUsers();
+                    }
+                    else if (cb_Department.SelectedValue.ToString() == "None")
                     {
                         userDTOs = _userController.GetUsersHaveNoDepartment();
                     }
@@ -105,12 +109,8 @@ namespace Timesheets_System.Views.User
 
         private void cb_Team_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            try
-            {
-                cb_Position.Text = "";
-                LoadData();
-            }
-            catch { }
+            cb_Position.Text = "";
+            LoadData();
         }
 
         private void cb_Position_SelectionChangeCommitted(object sender, EventArgs e)
@@ -199,9 +199,17 @@ namespace Timesheets_System.Views.User
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            cb_Department.SelectedIndex = 0;
+            //Load team cbx;
+            current_department_id = cb_Department.SelectedValue.ToString();
+            Console.WriteLine(current_department_id);
+
+            List<TeamDTO> _teamDTO = _teamController.GetTeamDTO(current_department_id);
+            cb_Team.DataSource = _teamDTO;
+            cb_Team.DisplayMember = "Team_name";
+            cb_Team.ValueMember = "Team_id";
             cb_Team.Text = "";
             cb_Position.Text = "";
-            cb_Department.SelectedIndex = 0;
             LoadData();
         }
 
