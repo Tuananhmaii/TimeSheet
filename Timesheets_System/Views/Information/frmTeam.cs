@@ -59,6 +59,7 @@ namespace Timesheets_System.Views
             btAdd.Text = "Thêm";
             btDelete.Text = "Xóa";
             btEdit.Visible = true;
+            dtvgTeam.Enabled = true;
 
         }
 
@@ -174,6 +175,7 @@ namespace Timesheets_System.Views
                 }
             }
             dtvgTeam.Enabled = false;
+
         }
 
         private void btDelete_Click_1(object sender, EventArgs e)
@@ -195,7 +197,7 @@ namespace Timesheets_System.Views
                 ReBind();
             }
         }
-#region "Custom title"
+        #region "Custom title"
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -260,6 +262,6 @@ namespace Timesheets_System.Views
             pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
             btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
         }
-#endregion
+        #endregion
     }
 }

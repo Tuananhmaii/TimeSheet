@@ -257,11 +257,5 @@ namespace Timesheets_System.Views
             btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
         }
         #endregion
-        bool allowEdit = false;
-        private void dtvgDepartment_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            e.Cancel = !allowEdit;
-        }
-
     }
 }

@@ -99,7 +99,6 @@
             this.dtvgDepartment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvgDepartment.Size = new System.Drawing.Size(561, 592);
             this.dtvgDepartment.TabIndex = 2;
-            this.dtvgDepartment.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtvgDepartment_CellBeginEdit);
             // 
             // Column_TeamID
             // 

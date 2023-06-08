@@ -187,7 +187,7 @@
             this.panel2.Controls.Add(this.pn_Close);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 44);
             this.panel2.TabIndex = 56;
@@ -213,7 +213,7 @@
             this.pn_Minimize.Controls.Add(this.btnMinimize);
             this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Minimize.Location = new System.Drawing.Point(630, 0);
-            this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
             this.pn_Minimize.TabIndex = 7;
@@ -232,7 +232,7 @@
             this.btnMinimize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.Transparent;
             this.btnMinimize.Location = new System.Drawing.Point(17, 15);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(20, 18);
             this.btnMinimize.TabIndex = 4;
@@ -244,7 +244,7 @@
             this.pn_Maximize.Controls.Add(this.btnMaximize);
             this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Maximize.Location = new System.Drawing.Point(689, 0);
-            this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
             this.pn_Maximize.TabIndex = 6;
@@ -264,7 +264,7 @@
             this.btnMaximize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
             this.btnMaximize.Location = new System.Drawing.Point(16, 15);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(20, 18);
             this.btnMaximize.TabIndex = 3;
@@ -275,7 +275,7 @@
             this.pn_Close.Controls.Add(this.btnClose);
             this.pn_Close.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Close.Location = new System.Drawing.Point(745, 0);
-            this.pn_Close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(55, 44);
             this.pn_Close.TabIndex = 5;
@@ -295,7 +295,7 @@
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
             this.btnClose.Location = new System.Drawing.Point(19, 15);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(20, 18);
             this.btnClose.TabIndex = 2;
@@ -303,7 +303,7 @@
             // 
             // btExportData
             // 
-            this.btExportData.BackColor = System.Drawing.Color.LimeGreen;
+            this.btExportData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(235)))));
             this.btExportData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btExportData.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
