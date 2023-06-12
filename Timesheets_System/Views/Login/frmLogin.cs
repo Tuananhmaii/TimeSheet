@@ -28,6 +28,7 @@ namespace Timesheets_System.Views
         ScreenAuthController _screenAuthController = new ScreenAuthController();
         public static UserDTO loggedUser;
         public static string user_id;
+        public static string userFullName;
 
 
         public frmLogin()
@@ -153,11 +154,12 @@ namespace Timesheets_System.Views
                 {
                     //User can access menu
                     frmMenu frmMenu = new frmMenu();
-                loggedUser = _userDTO;
-                user_id = _userDTO.Username;
+                    loggedUser = _userDTO;
+                    user_id = _userDTO.Username;
+                    userFullName = _userDTO.Fullname;
                 Thread.Sleep(500);
-                frmMenu.Show();
-                this.Hide();
+                    frmMenu.Show();
+                    this.Hide();
                 }
             }
             catch (Exception ex)

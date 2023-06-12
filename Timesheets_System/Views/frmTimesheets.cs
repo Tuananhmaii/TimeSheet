@@ -219,7 +219,7 @@ namespace Timesheets_System.Views
         }
         private void dtvgTimeSheet_DoubleClick(object sender, EventArgs e)
         {
-            string selected = dtvgTimeSheet.Rows[dtvgTimeSheet.CurrentRow.Index].Cells[0].Value.ToString();
+            string selected = dtvgTimeSheet.Rows[dtvgTimeSheet.CurrentRow.Index].Cells[1].Value.ToString();
             frmPersonalTimesheet f = new frmPersonalTimesheet(selected, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             f.SubmitLoad();
             f.ShowDialog();

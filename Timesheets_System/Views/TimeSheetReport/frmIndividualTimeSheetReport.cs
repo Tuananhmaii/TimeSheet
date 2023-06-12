@@ -26,7 +26,7 @@ namespace Timesheets_System.Views
     {
         UserController _userController = new UserController();
         TimesheetsDetailsController _timesSheetDetailController = new TimesheetsDetailsController();
-        string userName = frmLogin.loggedUser.Username;
+        string fullName = frmLogin.userFullName;
         
         public frmIndividualTimeSheetReport()
         {
@@ -49,7 +49,7 @@ namespace Timesheets_System.Views
             report.LocalReport.ReportPath = "../../bin/debug/RDLC/IndividualTimeSheetReport.rdlc";
 
             report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDetailDS",
-                _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
+                _timesSheetDetailController.GetUserTimeSheetDetailByMonth(fullName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
 
             ReportParameter pName = new ReportParameter("pName", lName.Text.ToString());
             report.LocalReport.SetParameters(pName);
@@ -89,8 +89,7 @@ namespace Timesheets_System.Views
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = DateTime.Now.Year;
 
-            string userId = frmLogin.loggedUser.Username;
-            UserDTO user = _userController.GetForeignValue(userId);
+            UserDTO user = _userController.GetUserWithFullInfo(fullName);
 
             lName.Text = user.Fullname;
             lPosition.Text = user.Position_name;
@@ -100,7 +99,7 @@ namespace Timesheets_System.Views
         }
         private void btExportData_Click(object sender, EventArgs e)
         {
-            var list = _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            var list = _timesSheetDetailController.GetUserTimeSheetDetailByMonth(fullName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (!list.Any())
             {
                 MessageBox.Show("Không có data, xin hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

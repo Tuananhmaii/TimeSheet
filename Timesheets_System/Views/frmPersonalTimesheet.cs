@@ -29,14 +29,14 @@ namespace Timesheets_System
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        public frmPersonalTimesheet(string userName, int year, int month)
+        public frmPersonalTimesheet(string fullName, int year, int month)
         {
             InitializeComponent();
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
-            UserDTO user = _userController.GetUserWithFullInfo(userName);
+            UserDTO user = _userController.GetUserWithFullInfo(fullName);
 
             lName.Text = user.Fullname;
             lPosition.Text = user.Position_name;
@@ -49,14 +49,14 @@ namespace Timesheets_System
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = year;
 
-            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetIndividualReport(userName, year, month);
+            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetUserTimeSheetDetailByMonth(fullName, year, month);
             dtvgPersonalTimeSheet.AutoGenerateColumns = false;
             dtvgPersonalTimeSheet.Columns["Username"].Visible = false;
         }
 
         private void Load()
         {
-            UserDTO user = _userController.GetUserWithFullInfo(frmLogin.user_id);
+            UserDTO user = _userController.GetUserWithFullInfo(frmLogin.userFullName);
 
             lName.Text = user.Fullname;
             lPosition.Text = user.Position_name;
@@ -69,7 +69,7 @@ namespace Timesheets_System
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = DateTime.Now.Year;
 
-            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetIndividualReport(user.Username, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            dtvgPersonalTimeSheet.DataSource = _timesSheetDetailController.GetUserTimeSheetDetailByMonth(frmLogin.userFullName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             dtvgPersonalTimeSheet.AutoGenerateColumns = false;
             dtvgPersonalTimeSheet.Columns["Username"].Visible = false;
         }

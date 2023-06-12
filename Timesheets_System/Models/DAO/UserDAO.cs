@@ -190,15 +190,15 @@ namespace Timesheets_System.Models.DAO
         }
 
         // Lấy user với department, team và position
-        public UserDTO GetUserWithFullInfo(string username)
+        public UserDTO GetUserWithFullInfo(string fullname)
         {
             String query = "SELECT * FROM user_tb " +
                 "FULL JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
                 "FULL JOIN department_tb ON team_tb.department_id = department_tb.department_id " +
                 "FULL JOIN position_tb ON user_tb.position_id = position_tb.position_id " +
-                "where username = @username";
+                "where fullname = @fullname";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("username", username);
+            parameters.Add("fullname", fullname);
             return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
         }
     }
