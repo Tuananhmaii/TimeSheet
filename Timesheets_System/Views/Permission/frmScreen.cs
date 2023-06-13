@@ -22,14 +22,16 @@ namespace Timesheets_System.Views.Screen
         {
             InitializeComponent();
             Load();
+            ShowData();
         }
 
         private void Load()
         {
             dtgvScreen.DataSource = _screenAuthController.GetScreenRoles("Admin");
             cbRole.DataSource = _authGroupAuthController.GetAuthGroupDTO();
-            cbRole.DisplayMember = "auth_group_id";
+            cbRole.DisplayMember = "auth_group_name";
             cbRole.ValueMember = "auth_group_id";
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -39,23 +41,27 @@ namespace Timesheets_System.Views.Screen
                 if (dtgvScreen.Rows[i].Cells["Permission"].Value.ToString() == "1")
                 {
                     _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(),
-                        cbRole.Text.ToString(), "1");
+                        cbRole.SelectedValue.ToString(), "1");
                 }
 
                 if (dtgvScreen.Rows[i].Cells["Permission"].Value.ToString() == "0")
                 {
                     _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(),
-                            cbRole.Text.ToString(), "0");
+                            cbRole.SelectedValue.ToString(), "0");
                 }
             }
             MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Load();
         }
 
+        private void ShowData()
+        {
+            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.SelectedValue.ToString());
+        }
+
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbRole.SelectedText = "Admin";
-            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.Text.ToString());
+            ShowData();
         }
     }
 }

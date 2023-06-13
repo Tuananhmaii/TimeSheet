@@ -221,6 +221,12 @@
     <Compile Include="Views\Permission\frmScreen.Designer.cs">
       <DependentUpon>frmScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Permission\frmSubmitUserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Permission\frmSubmitUserRole.Designer.cs">
+      <DependentUpon>frmSubmitUserRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Permission\frmUserRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Permission\frmScreen.resx">
       <DependentUpon>frmScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Permission\frmSubmitUserRole.resx">
+      <DependentUpon>frmSubmitUserRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Permission\frmUserRole.resx">
       <DependentUpon>frmUserRole.cs</DependentUpon>

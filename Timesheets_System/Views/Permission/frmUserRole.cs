@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Timesheets_System.Controllers;
 using Timesheets_System.Models.DTO;
+using Timesheets_System.Views.Permission;
 
 namespace Timesheets_System.Views.Screen
 {
@@ -24,6 +25,12 @@ namespace Timesheets_System.Views.Screen
         public frmUserRole()
         {
             InitializeComponent();
+            LoadData();
+
+        }
+
+        private void LoadData()
+        {
             dtgvScreen.AutoGenerateColumns = false;
             _users = _userController.GetAllUsers();
             List<UserDTOWithAdmin> usersWithAdmin = new List<UserDTOWithAdmin>();
@@ -45,51 +52,20 @@ namespace Timesheets_System.Views.Screen
                 usersWithAdmin.Add(userWithAdmin);
             }
 
-            dtgvScreen.DataSource = usersWithAdmin;
-
+            dtgvScreen.DataSource = _users;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void dtgvScreen_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string AdminRole = "Admin";
-            string UserRole = "User";
+            // Get the selected row
+            string selectedUsername = dtgvScreen.Rows[e.RowIndex].Cells["Username"].Value.ToString();
+            string selectedFullname = dtgvScreen.Rows[e.RowIndex].Cells["Fullname"].Value.ToString();
+            string selectedAuth_Group_ID = dtgvScreen.Rows[e.RowIndex].Cells["Auth_Group_ID"].Value.ToString();
 
-            for (int i = 0; i < dtgvScreen.Rows.Count; i++)
-            {
-                if (dtgvScreen.Rows[i].Cells[2].Value.ToString() == "1")
-                {
-                    _userController.UpdateAuth_Group_ID(dtgvScreen.Rows[i].Cells[0].Value.ToString(), AdminRole);
-                }
-                else if (dtgvScreen.Rows[i].Cells[3].Value.ToString() == "1")
-                {
-                    _userController.UpdateAuth_Group_ID(dtgvScreen.Rows[i].Cells[0].Value.ToString(), UserRole);
-                }
-            }
-            MessageBox.Show("Thành công!");
 
-        }
-
-        private void dtgvScreen_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Kiểm tra nếu sự kiện được kích hoạt từ cột "admin" (theo index cột)
-            if (e.ColumnIndex == 2 && e.RowIndex >= 0)
-            {
-                if (dtgvScreen.Rows[e.RowIndex].Cells[2].Value.ToString() == "0")
-                {
-                    // Uncheck cột "user" tại hàng tương ứng
-                    dtgvScreen.Rows[e.RowIndex].Cells[3].Value = "0";
-                    dtgvScreen.Rows[e.RowIndex].Cells[2].Value = "1";
-                }
-            }
-            else if (e.ColumnIndex == 3 && e.RowIndex >= 0)
-            {
-                if (dtgvScreen.Rows[e.RowIndex].Cells[3].Value.ToString() == "0")
-                {
-                    // Uncheck cột "user" tại hàng tương ứng
-                    dtgvScreen.Rows[e.RowIndex].Cells[2].Value = "0";
-                    dtgvScreen.Rows[e.RowIndex].Cells[3].Value = "1";
-                }
-            }
+            frmSubmitUserRole frmSubmitUserRole = new frmSubmitUserRole(selectedUsername, selectedFullname, selectedAuth_Group_ID);
+            frmSubmitUserRole.ShowDialog();
+            LoadData();
         }
     }
 }

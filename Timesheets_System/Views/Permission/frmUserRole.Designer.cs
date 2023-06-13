@@ -32,41 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
             this.dtgvScreen = new System.Windows.Forms.DataGridView();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._isAdmin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this._isUser = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.panel1.SuspendLayout();
+            this.Department_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Team_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Auth_Group_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvScreen)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 395);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 55);
-            this.panel1.TabIndex = 1;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(166)))), ((int)(((byte)(235)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSave.Location = new System.Drawing.Point(670, 14);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(104, 31);
-            this.btnSave.TabIndex = 22;
-            this.btnSave.Text = "LƯU";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dtgvScreen
             // 
@@ -85,16 +61,20 @@
             this.Username,
             this.Fullname,
             this._isAdmin,
-            this._isUser});
+            this._isUser,
+            this.Department_name,
+            this.Team_name,
+            this.Position_name,
+            this.Auth_Group_ID});
             this.dtgvScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvScreen.Location = new System.Drawing.Point(0, 0);
             this.dtgvScreen.Name = "dtgvScreen";
             this.dtgvScreen.RowHeadersVisible = false;
             this.dtgvScreen.RowHeadersWidth = 51;
             this.dtgvScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvScreen.Size = new System.Drawing.Size(800, 395);
+            this.dtgvScreen.Size = new System.Drawing.Size(946, 462);
             this.dtgvScreen.TabIndex = 2;
-            this.dtgvScreen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvScreen_CellContentClick);
+            this.dtgvScreen.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvScreen_CellDoubleClick);
             // 
             // Username
             // 
@@ -110,8 +90,10 @@
             // Fullname
             // 
             this.Fullname.DataPropertyName = "Fullname";
+            this.Fullname.FillWeight = 130F;
             this.Fullname.HeaderText = "Họ tên";
             this.Fullname.Name = "Fullname";
+            this.Fullname.ReadOnly = true;
             // 
             // _isAdmin
             // 
@@ -128,6 +110,7 @@
             this._isAdmin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this._isAdmin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this._isAdmin.TrueValue = "1";
+            this._isAdmin.Visible = false;
             this._isAdmin.Width = 125;
             // 
             // _isUser
@@ -145,31 +128,60 @@
             this._isUser.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this._isUser.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this._isUser.TrueValue = "1";
+            this._isUser.Visible = false;
             this._isUser.Width = 125;
+            // 
+            // Department_name
+            // 
+            this.Department_name.DataPropertyName = "Department_name";
+            this.Department_name.HeaderText = "Bộ phận";
+            this.Department_name.Name = "Department_name";
+            this.Department_name.ReadOnly = true;
+            // 
+            // Team_name
+            // 
+            this.Team_name.DataPropertyName = "Team_name";
+            this.Team_name.HeaderText = "Team";
+            this.Team_name.Name = "Team_name";
+            this.Team_name.ReadOnly = true;
+            // 
+            // Position_name
+            // 
+            this.Position_name.DataPropertyName = "Position_name";
+            this.Position_name.HeaderText = "Chức vụ";
+            this.Position_name.Name = "Position_name";
+            this.Position_name.ReadOnly = true;
+            // 
+            // Auth_Group_ID
+            // 
+            this.Auth_Group_ID.DataPropertyName = "Auth_Group_ID";
+            this.Auth_Group_ID.FillWeight = 120F;
+            this.Auth_Group_ID.HeaderText = "Nhóm người dùng";
+            this.Auth_Group_ID.Name = "Auth_Group_ID";
+            this.Auth_Group_ID.ReadOnly = true;
             // 
             // frmUserRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(946, 462);
             this.Controls.Add(this.dtgvScreen);
-            this.Controls.Add(this.panel1);
             this.Name = "frmUserRole";
             this.Text = "frmUserRole";
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvScreen)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dtgvScreen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _isAdmin;
         private System.Windows.Forms.DataGridViewCheckBoxColumn _isUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Department_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Team_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Auth_Group_ID;
     }
 }
