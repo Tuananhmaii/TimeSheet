@@ -22,16 +22,14 @@ namespace Timesheets_System.Views.Screen
         {
             InitializeComponent();
             Load();
-            ShowData();
         }
 
         private void Load()
         {
-            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles("Admin");
             cbRole.DataSource = _authGroupAuthController.GetAuthGroupDTO();
             cbRole.DisplayMember = "auth_group_name";
             cbRole.ValueMember = "auth_group_id";
-            
+            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.SelectedValue.ToString());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -53,15 +51,9 @@ namespace Timesheets_System.Views.Screen
             MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Load();
         }
-
-        private void ShowData()
-        {
-            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.SelectedValue.ToString());
-        }
-
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ShowData();
+            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.SelectedValue.ToString());
         }
     }
 }

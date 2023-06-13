@@ -95,6 +95,7 @@
             this.cbDepartment.Name = "cbDepartment";
             this.cbDepartment.Size = new System.Drawing.Size(191, 33);
             this.cbDepartment.TabIndex = 24;
+            this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
             // 
             // cbMonth
             // 

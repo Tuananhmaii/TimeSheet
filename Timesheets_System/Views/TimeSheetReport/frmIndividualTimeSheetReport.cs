@@ -68,7 +68,7 @@ namespace Timesheets_System.Views
             var bytes = report.LocalReport.Render("PDF", deviceInfo, out mimeType,
                    out enCoding, out extension, out streamIds, out warnings);
 
-            saveFileDialog1.FileName = "IndividualTimeSheetReport";
+            saveFileDialog1.FileName = $"TimesheetsReport_{lName.Text}_{cbMonth.Text}_{cbYear.Text}" ;
             saveFileDialog1.DefaultExt = "pdf";
 
             saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";

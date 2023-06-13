@@ -81,8 +81,7 @@ namespace Timesheets_System.Views
         // Check xem người dùng đã nhập đủ data
         private bool EnterFullInformation()
         {
-            if (String.IsNullOrEmpty(txbDepartmentID.Text) || String.IsNullOrEmpty(txbDepartmentName.Text) ||
-                String.IsNullOrEmpty(txbDescription.Text))
+            if (String.IsNullOrEmpty(txbDepartmentID.Text) || String.IsNullOrEmpty(txbDepartmentName.Text))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;

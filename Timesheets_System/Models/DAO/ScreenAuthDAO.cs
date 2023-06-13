@@ -22,11 +22,13 @@ namespace Timesheets_System.Models.DAO
 
         public List<ScreenAuthDTO> GetScreenRoles(string auth_group_id)
         {
-            //string query = "select screen_auth_tb.screen_id, sum(CASE auth_group_id WHEN 'Admin' THEN 1 ELSE 0 END) AS Admin, sum(CASE auth_group_id WHEN 'User' THEN 1 ELSE 0 END) AS User from screen_auth_tb group by screen_auth_tb.screen_id";
-            string query = "SELECT screen_auth_tb.screen_id, screen_tb.screen_name, allowed_to_open FROM screen_auth_tb " +
-                "JOIN screen_tb ON screen_auth_tb.screen_id = screen_tb.screen_id " +
-                "WHERE auth_group_id = @auth_group_id " +
-                "ORDER BY screen_auth_tb.screen_id ASC";
+            //string query = "SELECT screen_auth_tb.screen_id, screen_tb.screen_name, allowed_to_open FROM screen_auth_tb " +
+            //    "JOIN screen_tb ON screen_auth_tb.screen_id = screen_tb.screen_id " +
+            //    "WHERE auth_group_id = @auth_group_id " +
+            //    "ORDER BY screen_auth_tb.screen_id ASC";
+            string query = "SELECT sc.screen_id, sc.screen_name, sa.auth_group_id, COALESCE(sa.allowed_to_open, '0') AS allowed_to_open " +
+                "FROM screen_tb sc LEFT JOIN screen_auth_tb sa ON sc.screen_id = sa.screen_id " +
+                "AND sa.auth_group_id = @auth_group_id";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("auth_group_id", auth_group_id);
             return _dbConnection.Query<ScreenAuthDTO>(query, parameters).ToList();
@@ -79,8 +81,10 @@ namespace Timesheets_System.Models.DAO
 
         public void UpdateAllowScreenAuth(string screen_id, string auth_group_id, string allowed_to_open)
         {
-            String query = "UPDATE screen_auth_tb SET allowed_to_open = @allowed_to_open " +
-                "WHERE screen_id = @screen_id and auth_group_id = @auth_group_id";
+            //String query = "UPDATE screen_auth_tb SET allowed_to_open = @allowed_to_open " +
+            //    "WHERE screen_id = @screen_id and auth_group_id = @auth_group_id";
+            string query = "INSERT INTO screen_auth_tb VALUES (@auth_group_id, @screen_id, @allowed_to_open) " +
+                "ON CONFLICT (auth_group_id, screen_id) DO UPDATE SET allowed_to_open = @allowed_to_open";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("allowed_to_open", allowed_to_open);
             parameters.Add("screen_id", screen_id);

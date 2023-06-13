@@ -131,3 +131,4 @@ D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.CopyCom
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.exe
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.pdb
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Permission.frmSubmitUserRole.resources
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.Permission.frmSubmitUserRole.resources

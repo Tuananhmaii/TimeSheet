@@ -65,7 +65,7 @@ namespace Timesheets_System.Views
             var bytes = report.LocalReport.Render("PDF", deviceInfo, out mimeType,
                    out enCoding, out extension, out streamIds, out warnings);
 
-            saveFileDialog1.FileName = "GeneralTimeSheetReport";
+            saveFileDialog1.FileName = $"TimesheetsReport_{cbDepartment.Text}_{cbTeam.Text}_{cbMonth.Text}_{cbYear.Text}";
             saveFileDialog1.DefaultExt = "pdf";
 
             saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
@@ -79,7 +79,8 @@ namespace Timesheets_System.Views
 
         private void btExportData_Click_1(object sender, EventArgs e)
         {
-            var list = _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(), Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            var list = _timeSheetController.GetGeneralTimeSheet(cbDepartment.SelectedValue.ToString(), cbTeam.SelectedValue.ToString(),
+                                                            Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (!list.Any())
             {
                 MessageBox.Show("Không có data, xin hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -102,12 +103,14 @@ namespace Timesheets_System.Views
             List<DepartmentDTO> departments = _departmentController.GetDepartmentDTO();
             departments.Insert(0, new DepartmentDTO { Department_id = "", Department_name = "", Descriptions = "" });
             cbDepartment.DataSource = departments;
+            cbDepartment.DisplayMember = "department_name";
             cbDepartment.ValueMember = "department_id";
             cbDepartment.SelectedIndex = -1;
 
             List<TeamDTO> teams = _teamController.GetTeamDTO();
             teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
             cbTeam.DataSource = teams;
+            cbTeam.DisplayMember = "team_name";
             cbTeam.ValueMember = "team_id";
             cbTeam.SelectedIndex = -1;
         }
@@ -178,5 +181,16 @@ namespace Timesheets_System.Views
         }
         #endregion
 
+        private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbDepartment.SelectedIndex == -1)
+            {
+                return;
+            }
+            var list = _teamController.GetTeamDTO(cbDepartment.SelectedValue.ToString());
+            cbTeam.DataSource = list;
+            cbTeam.DisplayMember = "team_name";
+            cbTeam.ValueMember = "team_id";
+        }
     }
 }

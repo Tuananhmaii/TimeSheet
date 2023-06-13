@@ -16,7 +16,7 @@ namespace Timesheets_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.frmPermissionGrant());
+            Application.Run(new Views.frmDepartment());
         }
     }
 }
