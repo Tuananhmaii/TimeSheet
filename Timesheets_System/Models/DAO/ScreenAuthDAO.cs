@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Office.Interop.Excel;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -19,16 +20,16 @@ namespace Timesheets_System.Models.DAO
             _dbConnection = new NpgsqlConnection(CONSTANTS.CONNECTIONSTRING);
         }
 
-        public List<ScreenAuthDTO> GetScreenRoles()
+        public List<ScreenAuthDTO> GetScreenRoles(string auth_group_id)
         {
             //string query = "select screen_auth_tb.screen_id, sum(CASE auth_group_id WHEN 'Admin' THEN 1 ELSE 0 END) AS Admin, sum(CASE auth_group_id WHEN 'User' THEN 1 ELSE 0 END) AS User from screen_auth_tb group by screen_auth_tb.screen_id";
-            string query = "SELECT pivotTable.screen_id, screen_tb.screen_name, COALESCE(pivotTable.\"Admin\",'0') as admin, " +
-                "COALESCE(pivotTable.\"User\",'0') as user " +
-                "FROM crosstab( 'SELECT screen_id, auth_group_id, allowed_to_open FROM screen_auth_tb " +
-                "ORDER BY 1', 'VALUES (''Admin''::text), (''User''::text)') " +
-                "AS pivotTable ( screen_id text, \"Admin\" character,  \"User\" character)" +
-                "JOIN screen_tb ON pivotTable.screen_id = screen_tb.screen_id";
-            return _dbConnection.Query<ScreenAuthDTO>(query).ToList();
+            string query = "SELECT screen_auth_tb.screen_id, screen_tb.screen_name, allowed_to_open FROM screen_auth_tb " +
+                "JOIN screen_tb ON screen_auth_tb.screen_id = screen_tb.screen_id " +
+                "WHERE auth_group_id = @auth_group_id " +
+                "ORDER BY screen_auth_tb.screen_id ASC";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("auth_group_id", auth_group_id);
+            return _dbConnection.Query<ScreenAuthDTO>(query, parameters).ToList();
         }
 
         public List<ScreenAuthDTO> GetScreen()

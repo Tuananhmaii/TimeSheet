@@ -35,7 +35,7 @@ namespace Timesheets_System.Views
             Load();
         }
 
-        public void ExportToPDF()
+        public void ExportToPDF(List<TimesheetsDTO> list)
         {
             string deviceInfo = "";
             string[] streamIds;
@@ -49,9 +49,7 @@ namespace Timesheets_System.Views
             report.ProcessingMode = ProcessingMode.Local;
             report.LocalReport.ReportPath = "../../bin/debug/RDLC/GeneralTimeSheetReport.rdlc";
 
-            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDS",
-                _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(),
-                Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
+            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDS", list));
 
             ReportParameter pDepartment = new ReportParameter("pDepartment", cbDepartment.Text.ToString());
             report.LocalReport.SetParameters(pDepartment);
@@ -89,7 +87,7 @@ namespace Timesheets_System.Views
             }
             else
             {
-                ExportToPDF();
+                ExportToPDF(list);
             }
         }
 

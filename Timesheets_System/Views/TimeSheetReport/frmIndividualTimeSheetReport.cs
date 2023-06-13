@@ -34,7 +34,7 @@ namespace Timesheets_System.Views
             Load();
         }
 
-        public void ExportToPDF()
+        public void ExportToPDF(List<TimesheetsDetailsDTO> list)
         {
             string deviceInfo = "";
             string[] streamIds;
@@ -48,8 +48,7 @@ namespace Timesheets_System.Views
             report.ProcessingMode = ProcessingMode.Local;
             report.LocalReport.ReportPath = "../../bin/debug/RDLC/IndividualTimeSheetReport.rdlc";
 
-            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDetailDS",
-                _timesSheetDetailController.GetUserTimeSheetDetailByMonth(fullName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
+            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDetailDS", list));
 
             ReportParameter pName = new ReportParameter("pName", lName.Text.ToString());
             report.LocalReport.SetParameters(pName);
@@ -107,7 +106,7 @@ namespace Timesheets_System.Views
             }
             else
             {
-                ExportToPDF();
+                ExportToPDF(list);
             }
         }
         #region "Custom title"

@@ -17,9 +17,9 @@ namespace Timesheets_System.Controllers
             return _screenAuthDAO.GetScreen();
         }
 
-        public List<ScreenAuthDTO> GetScreenRoles()
+        public List<ScreenAuthDTO> GetScreenRoles(string auth_group_id)
         {
-            return _screenAuthDAO.GetScreenRoles();
+            return _screenAuthDAO.GetScreenRoles(auth_group_id);
         }
 
         public ScreenAuthDTO GetScreenAuthByAuthGrID(ScreenAuthDTO _screenAuthDTO)

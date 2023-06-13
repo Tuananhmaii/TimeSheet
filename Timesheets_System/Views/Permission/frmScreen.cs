@@ -17,6 +17,7 @@ namespace Timesheets_System.Views.Screen
     public partial class frmScreen : Form
     {
         ScreenAuthController _screenAuthController = new ScreenAuthController();
+        AuthGroupController _authGroupAuthController = new AuthGroupController();
         public frmScreen()
         {
             InitializeComponent();
@@ -25,36 +26,36 @@ namespace Timesheets_System.Views.Screen
 
         private void Load()
         {
-            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles();
-            dtgvScreen.Columns["Auth_Group_ID"].Visible = false;
-            dtgvScreen.Columns["Allowed_To_Open"].Visible = false;
+            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles("Admin");
+            cbRole.DataSource = _authGroupAuthController.GetAuthGroupDTO();
+            cbRole.DisplayMember = "auth_group_id";
+            cbRole.ValueMember = "auth_group_id";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dtgvScreen.Rows.Count; i++)
             {
-                if (dtgvScreen.Rows[i].Cells["Admin"].Value == null && dtgvScreen.Rows[i].Cells["User"].Value == null)
+                if (dtgvScreen.Rows[i].Cells["Permission"].Value.ToString() == "1")
                 {
-                    return;
+                    _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(),
+                        cbRole.Text.ToString(), "1");
                 }
-                else
-                {
-                    if (dtgvScreen.Rows[i].Cells["Admin"].Value.ToString() == "0" || dtgvScreen.Rows[i].Cells["Admin"].Value.ToString() == "1")
-                    {
-                        _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(), "Admin",
-                            dtgvScreen.Rows[i].Cells["Admin"].Value.ToString());
-                    }
 
-                    if (dtgvScreen.Rows[i].Cells["User"].Value.ToString() == "0" || dtgvScreen.Rows[i].Cells["User"].Value.ToString() == "1")
-                    {
-                        _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(), "User",
-                            dtgvScreen.Rows[i].Cells["User"].Value.ToString());
-                    }
+                if (dtgvScreen.Rows[i].Cells["Permission"].Value.ToString() == "0")
+                {
+                    _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(),
+                            cbRole.Text.ToString(), "0");
                 }
             }
             MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Load();
+        }
+
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbRole.SelectedText = "Admin";
+            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.Text.ToString());
         }
     }
 }
