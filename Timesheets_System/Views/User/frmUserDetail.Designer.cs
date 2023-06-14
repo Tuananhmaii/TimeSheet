@@ -184,7 +184,7 @@
             this.dateTimePickerDateHired.Location = new System.Drawing.Point(102, 32);
             this.dateTimePickerDateHired.Name = "dateTimePickerDateHired";
             this.dateTimePickerDateHired.Size = new System.Drawing.Size(210, 27);
-            this.dateTimePickerDateHired.TabIndex = 13;
+            this.dateTimePickerDateHired.TabIndex = 17;
             this.dateTimePickerDateHired.ValueChanged += new System.EventHandler(this.dateTimePickerDateHired_ValueChanged);
             // 
             // txt_ContractNo
@@ -197,7 +197,7 @@
             this.txt_ContractNo.Name = "txt_ContractNo";
             this.txt_ContractNo.ReadOnly = true;
             this.txt_ContractNo.Size = new System.Drawing.Size(210, 27);
-            this.txt_ContractNo.TabIndex = 14;
+            this.txt_ContractNo.TabIndex = 18;
             // 
             // label16
             // 
@@ -266,7 +266,7 @@
             this.txtUsername.MaxLength = 50;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(280, 27);
-            this.txtUsername.TabIndex = 14;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.Visible = false;
             this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
@@ -290,7 +290,7 @@
             this.radioButtonFemale.Location = new System.Drawing.Point(334, 88);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(47, 24);
-            this.radioButtonFemale.TabIndex = 3;
+            this.radioButtonFemale.TabIndex = 4;
             this.radioButtonFemale.Text = "Nữ";
             this.radioButtonFemale.UseVisualStyleBackColor = true;
             // 
@@ -303,7 +303,7 @@
             this.radioButtonMale.Location = new System.Drawing.Point(168, 88);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(59, 24);
-            this.radioButtonMale.TabIndex = 2;
+            this.radioButtonMale.TabIndex = 3;
             this.radioButtonMale.TabStop = true;
             this.radioButtonMale.Text = "Nam";
             this.radioButtonMale.UseVisualStyleBackColor = true;
@@ -316,7 +316,7 @@
             this.dateTimePickerBirthday.Location = new System.Drawing.Point(168, 119);
             this.dateTimePickerBirthday.Name = "dateTimePickerBirthday";
             this.dateTimePickerBirthday.Size = new System.Drawing.Size(280, 27);
-            this.dateTimePickerBirthday.TabIndex = 4;
+            this.dateTimePickerBirthday.TabIndex = 5;
             this.dateTimePickerBirthday.ValueChanged += new System.EventHandler(this.dateTimePickerBirthday_ValueChanged);
             // 
             // txt_Religion
@@ -328,7 +328,7 @@
             this.txt_Religion.Name = "txt_Religion";
             this.txt_Religion.ReadOnly = true;
             this.txt_Religion.Size = new System.Drawing.Size(280, 27);
-            this.txt_Religion.TabIndex = 9;
+            this.txt_Religion.TabIndex = 10;
             // 
             // label15
             // 
@@ -350,7 +350,7 @@
             this.txt_Ethnic.Name = "txt_Ethnic";
             this.txt_Ethnic.ReadOnly = true;
             this.txt_Ethnic.Size = new System.Drawing.Size(280, 27);
-            this.txt_Ethnic.TabIndex = 8;
+            this.txt_Ethnic.TabIndex = 9;
             // 
             // label14
             // 
@@ -384,7 +384,7 @@
             this.txt_Address.Name = "txt_Address";
             this.txt_Address.ReadOnly = true;
             this.txt_Address.Size = new System.Drawing.Size(280, 69);
-            this.txt_Address.TabIndex = 12;
+            this.txt_Address.TabIndex = 13;
             // 
             // txt_SocialInsuranceNo
             // 
@@ -417,7 +417,7 @@
             this.txt_Taxcode.Name = "txt_Taxcode";
             this.txt_Taxcode.ReadOnly = true;
             this.txt_Taxcode.Size = new System.Drawing.Size(280, 27);
-            this.txt_Taxcode.TabIndex = 7;
+            this.txt_Taxcode.TabIndex = 8;
             // 
             // label7
             // 
@@ -483,7 +483,7 @@
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.ReadOnly = true;
             this.txt_Email.Size = new System.Drawing.Size(280, 27);
-            this.txt_Email.TabIndex = 6;
+            this.txt_Email.TabIndex = 7;
             // 
             // label5
             // 
@@ -505,7 +505,7 @@
             this.txt_Phone.Name = "txt_Phone";
             this.txt_Phone.ReadOnly = true;
             this.txt_Phone.Size = new System.Drawing.Size(280, 27);
-            this.txt_Phone.TabIndex = 5;
+            this.txt_Phone.TabIndex = 6;
             // 
             // label4
             // 
@@ -527,7 +527,7 @@
             this.txt_Fullname.Name = "txt_Fullname";
             this.txt_Fullname.ReadOnly = true;
             this.txt_Fullname.Size = new System.Drawing.Size(280, 27);
-            this.txt_Fullname.TabIndex = 1;
+            this.txt_Fullname.TabIndex = 2;
             // 
             // label1
             // 
@@ -551,7 +551,7 @@
             this.btnChangePicture.Location = new System.Drawing.Point(156, 245);
             this.btnChangePicture.Name = "btnChangePicture";
             this.btnChangePicture.Size = new System.Drawing.Size(92, 37);
-            this.btnChangePicture.TabIndex = 17;
+            this.btnChangePicture.TabIndex = 16;
             this.btnChangePicture.Text = "THAY ĐỔI";
             this.btnChangePicture.UseVisualStyleBackColor = false;
             this.btnChangePicture.Click += new System.EventHandler(this.btnChangePicture_Click);
@@ -567,7 +567,7 @@
             this.btnCancel.Location = new System.Drawing.Point(694, 557);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 39);
-            this.btnCancel.TabIndex = 18;
+            this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "HỦY";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Visible = false;
@@ -584,7 +584,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(788, 557);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(104, 39);
-            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "CẬP NHẬT";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);

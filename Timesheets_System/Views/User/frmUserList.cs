@@ -154,6 +154,8 @@ namespace Timesheets_System.Views.User
                 string username = selectedRow.Cells[0].Value.ToString();
                 if (MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    TimesheetsController timesheetsController = new TimesheetsController();
+                    timesheetsController.DeleteTimeSheet(username);
                     _userController.DeleteUserByID(username);
                     MessageBox.Show("Xóa nhân viên thành công!");
                     LoadData();

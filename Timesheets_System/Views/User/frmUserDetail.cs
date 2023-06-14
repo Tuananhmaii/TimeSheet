@@ -184,8 +184,6 @@ namespace Timesheets_System.Views.User
             this.label4.Text += " *";
             this.label5.Text += " *";
             this.label6.Text += " *";
-            this.label7.Text += " *";
-            this.label8.Text += " *";
             this.label9.Text += " *";
             this.label14.Text += " *";
             this.label15.Text += " *";
@@ -228,11 +226,11 @@ namespace Timesheets_System.Views.User
                 return false;
             }
 
-            if (txt_Taxcode.Text == string.Empty)
-            {
-                MessageBox.Show("Vui lòng nhập mã số thuế", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            //if (txt_Taxcode.Text == string.Empty)
+            //{
+            //    MessageBox.Show("Vui lòng nhập mã số thuế", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
 
             if (txt_Ethnic.Text == string.Empty)
             {
@@ -252,11 +250,11 @@ namespace Timesheets_System.Views.User
                 return false;
             }
 
-            if (txt_SocialInsuranceNo.Text == string.Empty)
-            {
-                MessageBox.Show("Vui lòng nhập số BHXH", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            //if (txt_SocialInsuranceNo.Text == string.Empty)
+            //{
+            //    MessageBox.Show("Vui lòng nhập số BHXH", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return false;
+            //}
 
             if (txt_Address.Text == string.Empty)
             {
@@ -414,41 +412,58 @@ namespace Timesheets_System.Views.User
                     //Check các giá trị nhập vào, nếu chưa nhập thì vẫn lưu vào data với giá trị là ""
                     if (!ElementCheck()) return;
 
+                    if (!CheckUserName()) return;
+
                     //try to update data
                     if (cb_Team.SelectedValue == null && newUser.Auth_Group_ID == PERMISSION_AUTH_GROUP.ADMIN)
                     {
-                        MessageBox.Show("Phòng bạn chọn hiện tại chưa có team, vui lòng đợi hoặc chọn phòng khác!");
+                        MessageBox.Show("Phòng bạn chọn hiện tại chưa có team, vui lòng đợi hoặc chọn phòng khác!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                         enableControl();
                         btnUpdate.Text = "XÁC NHẬN";
                     }
-                    if (!CheckUserName()) return;
+
+                    else if (cb_Team.SelectedValue == null && newUser.Auth_Group_ID != PERMISSION_AUTH_GROUP.ADMIN)
+                    {
+                        MessageBox.Show("Phòng bạn chọn hiện tại chưa có team, vui lòng đợi hoặc chọn phòng khác!", "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        enableControl();
+                        btnUpdate.Text = "XÁC NHẬN";
+                    }
 
                     else
                     {
-                        newUser.Username = txtUsername.Text;
-                        newUser.Password = StringUtil.Encrytion("Goline@123");
-                        newUser.Fullname = txt_Fullname.Text;
-                        newUser.Gender = new_User_Gender;
-                        newUser.Birth_Date = dateTimePickerBirthday.Value;
-                        newUser.Email = txt_Email.Text;
-                        newUser.Phone = txt_Phone.Text;
-                        newUser.Address = txt_Address.Text;
-                        newUser.Ethnic = txt_Ethnic.Text;
-                        newUser.Religion = txt_Religion.Text;
-                        newUser.Citizen_ID = txt_CitizenId.Text;
-                        newUser.Tax_Code = txt_Taxcode.Text;
-                        newUser.Social_Insurance_No = txt_SocialInsuranceNo.Text;
-                        newUser.Date_Hired = dateTimePickerDateHired.Value;
-                        newUser.Contract_No = txt_ContractNo.Text;
-                        newUser.Team_id = cb_Team.SelectedValue.ToString();
-                        newUser.Position_id = cb_Position.SelectedValue.ToString();
-                        _userController.CreateNewUser(newUser);
-                        MessageBox.Show("Thêm mới thành công!");
-                        SetUsername("");
-                        label18.Visible = false;
-                        txtUsername.Visible = false;
-                        createSaveButton();
-                        this.Close();
+                        try
+                        {
+                            newUser.Username = txtUsername.Text;
+                            newUser.Password = StringUtil.Encrytion("Goline@123");
+                            newUser.Fullname = txt_Fullname.Text;
+                            newUser.Gender = new_User_Gender;
+                            newUser.Birth_Date = dateTimePickerBirthday.Value;
+                            newUser.Email = txt_Email.Text;
+                            newUser.Phone = txt_Phone.Text;
+                            newUser.Address = txt_Address.Text;
+                            newUser.Ethnic = txt_Ethnic.Text;
+                            newUser.Religion = txt_Religion.Text;
+                            newUser.Citizen_ID = txt_CitizenId.Text;
+                            newUser.Tax_Code = txt_Taxcode.Text;
+                            newUser.Social_Insurance_No = txt_SocialInsuranceNo.Text;
+                            newUser.Date_Hired = dateTimePickerDateHired.Value;
+                            newUser.Contract_No = txt_ContractNo.Text;
+                            newUser.Team_id = cb_Team.SelectedValue.ToString();
+                            newUser.Position_id = cb_Position.SelectedValue.ToString();
+                            _userController.CreateNewUser(newUser);
+                            MessageBox.Show("Thêm mới thành công!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            SetUsername("");
+                            label18.Visible = false;
+                            txtUsername.Visible = false;
+                            createSaveButton();
+                            this.Close();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Có lỗi xảy ra! \nHãy thử lại \n" + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                 }
@@ -485,6 +500,12 @@ namespace Timesheets_System.Views.User
                         enableControl();
                         btnUpdate.Text = "LƯU";
                     }
+                    else if (cb_Team.SelectedValue == null && _current_user.Auth_Group_ID != PERMISSION_AUTH_GROUP.ADMIN)
+                    {
+                        MessageBox.Show("Phòng bạn chọn hiện tại chưa có team, vui lòng đợi hoặc chọn phòng khác!");
+                        enableControl();
+                        btnUpdate.Text = "LƯU";
+                    }
                     else
                     {
                         UserDTO userDTO = new UserDTO();
@@ -506,9 +527,9 @@ namespace Timesheets_System.Views.User
                         userDTO.Position_id = cb_Position.SelectedValue.ToString();
                         _userController.UpdateUserProfile(userDTO, _current_user_id);
                         MessageBox.Show("Cập nhật thành công!");
+                        //Sau khi update thành công thì disable các box,...
+                        disableControl();
                     }
-                    //Sau khi update thành công thì disable các box,...
-                    disableControl();
                 }
             }
             catch (Exception ex)
@@ -544,7 +565,7 @@ namespace Timesheets_System.Views.User
             }
             catch
             {
-                MessageBox.Show("Khởi động lại chương trình để tiếp tục chỉnh sửa hình nền!");
+                MessageBox.Show("Ảnh không hợp lệ. Vui lòng thử lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -596,12 +617,14 @@ namespace Timesheets_System.Views.User
 
         private void dateTimePickerDateHired_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePickerDateHired.Format = DateTimePickerFormat.Short;
+            dateTimePickerDateHired.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDateHired.CustomFormat = "dd/MM/yyyy";
         }
 
         private void dateTimePickerBirthday_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePickerBirthday.Format = DateTimePickerFormat.Short;
+            dateTimePickerBirthday.Format = DateTimePickerFormat.Custom;
+            dateTimePickerBirthday.CustomFormat = "dd/MM/yyyy";
         }
 
         private void txtUsername_Leave(object sender, EventArgs e)

@@ -435,24 +435,28 @@
             this.Department_name.DataPropertyName = "Department_name";
             this.Department_name.HeaderText = "Phòng";
             this.Department_name.Name = "Department_name";
+            this.Department_name.ReadOnly = true;
             // 
             // Team_name
             // 
             this.Team_name.DataPropertyName = "Team_name";
             this.Team_name.HeaderText = "Team";
             this.Team_name.Name = "Team_name";
+            this.Team_name.ReadOnly = true;
             // 
             // Position_name
             // 
             this.Position_name.DataPropertyName = "Position_name";
             this.Position_name.HeaderText = "Chức vụ";
             this.Position_name.Name = "Position_name";
+            this.Position_name.ReadOnly = true;
             // 
             // Gender
             // 
             this.Gender.DataPropertyName = "Gender";
             this.Gender.HeaderText = "Giới tính";
             this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
             this.Gender.Visible = false;
             // 
             // Username
@@ -460,6 +464,7 @@
             this.Username.DataPropertyName = "Username";
             this.Username.HeaderText = "Taikhoan";
             this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
             this.Username.Visible = false;
             // 
             // Password
@@ -467,6 +472,7 @@
             this.Password.DataPropertyName = "Password";
             this.Password.HeaderText = "Mat khau";
             this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
             this.Password.Visible = false;
             // 
             // Ethnic
@@ -474,6 +480,7 @@
             this.Ethnic.DataPropertyName = "Ethnic";
             this.Ethnic.HeaderText = "Ethnic";
             this.Ethnic.Name = "Ethnic";
+            this.Ethnic.ReadOnly = true;
             this.Ethnic.Visible = false;
             // 
             // Religion
@@ -481,6 +488,7 @@
             this.Religion.DataPropertyName = "Religion";
             this.Religion.HeaderText = "Religion";
             this.Religion.Name = "Religion";
+            this.Religion.ReadOnly = true;
             this.Religion.Visible = false;
             // 
             // Citizen_ID
@@ -488,6 +496,7 @@
             this.Citizen_ID.DataPropertyName = "Citizen_ID";
             this.Citizen_ID.HeaderText = "Citizen_ID";
             this.Citizen_ID.Name = "Citizen_ID";
+            this.Citizen_ID.ReadOnly = true;
             this.Citizen_ID.Visible = false;
             // 
             // Contract_No
@@ -495,6 +504,7 @@
             this.Contract_No.DataPropertyName = "Contract_No";
             this.Contract_No.HeaderText = "Contract_No";
             this.Contract_No.Name = "Contract_No";
+            this.Contract_No.ReadOnly = true;
             this.Contract_No.Visible = false;
             // 
             // Auth_Group_ID
@@ -502,6 +512,7 @@
             this.Auth_Group_ID.DataPropertyName = "Auth_Group_ID";
             this.Auth_Group_ID.HeaderText = "Auth_Group_ID";
             this.Auth_Group_ID.Name = "Auth_Group_ID";
+            this.Auth_Group_ID.ReadOnly = true;
             this.Auth_Group_ID.Visible = false;
             // 
             // Tax_Code
@@ -509,6 +520,7 @@
             this.Tax_Code.DataPropertyName = "Tax_Code";
             this.Tax_Code.HeaderText = "Tax_Code";
             this.Tax_Code.Name = "Tax_Code";
+            this.Tax_Code.ReadOnly = true;
             this.Tax_Code.Visible = false;
             // 
             // Department_id
@@ -516,6 +528,7 @@
             this.Department_id.DataPropertyName = "Department_id";
             this.Department_id.HeaderText = "Department_id";
             this.Department_id.Name = "Department_id";
+            this.Department_id.ReadOnly = true;
             this.Department_id.Visible = false;
             // 
             // Team_id
@@ -523,6 +536,7 @@
             this.Team_id.DataPropertyName = "Team_id";
             this.Team_id.HeaderText = "Team_id";
             this.Team_id.Name = "Team_id";
+            this.Team_id.ReadOnly = true;
             this.Team_id.Visible = false;
             // 
             // Position_id
@@ -530,6 +544,7 @@
             this.Position_id.DataPropertyName = "Position_id";
             this.Position_id.HeaderText = "Position_id";
             this.Position_id.Name = "Position_id";
+            this.Position_id.ReadOnly = true;
             this.Position_id.Visible = false;
             // 
             // Social_Insurance_No
@@ -537,6 +552,7 @@
             this.Social_Insurance_No.DataPropertyName = "Social_Insurance_No";
             this.Social_Insurance_No.HeaderText = "Social_Insurance_No";
             this.Social_Insurance_No.Name = "Social_Insurance_No";
+            this.Social_Insurance_No.ReadOnly = true;
             this.Social_Insurance_No.Visible = false;
             // 
             // Photo
@@ -544,6 +560,7 @@
             this.Photo.DataPropertyName = "Photo";
             this.Photo.HeaderText = "Photo";
             this.Photo.Name = "Photo";
+            this.Photo.ReadOnly = true;
             this.Photo.Visible = false;
             // 
             // Date_Hired
@@ -551,6 +568,7 @@
             this.Date_Hired.DataPropertyName = "Date_Hired";
             this.Date_Hired.HeaderText = "Date_Hired";
             this.Date_Hired.Name = "Date_Hired";
+            this.Date_Hired.ReadOnly = true;
             this.Date_Hired.Visible = false;
             // 
             // frmUserList
@@ -561,6 +579,7 @@
             this.Controls.Add(this.dtgvDepartmentDetail);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUserList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUserList";

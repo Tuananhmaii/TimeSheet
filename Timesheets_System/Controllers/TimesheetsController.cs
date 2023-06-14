@@ -55,5 +55,10 @@ namespace Timesheets_System.Controllers
         {
             return _timesheetsDAO.GetGeneralTimeSheet(department, team, year, month);
         }
+
+        public void DeleteTimeSheet(string username)
+        {
+            _timesheetsDAO.DeleteTimeSheet(username);
+        }
     }
 }

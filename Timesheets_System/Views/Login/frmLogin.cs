@@ -34,6 +34,7 @@ namespace Timesheets_System.Views
         public frmLogin()
         {
             InitializeComponent();
+            txt_Username.Focus();
         }
 
         private Boolean ElementCheck()

@@ -118,5 +118,14 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("month", month);
             return _dbConnection.Query<TimesheetsDTO>(fullQuery, parameters).ToList();
         }
+
+        public void DeleteTimeSheet(string username)
+        {
+            string query = "DELETE FROM public.timesheets_tb WHERE username = @username;";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("username", username);
+
+            _dbConnection.Execute(query, parameters);
+        }
     }
 }
