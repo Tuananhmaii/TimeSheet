@@ -34,17 +34,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.dtgvScreen = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.cbRole = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.Screen_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Screen_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Permission = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Admin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Auth_Group_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvScreen)).BeginInit();
             this.panel2.SuspendLayout();
@@ -56,10 +56,10 @@
             // 
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 481);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 497);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1067, 73);
+            this.panel1.Size = new System.Drawing.Size(1067, 57);
             this.panel1.TabIndex = 0;
             // 
             // btnSave
@@ -70,8 +70,8 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSave.Location = new System.Drawing.Point(893, 22);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Location = new System.Drawing.Point(893, 6);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(139, 38);
             this.btnSave.TabIndex = 22;
@@ -101,67 +101,13 @@
             this.Auth_Group_ID});
             this.dtgvScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvScreen.Location = new System.Drawing.Point(0, 0);
-            this.dtgvScreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtgvScreen.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvScreen.Name = "dtgvScreen";
             this.dtgvScreen.RowHeadersVisible = false;
             this.dtgvScreen.RowHeadersWidth = 51;
             this.dtgvScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvScreen.Size = new System.Drawing.Size(1067, 423);
+            this.dtgvScreen.Size = new System.Drawing.Size(1067, 447);
             this.dtgvScreen.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1067, 481);
-            this.panel2.TabIndex = 24;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dtgvScreen);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 58);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1067, 423);
-            this.panel4.TabIndex = 9;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.cbRole);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1067, 58);
-            this.panel3.TabIndex = 8;
-            // 
-            // cbRole
-            // 
-            this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRole.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(124, 12);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(177, 33);
-            this.cbRole.TabIndex = 6;
-            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Quyền";
             // 
             // Screen_ID
             // 
@@ -230,6 +176,60 @@
             this.Auth_Group_ID.Visible = false;
             this.Auth_Group_ID.Width = 125;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1067, 497);
+            this.panel2.TabIndex = 24;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dtgvScreen);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 50);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1067, 447);
+            this.panel4.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cbRole);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1067, 50);
+            this.panel3.TabIndex = 8;
+            // 
+            // cbRole
+            // 
+            this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRole.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Location = new System.Drawing.Point(129, 6);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(177, 33);
+            this.cbRole.TabIndex = 6;
+            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Quyền";
+            // 
             // frmScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -237,7 +237,7 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmScreen";
             this.Text = "frmScreen";
             this.panel1.ResumeLayout(false);

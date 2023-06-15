@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 using Timesheets_System.Common.Const;
 using Timesheets_System.Controllers;
@@ -190,6 +191,12 @@ namespace Timesheets_System.Views
             {
                 if (MessageBox.Show("Bạn có muốn thực hiện hành động này không", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 {
+                    return;
+                }
+                var list = _teamController.checkUsedTeamID(txbTeamId.Text);
+                if (list.Count != 0)
+                {
+                    MessageBox.Show("Đang có nhân viên thuộc team này, vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 _teamController.DeleteTeamByID(txbTeamId.Text);

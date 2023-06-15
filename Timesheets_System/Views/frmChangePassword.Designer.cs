@@ -125,6 +125,7 @@
             this.txbOldPassword.Name = "txbOldPassword";
             this.txbOldPassword.Size = new System.Drawing.Size(345, 31);
             this.txbOldPassword.TabIndex = 3;
+            this.txbOldPassword.UseSystemPasswordChar = true;
             // 
             // btChangePassword
             // 

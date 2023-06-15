@@ -64,5 +64,15 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("Description", department.Descriptions);
             _dbConnection.Query(query, parameters);
         }
+
+        public List<DepartmentDTO> checkUsedDepartmentID(string departmentID)
+        {
+            String query = "SELECT * FROM department_tb " +
+                "JOIN team_tb ON department_tb.department_id = team_tb.department_id " +
+                "WHERE department_tb.department_id = @departmentID";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("departmentID", departmentID);
+            return _dbConnection.Query<DepartmentDTO>(query, parameters).ToList();
+        }
     }
 }

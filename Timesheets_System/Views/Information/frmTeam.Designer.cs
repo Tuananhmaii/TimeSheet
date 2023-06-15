@@ -209,6 +209,7 @@
             this.txbTeamName.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTeamName.Location = new System.Drawing.Point(166, 111);
             this.txbTeamName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTeamName.MaxLength = 50;
             this.txbTeamName.Name = "txbTeamName";
             this.txbTeamName.Size = new System.Drawing.Size(237, 31);
             this.txbTeamName.TabIndex = 4;
@@ -218,6 +219,7 @@
             this.txbTeamId.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTeamId.Location = new System.Drawing.Point(166, 39);
             this.txbTeamId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTeamId.MaxLength = 20;
             this.txbTeamId.Name = "txbTeamId";
             this.txbTeamId.Size = new System.Drawing.Size(237, 31);
             this.txbTeamId.TabIndex = 3;

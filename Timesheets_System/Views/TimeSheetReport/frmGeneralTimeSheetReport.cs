@@ -79,6 +79,14 @@ namespace Timesheets_System.Views
 
         private void btExportData_Click_1(object sender, EventArgs e)
         {
+            if (cbDepartment.SelectedValue == null)
+            {
+                cbDepartment.SelectedValue = "";
+            }
+            if (cbTeam.SelectedValue == null)
+            {
+                cbTeam.SelectedValue = "";
+            }
             var list = _timeSheetController.GetGeneralTimeSheet(cbDepartment.SelectedValue.ToString(), cbTeam.SelectedValue.ToString(),
                                                             Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (!list.Any())
@@ -100,19 +108,51 @@ namespace Timesheets_System.Views
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = DateTime.Now.Year;
 
-            List<DepartmentDTO> departments = _departmentController.GetDepartmentDTO();
+            getAllDepartments();
+            getAllTeams(null);
+        }
+        private void cbDepartment_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cbDepartment.SelectedValue != null)
+            {
+                getAllTeams(cbDepartment.SelectedValue.ToString());
+            }
+            // Index 0 có value = null 
+            if (cbDepartment.SelectedIndex == 0)
+            {
+                getAllTeams(null);
+            }
+        }
+
+        private void getAllTeams(string department)
+        {
+            if (department == null)
+            {
+                List<TeamDTO> teams = _teamController.GetTeamDTO();
+                teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
+                cbTeam.DataSource = teams;
+                cbTeam.DisplayMember = "team_name";
+                cbTeam.ValueMember = "team_id";
+                cbTeam.SelectedIndex = -1;
+            }
+            else
+            {
+                List<TeamDTO> teams = _teamController.GetTeamDTO(department);
+                teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
+                cbTeam.DataSource = teams;
+                cbTeam.DisplayMember = "team_name";
+                cbTeam.ValueMember = "team_id";
+                cbTeam.SelectedIndex = -1;
+            }
+        }
+        private void getAllDepartments()
+        {
+            var departments = _departmentController.GetDepartmentDTO();
             departments.Insert(0, new DepartmentDTO { Department_id = "", Department_name = "", Descriptions = "" });
             cbDepartment.DataSource = departments;
             cbDepartment.DisplayMember = "department_name";
             cbDepartment.ValueMember = "department_id";
             cbDepartment.SelectedIndex = -1;
-
-            List<TeamDTO> teams = _teamController.GetTeamDTO();
-            teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
-            cbTeam.DataSource = teams;
-            cbTeam.DisplayMember = "team_name";
-            cbTeam.ValueMember = "team_id";
-            cbTeam.SelectedIndex = -1;
         }
 
         #region "Custom title"
@@ -180,17 +220,5 @@ namespace Timesheets_System.Views
             btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
         }
         #endregion
-
-        private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cbDepartment.SelectedIndex == -1)
-            {
-                return;
-            }
-            var list = _teamController.GetTeamDTO(cbDepartment.SelectedValue.ToString());
-            cbTeam.DataSource = list;
-            cbTeam.DisplayMember = "team_name";
-            cbTeam.ValueMember = "team_id";
-        }
     }
 }

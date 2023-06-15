@@ -366,14 +366,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Timesheets_System.exe" size="908768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Timesheets_System.exe" size="910304">
       <assemblyIdentity name="Timesheets_System" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PNIcMkqqiWTss/P+wdQ+RnQODvXalknsimvEKONzR6M=</dsig:DigestValue>
+        <dsig:DigestValue>C52xcjID8VLub0sIW9zY3lJrRzgZubmt7l1kmNGwVHg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -899,13 +899,13 @@
       <dsig:DigestValue>w34WP6dmKcGWRgx7TVTpWxpGpMZqt7bzMRlZyBN9xfE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="bin\Debug\Timesheets_System.exe" size="907264">
+  <file name="bin\Debug\Timesheets_System.exe" size="909312">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>3WBsjR9ruY4wWBYQaaeN6cOUdu/1jnIWATowjRRRq3M=</dsig:DigestValue>
+      <dsig:DigestValue>MMT+EVvJYqa+DmgHJy+0yjFAOvPLlSXji7GP9keLC+8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="bin\Debug\Timesheets_System.pdb" size="376320">
@@ -914,7 +914,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>uhLznxbMVhnt2NXCcj/mWj+vOx3nzHOsdMHb51H5Yc8=</dsig:DigestValue>
+      <dsig:DigestValue>z3RYIZwjTVei00oaYWGZWyNXIqL7gLAKDV61mQZxcZg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="bin\Debug\Timesheets_System.vshost.exe" size="22696">
@@ -971,13 +971,13 @@
       <dsig:DigestValue>rLztN4VXMw69Q6b6MX/FIYxzyxMKuwcEaaz4TnqMk8A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Timesheets_System.exe.config" size="2382">
+  <file name="Timesheets_System.exe.config" size="2378">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>IjGE+Is8B/Q7WEZRTd8mmhQpePp3kXUbDzspugtG8hQ=</dsig:DigestValue>
+      <dsig:DigestValue>d9lE22I5vALizqkbfEV0+T8uNYNWeDynAk6QJc4D4xM=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

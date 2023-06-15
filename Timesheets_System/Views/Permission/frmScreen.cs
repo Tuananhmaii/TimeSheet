@@ -1,16 +1,6 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿using System.Windows.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Interop;
 using Timesheets_System.Controllers;
-using Timesheets_System.Models.DTO;
 
 namespace Timesheets_System.Views.Screen
 {
@@ -18,42 +8,51 @@ namespace Timesheets_System.Views.Screen
     {
         ScreenAuthController _screenAuthController = new ScreenAuthController();
         AuthGroupController _authGroupAuthController = new AuthGroupController();
+        private string selectedRoleId; // Store the selected role ID
+
         public frmScreen()
         {
             InitializeComponent();
+            LoadComboBox();
             Load();
         }
 
-        private void Load()
+        private void LoadComboBox()
         {
             cbRole.DataSource = _authGroupAuthController.GetAuthGroupDTO();
             cbRole.DisplayMember = "auth_group_name";
             cbRole.ValueMember = "auth_group_id";
-            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.SelectedValue.ToString());
+        }
+
+        private void LoadScreenRoles()
+        {
+            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(selectedRoleId);
+        }
+
+        private void Load()
+        {
+            selectedRoleId = cbRole.SelectedValue.ToString(); 
+            LoadScreenRoles(); // Populate the DataGridView
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dtgvScreen.Rows.Count; i++)
             {
-                if (dtgvScreen.Rows[i].Cells["Permission"].Value.ToString() == "1")
-                {
-                    _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(),
-                        cbRole.SelectedValue.ToString(), "1");
-                }
+                string permission = dtgvScreen.Rows[i].Cells["Permission"].Value.ToString();
 
-                if (dtgvScreen.Rows[i].Cells["Permission"].Value.ToString() == "0")
-                {
-                    _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(),
-                            cbRole.SelectedValue.ToString(), "0");
-                }
+                _screenAuthController.UpdateAllowScreenAuth(dtgvScreen.Rows[i].Cells[2].Value.ToString(),
+                    cbRole.SelectedValue.ToString(), permission);
             }
             MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Load();
+            LoadScreenRoles(); // Refresh the DataGridView
+            cbRole.SelectedValue = selectedRoleId; // Set the selected role ID back to the ComboBox
         }
+
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dtgvScreen.DataSource = _screenAuthController.GetScreenRoles(cbRole.SelectedValue.ToString());
+            selectedRoleId = cbRole.SelectedValue.ToString(); // Update the selected role ID
+            LoadScreenRoles(); // Populate the DataGridView based on the new role selection
         }
     }
 }

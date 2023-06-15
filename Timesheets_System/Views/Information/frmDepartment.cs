@@ -185,9 +185,17 @@ namespace Timesheets_System.Views
                 {
                     return;
                 }
-                _departmentController.DeleteDepartmentByID(txbDepartmentID.Text);
-                Load();
-                ReBind();
+                var list = _departmentController.checkUsedDepartmentID(txbDepartmentID.Text);
+                if (list.Count != 0)
+                {
+                    MessageBox.Show("Đang có team thuộc bộ phận này, vui lòng thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else {
+                    _departmentController.DeleteDepartmentByID(txbDepartmentID.Text);
+                    Load();
+                    ReBind();
+                }
             }
         }
 

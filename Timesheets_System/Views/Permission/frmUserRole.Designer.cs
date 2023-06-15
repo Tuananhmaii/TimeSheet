@@ -32,6 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgvScreen = new System.Windows.Forms.DataGridView();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,11 +73,12 @@
             this.Auth_Group_ID});
             this.dtgvScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvScreen.Location = new System.Drawing.Point(0, 0);
+            this.dtgvScreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgvScreen.Name = "dtgvScreen";
             this.dtgvScreen.RowHeadersVisible = false;
             this.dtgvScreen.RowHeadersWidth = 51;
             this.dtgvScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvScreen.Size = new System.Drawing.Size(946, 462);
+            this.dtgvScreen.Size = new System.Drawing.Size(1261, 569);
             this.dtgvScreen.TabIndex = 2;
             this.dtgvScreen.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvScreen_CellDoubleClick);
             // 
@@ -86,12 +92,16 @@
             this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
             this.Username.ReadOnly = true;
+            this.Username.Visible = false;
             // 
             // Fullname
             // 
             this.Fullname.DataPropertyName = "Fullname";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fullname.DefaultCellStyle = dataGridViewCellStyle3;
             this.Fullname.FillWeight = 130F;
             this.Fullname.HeaderText = "Họ tên";
+            this.Fullname.MinimumWidth = 6;
             this.Fullname.Name = "Fullname";
             this.Fullname.ReadOnly = true;
             // 
@@ -99,10 +109,10 @@
             // 
             this._isAdmin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this._isAdmin.DataPropertyName = "_isAdmin";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.NullValue = false;
-            this._isAdmin.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.NullValue = false;
+            this._isAdmin.DefaultCellStyle = dataGridViewCellStyle4;
             this._isAdmin.FalseValue = "0";
             this._isAdmin.HeaderText = "Admin";
             this._isAdmin.MinimumWidth = 6;
@@ -117,10 +127,10 @@
             // 
             this._isUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this._isUser.DataPropertyName = "_isUser";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.NullValue = false;
-            this._isUser.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.NullValue = false;
+            this._isUser.DefaultCellStyle = dataGridViewCellStyle5;
             this._isUser.FalseValue = "0";
             this._isUser.HeaderText = "User";
             this._isUser.MinimumWidth = 6;
@@ -134,38 +144,51 @@
             // Department_name
             // 
             this.Department_name.DataPropertyName = "Department_name";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Department_name.DefaultCellStyle = dataGridViewCellStyle6;
             this.Department_name.HeaderText = "Bộ phận";
+            this.Department_name.MinimumWidth = 6;
             this.Department_name.Name = "Department_name";
             this.Department_name.ReadOnly = true;
             // 
             // Team_name
             // 
             this.Team_name.DataPropertyName = "Team_name";
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Team_name.DefaultCellStyle = dataGridViewCellStyle7;
             this.Team_name.HeaderText = "Team";
+            this.Team_name.MinimumWidth = 6;
             this.Team_name.Name = "Team_name";
             this.Team_name.ReadOnly = true;
             // 
             // Position_name
             // 
             this.Position_name.DataPropertyName = "Position_name";
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Position_name.DefaultCellStyle = dataGridViewCellStyle8;
             this.Position_name.HeaderText = "Chức vụ";
+            this.Position_name.MinimumWidth = 6;
             this.Position_name.Name = "Position_name";
             this.Position_name.ReadOnly = true;
             // 
             // Auth_Group_ID
             // 
             this.Auth_Group_ID.DataPropertyName = "Auth_Group_ID";
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Auth_Group_ID.DefaultCellStyle = dataGridViewCellStyle9;
             this.Auth_Group_ID.FillWeight = 120F;
             this.Auth_Group_ID.HeaderText = "Nhóm người dùng";
+            this.Auth_Group_ID.MinimumWidth = 6;
             this.Auth_Group_ID.Name = "Auth_Group_ID";
             this.Auth_Group_ID.ReadOnly = true;
             // 
             // frmUserRole
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 462);
+            this.ClientSize = new System.Drawing.Size(1261, 569);
             this.Controls.Add(this.dtgvScreen);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmUserRole";
             this.Text = "frmUserRole";
             ((System.ComponentModel.ISupportInitialize)(this.dtgvScreen)).EndInit();
