@@ -1,6 +1,6 @@
 ﻿namespace Timesheets_System.Views
 {
-    partial class frmDepartment
+    partial class frmTeam
     {
         /// <summary>
         /// Required designer variable.
@@ -33,21 +33,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDepartment));
-            this.dtvgDepartment = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeam));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtvgTeam = new System.Windows.Forms.DataGridView();
             this.Column_TeamID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_TeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_DepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txbDepartmentID = new System.Windows.Forms.TextBox();
-            this.txbDepartmentName = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txbDescription = new System.Windows.Forms.TextBox();
-            this.btAdd = new System.Windows.Forms.Button();
-            this.btEdit = new System.Windows.Forms.Button();
-            this.btDelete = new System.Windows.Forms.Button();
+            this.cbDepartmentID = new System.Windows.Forms.ComboBox();
+            this.txbTeamName = new System.Windows.Forms.TextBox();
+            this.txbTeamId = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.pn_Minimize = new System.Windows.Forms.Panel();
@@ -56,7 +54,11 @@
             this.btnMaximize = new System.Windows.Forms.Button();
             this.pn_Close = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dtvgDepartment)).BeginInit();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.btEdit = new System.Windows.Forms.Button();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvgTeam)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pn_Minimize.SuspendLayout();
@@ -64,197 +66,163 @@
             this.pn_Close.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dtvgDepartment
+            // panel1
             // 
-            this.dtvgDepartment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtvgDepartment.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dtvgDepartment.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
+            this.panel1.Controls.Add(this.dtvgTeam);
+            this.panel1.Location = new System.Drawing.Point(2, 47);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(561, 591);
+            this.panel1.TabIndex = 0;
+            // 
+            // dtvgTeam
+            // 
+            this.dtvgTeam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtvgTeam.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dtvgTeam.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtvgDepartment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtvgDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtvgDepartment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtvgTeam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtvgTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtvgTeam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_TeamID,
             this.Column_TeamName,
             this.Column_DepartmentID});
-            this.dtvgDepartment.GridColor = System.Drawing.SystemColors.Highlight;
-            this.dtvgDepartment.Location = new System.Drawing.Point(0, 47);
-            this.dtvgDepartment.Name = "dtvgDepartment";
+            this.dtvgTeam.GridColor = System.Drawing.SystemColors.Highlight;
+            this.dtvgTeam.Location = new System.Drawing.Point(-2, -1);
+            this.dtvgTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtvgTeam.Name = "dtvgTeam";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtvgDepartment.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtvgDepartment.RowHeadersVisible = false;
-            this.dtvgDepartment.RowHeadersWidth = 51;
-            this.dtvgDepartment.RowTemplate.Height = 24;
-            this.dtvgDepartment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtvgDepartment.Size = new System.Drawing.Size(561, 592);
-            this.dtvgDepartment.TabIndex = 2;
+            this.dtvgTeam.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtvgTeam.RowHeadersVisible = false;
+            this.dtvgTeam.RowHeadersWidth = 51;
+            this.dtvgTeam.RowTemplate.Height = 24;
+            this.dtvgTeam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtvgTeam.Size = new System.Drawing.Size(561, 592);
+            this.dtvgTeam.TabIndex = 1;
             // 
             // Column_TeamID
             // 
             this.Column_TeamID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column_TeamID.DataPropertyName = "Department_id";
+            this.Column_TeamID.DataPropertyName = "Team_id";
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Column_TeamID.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column_TeamID.FillWeight = 188.1243F;
-            this.Column_TeamID.HeaderText = "Mã bộ phận";
+            this.Column_TeamID.HeaderText = "Mã Team";
             this.Column_TeamID.MinimumWidth = 6;
             this.Column_TeamID.Name = "Column_TeamID";
             this.Column_TeamID.ReadOnly = true;
-            this.Column_TeamID.Width = 120;
+            this.Column_TeamID.Width = 125;
             // 
             // Column_TeamName
             // 
             this.Column_TeamName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column_TeamName.DataPropertyName = "Department_name";
+            this.Column_TeamName.DataPropertyName = "Team_name";
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Column_TeamName.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column_TeamName.FillWeight = 48.99667F;
-            this.Column_TeamName.HeaderText = "Tên bộ phận";
+            this.Column_TeamName.HeaderText = "Tên Team";
             this.Column_TeamName.MinimumWidth = 6;
             this.Column_TeamName.Name = "Column_TeamName";
             this.Column_TeamName.ReadOnly = true;
-            this.Column_TeamName.Width = 150;
+            this.Column_TeamName.Width = 180;
             // 
             // Column_DepartmentID
             // 
-            this.Column_DepartmentID.DataPropertyName = "Descriptions";
+            this.Column_DepartmentID.DataPropertyName = "Department_name";
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Column_DepartmentID.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column_DepartmentID.FillWeight = 62.87906F;
-            this.Column_DepartmentID.HeaderText = "Mô tả";
+            this.Column_DepartmentID.HeaderText = "Tên bộ phận";
             this.Column_DepartmentID.MinimumWidth = 6;
             this.Column_DepartmentID.Name = "Column_DepartmentID";
             this.Column_DepartmentID.ReadOnly = true;
             // 
-            // txbDepartmentID
-            // 
-            this.txbDepartmentID.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDepartmentID.Location = new System.Drawing.Point(168, 40);
-            this.txbDepartmentID.MaxLength = 20;
-            this.txbDepartmentID.Name = "txbDepartmentID";
-            this.txbDepartmentID.Size = new System.Drawing.Size(237, 31);
-            this.txbDepartmentID.TabIndex = 3;
-            // 
-            // txbDepartmentName
-            // 
-            this.txbDepartmentName.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDepartmentName.Location = new System.Drawing.Point(168, 111);
-            this.txbDepartmentName.MaxLength = 50;
-            this.txbDepartmentName.Name = "txbDepartmentName";
-            this.txbDepartmentName.Size = new System.Drawing.Size(237, 31);
-            this.txbDepartmentName.TabIndex = 4;
-            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txbDescription);
-            this.panel3.Controls.Add(this.txbDepartmentName);
-            this.panel3.Controls.Add(this.txbDepartmentID);
-            this.panel3.Location = new System.Drawing.Point(564, 47);
+            this.panel3.Controls.Add(this.cbDepartmentID);
+            this.panel3.Controls.Add(this.txbTeamName);
+            this.panel3.Controls.Add(this.txbTeamId);
+            this.panel3.Location = new System.Drawing.Point(564, 46);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(421, 258);
-            this.panel3.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F);
-            this.label2.Location = new System.Drawing.Point(10, 184);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 25);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Mô tả";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F);
-            this.label1.Location = new System.Drawing.Point(10, 117);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 25);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Tên bộ phận";
+            this.panel3.Size = new System.Drawing.Size(419, 299);
+            this.panel3.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 46);
+            this.label3.Location = new System.Drawing.Point(10, 186);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 25);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Mã bộ phận";
+            this.label3.Size = new System.Drawing.Size(76, 25);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Bộ phận";
             // 
-            // txbDescription
+            // label2
             // 
-            this.txbDescription.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDescription.Location = new System.Drawing.Point(168, 178);
-            this.txbDescription.MaxLength = 100;
-            this.txbDescription.Name = "txbDescription";
-            this.txbDescription.Size = new System.Drawing.Size(237, 31);
-            this.txbDescription.TabIndex = 5;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 117);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 25);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Tên Team";
             // 
-            // btAdd
+            // label1
             // 
-            this.btAdd.BackColor = System.Drawing.Color.LimeGreen;
-            this.btAdd.FlatAppearance.BorderSize = 0;
-            this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAdd.ForeColor = System.Drawing.Color.Transparent;
-            this.btAdd.Location = new System.Drawing.Point(568, 410);
-            this.btAdd.Margin = new System.Windows.Forms.Padding(4);
-            this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(117, 48);
-            this.btAdd.TabIndex = 52;
-            this.btAdd.Text = "Thêm";
-            this.btAdd.UseVisualStyleBackColor = false;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 25);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Mã Team";
             // 
-            // btEdit
+            // cbDepartmentID
             // 
-            this.btEdit.BackColor = System.Drawing.Color.Tan;
-            this.btEdit.FlatAppearance.BorderSize = 0;
-            this.btEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEdit.ForeColor = System.Drawing.Color.Transparent;
-            this.btEdit.Location = new System.Drawing.Point(712, 410);
-            this.btEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.btEdit.Name = "btEdit";
-            this.btEdit.Size = new System.Drawing.Size(117, 48);
-            this.btEdit.TabIndex = 53;
-            this.btEdit.Text = "Sửa";
-            this.btEdit.UseVisualStyleBackColor = false;
-            this.btEdit.Visible = false;
-            this.btEdit.Click += new System.EventHandler(this.btEdit_Click);
+            this.cbDepartmentID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartmentID.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartmentID.FormattingEnabled = true;
+            this.cbDepartmentID.Location = new System.Drawing.Point(166, 178);
+            this.cbDepartmentID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDepartmentID.Name = "cbDepartmentID";
+            this.cbDepartmentID.Size = new System.Drawing.Size(237, 33);
+            this.cbDepartmentID.TabIndex = 5;
             // 
-            // btDelete
+            // txbTeamName
             // 
-            this.btDelete.BackColor = System.Drawing.Color.Tomato;
-            this.btDelete.FlatAppearance.BorderSize = 0;
-            this.btDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDelete.ForeColor = System.Drawing.Color.Transparent;
-            this.btDelete.Location = new System.Drawing.Point(855, 410);
-            this.btDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btDelete.Name = "btDelete";
-            this.btDelete.Size = new System.Drawing.Size(117, 48);
-            this.btDelete.TabIndex = 54;
-            this.btDelete.Text = "Xóa";
-            this.btDelete.UseVisualStyleBackColor = false;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            this.txbTeamName.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTeamName.Location = new System.Drawing.Point(166, 111);
+            this.txbTeamName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTeamName.MaxLength = 50;
+            this.txbTeamName.Name = "txbTeamName";
+            this.txbTeamName.Size = new System.Drawing.Size(237, 31);
+            this.txbTeamName.TabIndex = 4;
+            // 
+            // txbTeamId
+            // 
+            this.txbTeamId.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTeamId.Location = new System.Drawing.Point(166, 39);
+            this.txbTeamId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbTeamId.MaxLength = 20;
+            this.txbTeamId.Name = "txbTeamId";
+            this.txbTeamId.Size = new System.Drawing.Size(237, 31);
+            this.txbTeamId.TabIndex = 3;
             // 
             // panel2
             // 
@@ -267,9 +235,9 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(985, 44);
-            this.panel2.TabIndex = 55;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel2.Size = new System.Drawing.Size(983, 44);
+            this.panel2.TabIndex = 56;
+            //this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // label4
             // 
@@ -280,9 +248,9 @@
             this.label4.Location = new System.Drawing.Point(11, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 25);
+            this.label4.Size = new System.Drawing.Size(146, 25);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Danh sách bộ phận";
+            this.label4.Text = "Danh sách Team";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pn_Minimize
@@ -290,14 +258,14 @@
             this.pn_Minimize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Minimize.Controls.Add(this.btnMinimize);
             this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Minimize.Location = new System.Drawing.Point(815, 0);
+            this.pn_Minimize.Location = new System.Drawing.Point(813, 0);
             this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
             this.pn_Minimize.TabIndex = 7;
-            this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click);
-            this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter_1);
-            this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave_1);
+            //this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click);
+            //this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter);
+            //this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave);
             // 
             // btnMinimize
             // 
@@ -321,14 +289,14 @@
             this.pn_Maximize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Maximize.Controls.Add(this.btnMaximize);
             this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Maximize.Location = new System.Drawing.Point(874, 0);
+            this.pn_Maximize.Location = new System.Drawing.Point(872, 0);
             this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
             this.pn_Maximize.TabIndex = 6;
-            this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click);
-            this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter_1);
-            this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave_1);
+            //this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click);
+            //this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter);
+            //this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave);
             // 
             // btnMaximize
             // 
@@ -352,14 +320,14 @@
             // 
             this.pn_Close.Controls.Add(this.btnClose);
             this.pn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Close.Location = new System.Drawing.Point(930, 0);
+            this.pn_Close.Location = new System.Drawing.Point(928, 0);
             this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(55, 44);
             this.pn_Close.TabIndex = 5;
-            this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click);
-            this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter_1);
-            this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave_1);
+            //this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click);
+            //this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter);
+            //this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave);
             // 
             // btnClose
             // 
@@ -379,23 +347,75 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // frmDepartment
+            // btAdd
+            // 
+            this.btAdd.BackColor = System.Drawing.Color.LimeGreen;
+            this.btAdd.FlatAppearance.BorderSize = 0;
+            this.btAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAdd.ForeColor = System.Drawing.Color.Transparent;
+            this.btAdd.Location = new System.Drawing.Point(568, 413);
+            this.btAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(117, 48);
+            this.btAdd.TabIndex = 53;
+            this.btAdd.Text = "Thêm";
+            this.btAdd.UseVisualStyleBackColor = false;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click_1);
+            // 
+            // btEdit
+            // 
+            this.btEdit.BackColor = System.Drawing.Color.Tan;
+            this.btEdit.FlatAppearance.BorderSize = 0;
+            this.btEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEdit.ForeColor = System.Drawing.Color.Transparent;
+            this.btEdit.Location = new System.Drawing.Point(711, 413);
+            this.btEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.btEdit.Name = "btEdit";
+            this.btEdit.Size = new System.Drawing.Size(117, 48);
+            this.btEdit.TabIndex = 57;
+            this.btEdit.Text = "Sửa";
+            this.btEdit.UseVisualStyleBackColor = false;
+            this.btEdit.Visible = false;
+            this.btEdit.Click += new System.EventHandler(this.btEdit_Click_1);
+            // 
+            // btDelete
+            // 
+            this.btDelete.BackColor = System.Drawing.Color.Tomato;
+            this.btDelete.FlatAppearance.BorderSize = 0;
+            this.btDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btDelete.ForeColor = System.Drawing.Color.Transparent;
+            this.btDelete.Location = new System.Drawing.Point(853, 413);
+            this.btDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(117, 48);
+            this.btDelete.TabIndex = 58;
+            this.btDelete.Text = "Xóa";
+            this.btDelete.UseVisualStyleBackColor = false;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click_1);
+            // 
+            // frmTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(985, 639);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dtvgDepartment);
+            this.ClientSize = new System.Drawing.Size(983, 639);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btEdit);
             this.Controls.Add(this.btAdd);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDepartment";
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "frmTeam";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Danh sách bộ phận";
-            ((System.ComponentModel.ISupportInitialize)(this.dtvgDepartment)).EndInit();
+            this.Text = "git ";
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtvgTeam)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -408,17 +428,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dtvgDepartment;
-        private System.Windows.Forms.TextBox txbDepartmentID;
-        private System.Windows.Forms.TextBox txbDepartmentName;
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dtvgTeam;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txbDescription;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txbTeamName;
+        private System.Windows.Forms.TextBox txbTeamId;
+        private System.Windows.Forms.ComboBox cbDepartmentID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btAdd;
-        private System.Windows.Forms.Button btEdit;
-        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pn_Minimize;
@@ -427,6 +446,9 @@
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Panel pn_Close;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button btEdit;
+        private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_TeamID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_TeamName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_DepartmentID;

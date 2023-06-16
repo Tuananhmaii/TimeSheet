@@ -71,5 +71,13 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("teamID", teamID);
             return _dbConnection.Query<TeamDTO>(query, parameters).ToList();
         }
+
+        public List<TeamDTO> checkExistTeamID(string team_id)
+        {
+            String query = "SELECT * FROM public.team_tb WHERE LOWER(team_id)=LOWER(@team_id)";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("team_id", team_id);
+            return _dbConnection.Query<TeamDTO>(query, parameters).ToList();
+        }
     }
 }

@@ -96,9 +96,9 @@
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(44, 36);
             this.pn_Minimize.TabIndex = 7;
-            this.pn_Minimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter);
-            this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave);
+            //this.pn_Minimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            //this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter);
+            //this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave);
             // 
             // btnMinimize
             // 
@@ -125,9 +125,9 @@
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(42, 36);
             this.pn_Maximize.TabIndex = 6;
-            this.pn_Maximize.Click += new System.EventHandler(this.btnMaximize_Click);
-            this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter);
-            this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave);
+            //this.pn_Maximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            //this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter);
+            //this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave);
             // 
             // btnMaximize
             // 
@@ -154,10 +154,10 @@
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(41, 36);
             this.pn_Close.TabIndex = 5;
-            this.pn_Close.Click += new System.EventHandler(this.btnClose_Click);
-            this.pn_Close.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseClick);
-            this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter);
-            this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave);
+            //this.pn_Close.Click += new System.EventHandler(this.btnClose_Click);
+            //this.pn_Close.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseClick);
+            //this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter);
+            //this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave);
             // 
             // btnClose
             // 

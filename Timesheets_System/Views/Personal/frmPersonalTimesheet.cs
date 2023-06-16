@@ -24,6 +24,7 @@ namespace Timesheets_System
         {
             InitializeComponent();
             Load();
+            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
@@ -90,75 +91,5 @@ namespace Timesheets_System
             dtvgPersonalTimeSheet.AutoGenerateColumns = false;
             dtvgPersonalTimeSheet.Columns["Username"].Visible = false;
         }
-
-        #region "Custom title"
-        //Move form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void panel6_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void panel6_MouseEnter(object sender, EventArgs e)
-        {
-            panel6.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel6_MouseLeave(object sender, EventArgs e)
-        {
-            panel6.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void panel7_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void panel7_MouseEnter(object sender, EventArgs e)
-        {
-            panel7.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel7_MouseLeave(object sender, EventArgs e)
-        {
-            panel7.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void panel8_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void panel8_MouseEnter(object sender, EventArgs e)
-        {
-            panel8.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel8_MouseLeave(object sender, EventArgs e)
-        {
-            panel8.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        #endregion
-
-        
     }
 }

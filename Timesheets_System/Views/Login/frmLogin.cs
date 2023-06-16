@@ -34,6 +34,7 @@ namespace Timesheets_System.Views
         public frmLogin()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
             txt_Username.Focus();
         }
 
@@ -158,7 +159,7 @@ namespace Timesheets_System.Views
                     loggedUser = _userDTO;
                     user_id = _userDTO.Username;
                     userFullName = _userDTO.Fullname;
-                Thread.Sleep(500);
+                    Thread.Sleep(500);
                     frmMenu.Show();
                     this.Hide();
                 }
@@ -168,50 +169,11 @@ namespace Timesheets_System.Views
                 MessageBox.Show("Lỗi đăng nhập: " + ex.Message);
             }
         }
-        #region "Custom title"
-        private void panel6_MouseClick(object sender, MouseEventArgs e)
-        {
-            Color myColor = Color.FromArgb(25, 110, 191);
-            pn_Close.BackColor = myColor;
-        }
 
         private void lblForgetPass_Click(object sender, EventArgs e)
         {
             frmForgotPassword form = new frmForgotPassword();
             form.ShowDialog();
         }
-
-        private void pn_Minimize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Minimize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Maximize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Maximize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Close_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_ENTERCOLOR;
-            btnClose.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Close_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
-            btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-        #endregion
     }
 }

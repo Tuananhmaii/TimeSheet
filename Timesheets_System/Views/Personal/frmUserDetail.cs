@@ -39,6 +39,7 @@ namespace Timesheets_System.Views.User
         public frmUserDetail()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
         }
 
         private void fUserDetail_Load(object sender, EventArgs e)
@@ -574,46 +575,6 @@ namespace Timesheets_System.Views.User
         {
             this.Close();
         }
-        #region "Custom title"
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        //Move form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void panel6_MouseEnter(object sender, EventArgs e)
-        {
-            panel6.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel6_MouseLeave(object sender, EventArgs e)
-        {
-            panel6.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void panel8_MouseEnter(object sender, EventArgs e)
-        {
-            panel8.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel8_MouseLeave(object sender, EventArgs e)
-        {
-            panel8.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-        #endregion
 
         private void dateTimePickerDateHired_ValueChanged(object sender, EventArgs e)
         {

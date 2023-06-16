@@ -147,7 +147,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1920, 44);
             this.panel1.TabIndex = 39;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            //this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // panel4
             // 
@@ -178,9 +178,9 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(59, 44);
             this.panel8.TabIndex = 9;
-            this.panel8.Click += new System.EventHandler(this.panel8_Click);
-            this.panel8.MouseEnter += new System.EventHandler(this.panel8_MouseEnter);
-            this.panel8.MouseLeave += new System.EventHandler(this.panel8_MouseLeave);
+            //this.panel8.Click += new System.EventHandler(this.panel8_Click);
+            //this.panel8.MouseEnter += new System.EventHandler(this.panel8_MouseEnter);
+            //this.panel8.MouseLeave += new System.EventHandler(this.panel8_MouseLeave);
             // 
             // btnMinimize
             // 
@@ -208,9 +208,9 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(56, 44);
             this.panel7.TabIndex = 8;
-            this.panel7.Click += new System.EventHandler(this.panel7_Click);
-            this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
-            this.panel7.MouseLeave += new System.EventHandler(this.panel7_MouseLeave);
+            //this.panel7.Click += new System.EventHandler(this.panel7_Click);
+            //this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
+            //this.panel7.MouseLeave += new System.EventHandler(this.panel7_MouseLeave);
             // 
             // btnMaximize
             // 
@@ -239,9 +239,9 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(55, 44);
             this.panel6.TabIndex = 7;
-            this.panel6.Click += new System.EventHandler(this.panel6_Click);
-            this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
-            this.panel6.MouseLeave += new System.EventHandler(this.panel6_MouseLeave);
+            //this.panel6.Click += new System.EventHandler(this.panel6_Click);
+            //this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
+            //this.panel6.MouseLeave += new System.EventHandler(this.panel6_MouseLeave);
             // 
             // btnClose
             // 

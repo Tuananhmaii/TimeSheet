@@ -257,7 +257,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 44);
             this.panel2.TabIndex = 56;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            //this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // label9
             // 
@@ -283,9 +283,9 @@
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
             this.pn_Minimize.TabIndex = 7;
-            this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click);
-            this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter_1);
-            this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave_1);
+            //this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click);
+            //this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter_1);
+            //this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave_1);
             // 
             // btnMinimize
             // 
@@ -314,9 +314,9 @@
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
             this.pn_Maximize.TabIndex = 6;
-            this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click);
-            this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter_1);
-            this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave_1);
+            //this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click);
+            //this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter_1);
+            //this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave_1);
             // 
             // btnMaximize
             // 
@@ -345,9 +345,9 @@
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(55, 44);
             this.pn_Close.TabIndex = 5;
-            this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click);
-            this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter_1);
-            this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave_1);
+            //this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click);
+            //this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter_1);
+            //this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave_1);
             // 
             // btnClose
             // 

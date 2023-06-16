@@ -23,6 +23,7 @@ namespace Timesheets_System.Views
         public frmTeam()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
             Load();
             AddBinding();
         }
@@ -134,7 +135,7 @@ namespace Timesheets_System.Views
                     {
                         return;
                     }
-                    if (_teamController.GetTeamDTO(txbTeamId.Text).Count > 0)
+                    if (_teamController.checkExistTeamID(txbTeamId.Text).Count > 0)
                     {
                         MessageBox.Show("Team ID đã được sử dụng, xin hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
@@ -204,71 +205,5 @@ namespace Timesheets_System.Views
                 ReBind();
             }
         }
-        #region "Custom title"
-        private void panel2_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void pn_Minimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pn_Maximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void pn_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pn_Minimize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Minimize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Maximize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Maximize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Close_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_ENTERCOLOR;
-            btnClose.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Close_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
-            btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-        #endregion
     }
 }
