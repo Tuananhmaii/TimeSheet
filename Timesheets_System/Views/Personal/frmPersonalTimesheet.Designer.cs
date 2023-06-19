@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPersonalTimesheet));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,8 +36,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPersonalTimesheet));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.TopBar = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pn_Minimize = new System.Windows.Forms.Panel();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.pn_Maximize = new System.Windows.Forms.Panel();
+            this.btnMaximize = new System.Windows.Forms.Button();
+            this.pn_Close = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.lPosition = new System.Windows.Forms.Label();
             this.lTeam = new System.Windows.Forms.Label();
             this.lDepartment = new System.Windows.Forms.Label();
@@ -57,26 +66,19 @@
             this.Column_DepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pn_Minimize = new System.Windows.Forms.Panel();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.pn_Maximize = new System.Windows.Forms.Panel();
-            this.btnMaximize = new System.Windows.Forms.Button();
-            this.pn_Close = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtvgPersonalTimeSheet)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.TopBar.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.pn_Minimize.SuspendLayout();
             this.pn_Maximize.SuspendLayout();
             this.pn_Close.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvgPersonalTimeSheet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.TopBar);
             this.panel2.Controls.Add(this.lPosition);
             this.panel2.Controls.Add(this.lTeam);
             this.panel2.Controls.Add(this.lDepartment);
@@ -91,6 +93,124 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1225, 169);
             this.panel2.TabIndex = 42;
+            // 
+            // TopBar
+            // 
+            this.TopBar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TopBar.Controls.Add(this.panel4);
+            this.TopBar.Controls.Add(this.pn_Minimize);
+            this.TopBar.Controls.Add(this.pn_Maximize);
+            this.TopBar.Controls.Add(this.pn_Close);
+            this.TopBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBar.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
+            this.TopBar.Location = new System.Drawing.Point(0, 0);
+            this.TopBar.Margin = new System.Windows.Forms.Padding(4);
+            this.TopBar.Name = "TopBar";
+            this.TopBar.Size = new System.Drawing.Size(1225, 44);
+            this.TopBar.TabIndex = 61;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(296, 44);
+            this.panel4.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(169, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bảng công cá nhân";
+            // 
+            // pn_Minimize
+            // 
+            this.pn_Minimize.Controls.Add(this.btnMinimize);
+            this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Minimize.Location = new System.Drawing.Point(1055, 0);
+            this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Minimize.Name = "pn_Minimize";
+            this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
+            this.pn_Minimize.TabIndex = 9;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMinimize.BackgroundImage")));
+            this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMinimize.Enabled = false;
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimize.ForeColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.Location = new System.Drawing.Point(17, 15);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(20, 18);
+            this.btnMinimize.TabIndex = 4;
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            // 
+            // pn_Maximize
+            // 
+            this.pn_Maximize.Controls.Add(this.btnMaximize);
+            this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Maximize.Location = new System.Drawing.Point(1114, 0);
+            this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Maximize.Name = "pn_Maximize";
+            this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
+            this.pn_Maximize.TabIndex = 8;
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMaximize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMaximize.BackgroundImage")));
+            this.btnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMaximize.Enabled = false;
+            this.btnMaximize.FlatAppearance.BorderSize = 0;
+            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaximize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
+            this.btnMaximize.Location = new System.Drawing.Point(16, 15);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.Size = new System.Drawing.Size(20, 18);
+            this.btnMaximize.TabIndex = 3;
+            this.btnMaximize.UseVisualStyleBackColor = false;
+            // 
+            // pn_Close
+            // 
+            this.pn_Close.Controls.Add(this.btnClose);
+            this.pn_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Close.Location = new System.Drawing.Point(1170, 0);
+            this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Close.Name = "pn_Close";
+            this.pn_Close.Size = new System.Drawing.Size(55, 44);
+            this.pn_Close.TabIndex = 7;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClose.Enabled = false;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Transparent;
+            this.btnClose.Location = new System.Drawing.Point(19, 15);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(20, 18);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.UseVisualStyleBackColor = false;
             // 
             // lPosition
             // 
@@ -361,119 +481,6 @@
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pn_Minimize);
-            this.panel1.Controls.Add(this.pn_Maximize);
-            this.panel1.Controls.Add(this.pn_Close);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1225, 44);
-            this.panel1.TabIndex = 56;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(11, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bảng công cá nhân";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pn_Minimize
-            // 
-            this.pn_Minimize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.pn_Minimize.Controls.Add(this.btnMinimize);
-            this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Minimize.Location = new System.Drawing.Point(1055, 0);
-            this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
-            this.pn_Minimize.Name = "pn_Minimize";
-            this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
-            this.pn_Minimize.TabIndex = 7;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMinimize.BackgroundImage")));
-            this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMinimize.Enabled = false;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinimize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Location = new System.Drawing.Point(17, 15);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(20, 18);
-            this.btnMinimize.TabIndex = 4;
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            // 
-            // pn_Maximize
-            // 
-            this.pn_Maximize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.pn_Maximize.Controls.Add(this.btnMaximize);
-            this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Maximize.Location = new System.Drawing.Point(1114, 0);
-            this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
-            this.pn_Maximize.Name = "pn_Maximize";
-            this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
-            this.pn_Maximize.TabIndex = 6;
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMaximize.BackgroundImage")));
-            this.btnMaximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMaximize.Enabled = false;
-            this.btnMaximize.FlatAppearance.BorderSize = 0;
-            this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.Location = new System.Drawing.Point(16, 15);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(20, 18);
-            this.btnMaximize.TabIndex = 3;
-            this.btnMaximize.UseVisualStyleBackColor = false;
-            // 
-            // pn_Close
-            // 
-            this.pn_Close.Controls.Add(this.btnClose);
-            this.pn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pn_Close.Location = new System.Drawing.Point(1170, 0);
-            this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
-            this.pn_Close.Name = "pn_Close";
-            this.pn_Close.Size = new System.Drawing.Size(55, 44);
-            this.pn_Close.TabIndex = 5;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClose.Enabled = false;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.Location = new System.Drawing.Point(19, 15);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(20, 18);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.UseVisualStyleBackColor = false;
-            // 
             // frmPersonalTimesheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -489,14 +496,15 @@
             this.Text = "frmPersonalTimesheet";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtvgPersonalTimeSheet)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.TopBar.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.pn_Minimize.ResumeLayout(false);
             this.pn_Maximize.ResumeLayout(false);
             this.pn_Close.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtvgPersonalTimeSheet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -523,7 +531,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_DepartmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TopBar;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pn_Minimize;
         private System.Windows.Forms.Button btnMinimize;

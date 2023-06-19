@@ -27,7 +27,7 @@ namespace Timesheets_System.Views
         public frmChangePassword()
         {
             InitializeComponent();
-            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
+            TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
         }
 
         // Đổi mật khẩu

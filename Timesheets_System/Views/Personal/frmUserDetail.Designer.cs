@@ -72,7 +72,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.TopBar = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.pn_Minimize = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -85,7 +86,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.TopBar.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.pn_Minimize.SuspendLayout();
             this.pn_Maximize.SuspendLayout();
             this.pn_Close.SuspendLayout();
@@ -119,7 +121,7 @@
             this.cb_Position.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Position.FormattingEnabled = true;
             this.cb_Position.Location = new System.Drawing.Point(136, 202);
-            this.cb_Position.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_Position.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Position.Name = "cb_Position";
             this.cb_Position.Size = new System.Drawing.Size(279, 33);
             this.cb_Position.TabIndex = 22;
@@ -140,7 +142,7 @@
             this.cb_Team.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Team.FormattingEnabled = true;
             this.cb_Team.Location = new System.Drawing.Point(136, 160);
-            this.cb_Team.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_Team.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Team.Name = "cb_Team";
             this.cb_Team.Size = new System.Drawing.Size(279, 33);
             this.cb_Team.TabIndex = 20;
@@ -161,7 +163,7 @@
             this.cb_Department.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Department.FormattingEnabled = true;
             this.cb_Department.Location = new System.Drawing.Point(136, 118);
-            this.cb_Department.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_Department.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Department.Name = "cb_Department";
             this.cb_Department.Size = new System.Drawing.Size(279, 33);
             this.cb_Department.TabIndex = 15;
@@ -183,7 +185,7 @@
             this.dateTimePickerDateHired.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerDateHired.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDateHired.Location = new System.Drawing.Point(136, 39);
-            this.dateTimePickerDateHired.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerDateHired.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerDateHired.Name = "dateTimePickerDateHired";
             this.dateTimePickerDateHired.Size = new System.Drawing.Size(279, 32);
             this.dateTimePickerDateHired.TabIndex = 17;
@@ -287,7 +289,7 @@
             this.radioButtonFemale.Enabled = false;
             this.radioButtonFemale.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonFemale.Location = new System.Drawing.Point(445, 108);
-            this.radioButtonFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonFemale.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonFemale.Name = "radioButtonFemale";
             this.radioButtonFemale.Size = new System.Drawing.Size(58, 29);
             this.radioButtonFemale.TabIndex = 4;
@@ -301,7 +303,7 @@
             this.radioButtonMale.Enabled = false;
             this.radioButtonMale.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonMale.Location = new System.Drawing.Point(224, 108);
-            this.radioButtonMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonMale.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonMale.Name = "radioButtonMale";
             this.radioButtonMale.Size = new System.Drawing.Size(73, 29);
             this.radioButtonMale.TabIndex = 3;
@@ -315,7 +317,7 @@
             this.dateTimePickerBirthday.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerBirthday.Location = new System.Drawing.Point(224, 146);
-            this.dateTimePickerBirthday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerBirthday.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerBirthday.Name = "dateTimePickerBirthday";
             this.dateTimePickerBirthday.Size = new System.Drawing.Size(372, 32);
             this.dateTimePickerBirthday.TabIndex = 5;
@@ -540,7 +542,7 @@
             this.btnChangePicture.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePicture.ForeColor = System.Drawing.Color.Transparent;
             this.btnChangePicture.Location = new System.Drawing.Point(208, 302);
-            this.btnChangePicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChangePicture.Margin = new System.Windows.Forms.Padding(4);
             this.btnChangePicture.Name = "btnChangePicture";
             this.btnChangePicture.Size = new System.Drawing.Size(123, 46);
             this.btnChangePicture.TabIndex = 16;
@@ -557,7 +559,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Transparent;
             this.btnCancel.Location = new System.Drawing.Point(925, 686);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(117, 48);
             this.btnCancel.TabIndex = 15;
@@ -575,7 +577,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Transparent;
             this.btnUpdate.Location = new System.Drawing.Point(1051, 686);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(139, 48);
             this.btnUpdate.TabIndex = 14;
@@ -590,7 +592,7 @@
             this.panel1.Controls.Add(this.btnChangePicture);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Location = new System.Drawing.Point(0, 44);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(515, 704);
             this.panel1.TabIndex = 24;
@@ -612,49 +614,55 @@
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(515, 44);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(705, 624);
             this.panel2.TabIndex = 25;
             // 
-            // panel3
+            // TopBar
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel3.Controls.Add(this.label17);
-            this.panel3.Controls.Add(this.pn_Minimize);
-            this.panel3.Controls.Add(this.pn_Maximize);
-            this.panel3.Controls.Add(this.pn_Close);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1220, 44);
-            this.panel3.TabIndex = 57;
+            this.TopBar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TopBar.Controls.Add(this.panel4);
+            this.TopBar.Controls.Add(this.pn_Minimize);
+            this.TopBar.Controls.Add(this.pn_Maximize);
+            this.TopBar.Controls.Add(this.pn_Close);
+            this.TopBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBar.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
+            this.TopBar.Location = new System.Drawing.Point(0, 0);
+            this.TopBar.Margin = new System.Windows.Forms.Padding(4);
+            this.TopBar.Name = "TopBar";
+            this.TopBar.Size = new System.Drawing.Size(1220, 44);
+            this.TopBar.TabIndex = 62;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(296, 44);
+            this.panel4.TabIndex = 10;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(11, 10);
+            this.label17.Location = new System.Drawing.Point(16, 11);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(158, 25);
             this.label17.TabIndex = 0;
             this.label17.Text = "Thông tin cá nhân";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pn_Minimize
             // 
-            this.pn_Minimize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Minimize.Controls.Add(this.btnMinimize);
             this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Minimize.Location = new System.Drawing.Point(1050, 0);
             this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
-            this.pn_Minimize.TabIndex = 7;
+            this.pn_Minimize.TabIndex = 9;
             // 
             // btnMinimize
             // 
@@ -675,14 +683,13 @@
             // 
             // pn_Maximize
             // 
-            this.pn_Maximize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Maximize.Controls.Add(this.btnMaximize);
             this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Maximize.Location = new System.Drawing.Point(1109, 0);
             this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
-            this.pn_Maximize.TabIndex = 6;
+            this.pn_Maximize.TabIndex = 8;
             // 
             // btnMaximize
             // 
@@ -710,12 +717,12 @@
             this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(55, 44);
-            this.pn_Close.TabIndex = 5;
+            this.pn_Close.TabIndex = 7;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClose.Enabled = false;
@@ -736,13 +743,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1220, 748);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.TopBar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUserDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin cá nhân";
@@ -754,8 +761,9 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.TopBar.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.pn_Minimize.ResumeLayout(false);
             this.pn_Maximize.ResumeLayout(false);
             this.pn_Close.ResumeLayout(false);
@@ -808,7 +816,8 @@
         public System.Windows.Forms.TextBox txt_Address;
         public System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel TopBar;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel pn_Minimize;
         private System.Windows.Forms.Button btnMinimize;

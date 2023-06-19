@@ -32,8 +32,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.TopBar = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pn_Minimize = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.pn_Maximize = new System.Windows.Forms.Panel();
@@ -41,7 +42,8 @@
             this.pn_Close = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.TopBar.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.pn_Minimize.SuspendLayout();
             this.pn_Maximize.SuspendLayout();
             this.pn_Close.SuspendLayout();
@@ -52,7 +54,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(272, 137);
+            this.tabControl1.Location = new System.Drawing.Point(268, 118);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -81,45 +83,50 @@
             this.tabPage2.Text = "Quyền người dùng";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // TopBar
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.pn_Minimize);
-            this.panel2.Controls.Add(this.pn_Maximize);
-            this.panel2.Controls.Add(this.pn_Close);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1067, 44);
-            this.panel2.TabIndex = 56;
+            this.TopBar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TopBar.Controls.Add(this.panel4);
+            this.TopBar.Controls.Add(this.pn_Minimize);
+            this.TopBar.Controls.Add(this.pn_Maximize);
+            this.TopBar.Controls.Add(this.pn_Close);
+            this.TopBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBar.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
+            this.TopBar.Location = new System.Drawing.Point(0, 0);
+            this.TopBar.Margin = new System.Windows.Forms.Padding(4);
+            this.TopBar.Name = "TopBar";
+            this.TopBar.Size = new System.Drawing.Size(1067, 44);
+            this.TopBar.TabIndex = 62;
             // 
-            // label4
+            // panel4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(11, 10);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(152, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Danh sách quyền";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(296, 44);
+            this.panel4.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Phân quyền";
             // 
             // pn_Minimize
             // 
-            this.pn_Minimize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Minimize.Controls.Add(this.btnMinimize);
             this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Minimize.Location = new System.Drawing.Point(897, 0);
             this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
-            this.pn_Minimize.TabIndex = 7;
+            this.pn_Minimize.TabIndex = 9;
             // 
             // btnMinimize
             // 
@@ -140,14 +147,13 @@
             // 
             // pn_Maximize
             // 
-            this.pn_Maximize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Maximize.Controls.Add(this.btnMaximize);
             this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Maximize.Location = new System.Drawing.Point(956, 0);
             this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
-            this.pn_Maximize.TabIndex = 6;
+            this.pn_Maximize.TabIndex = 8;
             // 
             // btnMaximize
             // 
@@ -175,12 +181,12 @@
             this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(55, 44);
-            this.pn_Close.TabIndex = 5;
+            this.pn_Close.TabIndex = 7;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClose.Enabled = false;
@@ -200,7 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.TopBar);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -209,8 +215,9 @@
             this.Text = "frmPermissionGrant";
             this.Load += new System.EventHandler(this.frmPermissionGrant_Load);
             this.tabControl1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.TopBar.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.pn_Minimize.ResumeLayout(false);
             this.pn_Maximize.ResumeLayout(false);
             this.pn_Close.ResumeLayout(false);
@@ -222,8 +229,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel TopBar;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pn_Minimize;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Panel pn_Maximize;

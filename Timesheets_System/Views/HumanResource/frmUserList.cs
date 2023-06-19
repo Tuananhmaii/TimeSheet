@@ -28,6 +28,7 @@ namespace Timesheets_System.Views.User
         public frmUserList()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
             FormInit();
             this.Text = string.Empty;
             this.ControlBox = false;
@@ -62,7 +63,7 @@ namespace Timesheets_System.Views.User
                         userDTOs = userDTOs.Where(userDTOs => userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList();
                     }
                 }
-                
+
                 else
                 {
                     if (cb_Department.SelectedValue == null)
@@ -82,13 +83,13 @@ namespace Timesheets_System.Views.User
                     else if (cb_Team.Text != "" && cb_Position.Text != "") { userDTOs = userDTOs.Where(userDTOs => userDTOs.Team_id == cb_Team.SelectedValue.ToString() && userDTOs.Position_id == cb_Position.SelectedValue.ToString()).ToList(); }
 
                 }
-                
+
                 dtgvDepartmentDetail.DataSource = userDTOs;
             }
             catch
             {
                 MessageBox.Show("Có lỗi xảy ra!");
-            }    
+            }
         }
 
         //Tự động thay đổi cbteam sau khi thay đổi cbdepartment
@@ -161,7 +162,7 @@ namespace Timesheets_System.Views.User
                     LoadData();
                 }
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Bạn cần chọn nhận viên để xóa!");
             }
@@ -193,10 +194,11 @@ namespace Timesheets_System.Views.User
 
                 LoadData();
             }
-            catch {
+            catch
+            {
                 MessageBox.Show("Người dùng này chưa có dữ liệu!");
             }
-            
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -215,79 +217,5 @@ namespace Timesheets_System.Views.User
             LoadData();
         }
 
-        #region "Custom title"
-        //Move form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void panel6_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void panel6_MouseEnter(object sender, EventArgs e)
-        {
-            panel6.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel6_MouseLeave(object sender, EventArgs e)
-        {
-            panel6.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void panel7_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void panel7_MouseEnter(object sender, EventArgs e)
-        {
-            panel7.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel7_MouseLeave(object sender, EventArgs e)
-        {
-            panel7.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void panel8_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void panel8_MouseEnter(object sender, EventArgs e)
-        {
-            panel8.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void panel8_MouseLeave(object sender, EventArgs e)
-        {
-            panel8.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-
-
-
-
-
-        #endregion
-
-        
     }
 }

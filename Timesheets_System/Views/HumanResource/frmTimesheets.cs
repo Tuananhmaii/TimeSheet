@@ -29,6 +29,7 @@ namespace Timesheets_System.Views
         public frmTimesheets()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
             this.Text = string.Empty;
             this.ControlBox = false;
         }

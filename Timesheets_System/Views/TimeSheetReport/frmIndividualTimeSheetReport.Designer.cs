@@ -46,7 +46,8 @@
             this.btExportData = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.TopBar = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pn_Minimize = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -55,7 +56,8 @@
             this.pn_Close = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.TopBar.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.pn_Minimize.SuspendLayout();
             this.pn_Maximize.SuspendLayout();
             this.pn_Close.SuspendLayout();
@@ -244,48 +246,50 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Bảng công cá nhân";
             // 
-            // panel2
+            // TopBar
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.pn_Minimize);
-            this.panel2.Controls.Add(this.pn_Maximize);
-            this.panel2.Controls.Add(this.pn_Close);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 44);
-            this.panel2.TabIndex = 56;
-            //this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.TopBar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TopBar.Controls.Add(this.panel4);
+            this.TopBar.Controls.Add(this.pn_Minimize);
+            this.TopBar.Controls.Add(this.pn_Maximize);
+            this.TopBar.Controls.Add(this.pn_Close);
+            this.TopBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBar.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
+            this.TopBar.Location = new System.Drawing.Point(0, 0);
+            this.TopBar.Margin = new System.Windows.Forms.Padding(4);
+            this.TopBar.Name = "TopBar";
+            this.TopBar.Size = new System.Drawing.Size(800, 44);
+            this.TopBar.TabIndex = 62;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(296, 44);
+            this.panel4.TabIndex = 10;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(11, 10);
+            this.label9.Location = new System.Drawing.Point(16, 11);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(169, 25);
             this.label9.TabIndex = 0;
             this.label9.Text = "Bảng công cá nhân";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pn_Minimize
             // 
-            this.pn_Minimize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Minimize.Controls.Add(this.btnMinimize);
             this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Minimize.Location = new System.Drawing.Point(630, 0);
             this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Minimize.Name = "pn_Minimize";
             this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
-            this.pn_Minimize.TabIndex = 7;
-            //this.pn_Minimize.Click += new System.EventHandler(this.pn_Minimize_Click);
-            //this.pn_Minimize.MouseEnter += new System.EventHandler(this.pn_Minimize_MouseEnter_1);
-            //this.pn_Minimize.MouseLeave += new System.EventHandler(this.pn_Minimize_MouseLeave_1);
+            this.pn_Minimize.TabIndex = 9;
             // 
             // btnMinimize
             // 
@@ -306,17 +310,13 @@
             // 
             // pn_Maximize
             // 
-            this.pn_Maximize.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pn_Maximize.Controls.Add(this.btnMaximize);
             this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.pn_Maximize.Location = new System.Drawing.Point(689, 0);
             this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Maximize.Name = "pn_Maximize";
             this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
-            this.pn_Maximize.TabIndex = 6;
-            //this.pn_Maximize.Click += new System.EventHandler(this.pn_Maximize_Click);
-            //this.pn_Maximize.MouseEnter += new System.EventHandler(this.pn_Maximize_MouseEnter_1);
-            //this.pn_Maximize.MouseLeave += new System.EventHandler(this.pn_Maximize_MouseLeave_1);
+            this.pn_Maximize.TabIndex = 8;
             // 
             // btnMaximize
             // 
@@ -344,15 +344,12 @@
             this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
             this.pn_Close.Name = "pn_Close";
             this.pn_Close.Size = new System.Drawing.Size(55, 44);
-            this.pn_Close.TabIndex = 5;
-            //this.pn_Close.Click += new System.EventHandler(this.pn_Close_Click);
-            //this.pn_Close.MouseEnter += new System.EventHandler(this.pn_Close_MouseEnter_1);
-            //this.pn_Close.MouseLeave += new System.EventHandler(this.pn_Close_MouseLeave_1);
+            this.pn_Close.TabIndex = 7;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnClose.Enabled = false;
@@ -373,7 +370,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.TopBar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btExportData);
             this.Controls.Add(this.panel3);
@@ -384,8 +381,9 @@
             this.Text = "Bảng công cá nhân";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.TopBar.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.pn_Minimize.ResumeLayout(false);
             this.pn_Maximize.ResumeLayout(false);
             this.pn_Close.ResumeLayout(false);
@@ -409,7 +407,12 @@
         private System.Windows.Forms.ComboBox cbYear;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbMonth;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lPosition;
+        private System.Windows.Forms.Label lDepartment;
+        private System.Windows.Forms.Label lTeam;
+        private System.Windows.Forms.Label lName;
+        private System.Windows.Forms.Panel TopBar;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel pn_Minimize;
         private System.Windows.Forms.Button btnMinimize;
@@ -417,9 +420,5 @@
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Panel pn_Close;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lPosition;
-        private System.Windows.Forms.Label lDepartment;
-        private System.Windows.Forms.Label lTeam;
-        private System.Windows.Forms.Label lName;
     }
 }

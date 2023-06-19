@@ -33,14 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.TopBar = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.pn_Minimize = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.pn_Maximize = new System.Windows.Forms.Panel();
             this.btnMaximize = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.pn_Close = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -76,11 +76,11 @@
             this.Social_Insurance_No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Photo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date_Hired = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1.SuspendLayout();
+            this.TopBar.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.pn_Minimize.SuspendLayout();
+            this.pn_Maximize.SuspendLayout();
+            this.pn_Close.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDepartmentDetail)).BeginInit();
             this.SuspendLayout();
@@ -91,50 +91,50 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // panel1
+            // TopBar
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel8);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1084, 36);
-            this.panel1.TabIndex = 2;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.TopBar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TopBar.Controls.Add(this.panel4);
+            this.TopBar.Controls.Add(this.pn_Minimize);
+            this.TopBar.Controls.Add(this.pn_Maximize);
+            this.TopBar.Controls.Add(this.pn_Close);
+            this.TopBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBar.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
+            this.TopBar.Location = new System.Drawing.Point(0, 0);
+            this.TopBar.Margin = new System.Windows.Forms.Padding(4);
+            this.TopBar.Name = "TopBar";
+            this.TopBar.Size = new System.Drawing.Size(1445, 44);
+            this.TopBar.TabIndex = 2;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(222, 36);
+            this.panel4.Size = new System.Drawing.Size(296, 44);
             this.panel4.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 20);
+            this.label1.Size = new System.Drawing.Size(189, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Danh Sách Nhân Viên";
             // 
-            // panel8
+            // pn_Minimize
             // 
-            this.panel8.Controls.Add(this.btnMinimize);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(957, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(44, 36);
-            this.panel8.TabIndex = 9;
-            this.panel8.Click += new System.EventHandler(this.panel8_Click);
-            this.panel8.MouseEnter += new System.EventHandler(this.panel8_MouseEnter);
-            this.panel8.MouseLeave += new System.EventHandler(this.panel8_MouseLeave);
+            this.pn_Minimize.Controls.Add(this.btnMinimize);
+            this.pn_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Minimize.Location = new System.Drawing.Point(1275, 0);
+            this.pn_Minimize.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Minimize.Name = "pn_Minimize";
+            this.pn_Minimize.Size = new System.Drawing.Size(59, 44);
+            this.pn_Minimize.TabIndex = 9;
             // 
             // btnMinimize
             // 
@@ -146,23 +146,22 @@
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.Location = new System.Drawing.Point(13, 12);
+            this.btnMinimize.Location = new System.Drawing.Point(17, 15);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(15, 15);
+            this.btnMinimize.Size = new System.Drawing.Size(20, 18);
             this.btnMinimize.TabIndex = 4;
             this.btnMinimize.UseVisualStyleBackColor = false;
             // 
-            // panel7
+            // pn_Maximize
             // 
-            this.panel7.Controls.Add(this.btnMaximize);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(1001, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(42, 36);
-            this.panel7.TabIndex = 8;
-            this.panel7.Click += new System.EventHandler(this.panel7_Click);
-            this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
-            this.panel7.MouseLeave += new System.EventHandler(this.panel7_MouseLeave);
+            this.pn_Maximize.Controls.Add(this.btnMaximize);
+            this.pn_Maximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Maximize.Location = new System.Drawing.Point(1334, 0);
+            this.pn_Maximize.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Maximize.Name = "pn_Maximize";
+            this.pn_Maximize.Size = new System.Drawing.Size(56, 44);
+            this.pn_Maximize.TabIndex = 8;
             // 
             // btnMaximize
             // 
@@ -175,23 +174,22 @@
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximize.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.Location = new System.Drawing.Point(12, 12);
+            this.btnMaximize.Location = new System.Drawing.Point(16, 15);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.Size = new System.Drawing.Size(15, 15);
+            this.btnMaximize.Size = new System.Drawing.Size(20, 18);
             this.btnMaximize.TabIndex = 3;
             this.btnMaximize.UseVisualStyleBackColor = false;
             // 
-            // panel6
+            // pn_Close
             // 
-            this.panel6.Controls.Add(this.btnClose);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(1043, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(41, 36);
-            this.panel6.TabIndex = 7;
-            this.panel6.Click += new System.EventHandler(this.panel6_Click);
-            this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
-            this.panel6.MouseLeave += new System.EventHandler(this.panel6_MouseLeave);
+            this.pn_Close.Controls.Add(this.btnClose);
+            this.pn_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pn_Close.Location = new System.Drawing.Point(1390, 0);
+            this.pn_Close.Margin = new System.Windows.Forms.Padding(4);
+            this.pn_Close.Name = "pn_Close";
+            this.pn_Close.Size = new System.Drawing.Size(55, 44);
+            this.pn_Close.TabIndex = 7;
             // 
             // btnClose
             // 
@@ -204,9 +202,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.Location = new System.Drawing.Point(14, 12);
+            this.btnClose.Location = new System.Drawing.Point(19, 15);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(15, 15);
+            this.btnClose.Size = new System.Drawing.Size(20, 18);
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
@@ -222,9 +221,10 @@
             this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 36);
+            this.panel2.Location = new System.Drawing.Point(0, 44);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1084, 49);
+            this.panel2.Size = new System.Drawing.Size(1445, 60);
             this.panel2.TabIndex = 4;
             // 
             // btnRefresh
@@ -235,9 +235,10 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Location = new System.Drawing.Point(750, 10);
+            this.btnRefresh.Location = new System.Drawing.Point(1000, 12);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(104, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(139, 38);
             this.btnRefresh.TabIndex = 33;
             this.btnRefresh.Text = "LÀM MỚI";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -247,9 +248,10 @@
             // 
             this.cb_Position.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.cb_Position.FormattingEnabled = true;
-            this.cb_Position.Location = new System.Drawing.Point(521, 11);
+            this.cb_Position.Location = new System.Drawing.Point(695, 14);
+            this.cb_Position.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Position.Name = "cb_Position";
-            this.cb_Position.Size = new System.Drawing.Size(139, 28);
+            this.cb_Position.Size = new System.Drawing.Size(184, 33);
             this.cb_Position.TabIndex = 32;
             this.cb_Position.SelectionChangeCommitted += new System.EventHandler(this.cb_Position_SelectionChangeCommitted);
             this.cb_Position.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cb_Position_MouseClick);
@@ -258,9 +260,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
-            this.label4.Location = new System.Drawing.Point(452, 14);
+            this.label4.Location = new System.Drawing.Point(603, 17);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 20);
+            this.label4.Size = new System.Drawing.Size(81, 25);
             this.label4.TabIndex = 31;
             this.label4.Text = "Chức Vụ";
             // 
@@ -268,9 +271,10 @@
             // 
             this.cb_Team.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.cb_Team.FormattingEnabled = true;
-            this.cb_Team.Location = new System.Drawing.Point(278, 11);
+            this.cb_Team.Location = new System.Drawing.Point(371, 14);
+            this.cb_Team.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Team.Name = "cb_Team";
-            this.cb_Team.Size = new System.Drawing.Size(168, 28);
+            this.cb_Team.Size = new System.Drawing.Size(223, 33);
             this.cb_Team.TabIndex = 30;
             this.cb_Team.SelectionChangeCommitted += new System.EventHandler(this.cb_Team_SelectionChangeCommitted);
             // 
@@ -278,9 +282,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
-            this.label3.Location = new System.Drawing.Point(228, 14);
+            this.label3.Location = new System.Drawing.Point(304, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 20);
+            this.label3.Size = new System.Drawing.Size(56, 25);
             this.label3.TabIndex = 29;
             this.label3.Text = "Team";
             // 
@@ -288,9 +293,10 @@
             // 
             this.cb_Department.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
             this.cb_Department.FormattingEnabled = true;
-            this.cb_Department.Location = new System.Drawing.Point(81, 11);
+            this.cb_Department.Location = new System.Drawing.Point(108, 14);
+            this.cb_Department.Margin = new System.Windows.Forms.Padding(4);
             this.cb_Department.Name = "cb_Department";
-            this.cb_Department.Size = new System.Drawing.Size(141, 28);
+            this.cb_Department.Size = new System.Drawing.Size(187, 33);
             this.cb_Department.TabIndex = 28;
             this.cb_Department.SelectionChangeCommitted += new System.EventHandler(this.cb_Department_SelectionChangeCommitted);
             // 
@@ -298,9 +304,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 11.25F);
-            this.label2.Location = new System.Drawing.Point(12, 14);
+            this.label2.Location = new System.Drawing.Point(16, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 20);
+            this.label2.Size = new System.Drawing.Size(80, 25);
             this.label2.TabIndex = 27;
             this.label2.Text = "Bộ phận";
             // 
@@ -312,9 +319,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Transparent;
-            this.btnDelete.Location = new System.Drawing.Point(970, 10);
+            this.btnDelete.Location = new System.Drawing.Point(1293, 12);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(104, 31);
+            this.btnDelete.Size = new System.Drawing.Size(139, 38);
             this.btnDelete.TabIndex = 23;
             this.btnDelete.Text = "XÓA";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -328,9 +336,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAdd.Location = new System.Drawing.Point(860, 10);
+            this.btnAdd.Location = new System.Drawing.Point(1147, 12);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(104, 31);
+            this.btnAdd.Size = new System.Drawing.Size(139, 38);
             this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "THÊM";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -376,8 +385,8 @@
             this.Date_Hired});
             this.dtgvDepartmentDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvDepartmentDetail.GridColor = System.Drawing.SystemColors.Highlight;
-            this.dtgvDepartmentDetail.Location = new System.Drawing.Point(0, 85);
-            this.dtgvDepartmentDetail.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvDepartmentDetail.Location = new System.Drawing.Point(0, 104);
+            this.dtgvDepartmentDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvDepartmentDetail.Name = "dtgvDepartmentDetail";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -391,7 +400,7 @@
             this.dtgvDepartmentDetail.RowHeadersWidth = 51;
             this.dtgvDepartmentDetail.RowTemplate.Height = 24;
             this.dtgvDepartmentDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvDepartmentDetail.Size = new System.Drawing.Size(1084, 444);
+            this.dtgvDepartmentDetail.Size = new System.Drawing.Size(1445, 547);
             this.dtgvDepartmentDetail.TabIndex = 5;
             this.dtgvDepartmentDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDepartmentDetail_CellDoubleClick);
             // 
@@ -399,6 +408,7 @@
             // 
             this.Fullname.DataPropertyName = "Fullname";
             this.Fullname.HeaderText = "Họ và tên";
+            this.Fullname.MinimumWidth = 6;
             this.Fullname.Name = "Fullname";
             this.Fullname.ReadOnly = true;
             // 
@@ -406,6 +416,7 @@
             // 
             this.Email.DataPropertyName = "Email";
             this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 
@@ -413,6 +424,7 @@
             // 
             this.Birth_Date.DataPropertyName = "Birth_Date";
             this.Birth_Date.HeaderText = "Ngày sinh";
+            this.Birth_Date.MinimumWidth = 6;
             this.Birth_Date.Name = "Birth_Date";
             this.Birth_Date.ReadOnly = true;
             // 
@@ -420,6 +432,7 @@
             // 
             this.Phone.DataPropertyName = "Phone";
             this.Phone.HeaderText = "Số điện thoại";
+            this.Phone.MinimumWidth = 6;
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
             // 
@@ -427,6 +440,7 @@
             // 
             this.Address.DataPropertyName = "Address";
             this.Address.HeaderText = "Địa chỉ";
+            this.Address.MinimumWidth = 6;
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
             // 
@@ -434,6 +448,7 @@
             // 
             this.Department_name.DataPropertyName = "Department_name";
             this.Department_name.HeaderText = "Phòng";
+            this.Department_name.MinimumWidth = 6;
             this.Department_name.Name = "Department_name";
             this.Department_name.ReadOnly = true;
             // 
@@ -441,6 +456,7 @@
             // 
             this.Team_name.DataPropertyName = "Team_name";
             this.Team_name.HeaderText = "Team";
+            this.Team_name.MinimumWidth = 6;
             this.Team_name.Name = "Team_name";
             this.Team_name.ReadOnly = true;
             // 
@@ -448,6 +464,7 @@
             // 
             this.Position_name.DataPropertyName = "Position_name";
             this.Position_name.HeaderText = "Chức vụ";
+            this.Position_name.MinimumWidth = 6;
             this.Position_name.Name = "Position_name";
             this.Position_name.ReadOnly = true;
             // 
@@ -455,6 +472,7 @@
             // 
             this.Gender.DataPropertyName = "Gender";
             this.Gender.HeaderText = "Giới tính";
+            this.Gender.MinimumWidth = 6;
             this.Gender.Name = "Gender";
             this.Gender.ReadOnly = true;
             this.Gender.Visible = false;
@@ -463,6 +481,7 @@
             // 
             this.Username.DataPropertyName = "Username";
             this.Username.HeaderText = "Taikhoan";
+            this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
             this.Username.ReadOnly = true;
             this.Username.Visible = false;
@@ -471,6 +490,7 @@
             // 
             this.Password.DataPropertyName = "Password";
             this.Password.HeaderText = "Mat khau";
+            this.Password.MinimumWidth = 6;
             this.Password.Name = "Password";
             this.Password.ReadOnly = true;
             this.Password.Visible = false;
@@ -479,6 +499,7 @@
             // 
             this.Ethnic.DataPropertyName = "Ethnic";
             this.Ethnic.HeaderText = "Ethnic";
+            this.Ethnic.MinimumWidth = 6;
             this.Ethnic.Name = "Ethnic";
             this.Ethnic.ReadOnly = true;
             this.Ethnic.Visible = false;
@@ -487,6 +508,7 @@
             // 
             this.Religion.DataPropertyName = "Religion";
             this.Religion.HeaderText = "Religion";
+            this.Religion.MinimumWidth = 6;
             this.Religion.Name = "Religion";
             this.Religion.ReadOnly = true;
             this.Religion.Visible = false;
@@ -495,6 +517,7 @@
             // 
             this.Citizen_ID.DataPropertyName = "Citizen_ID";
             this.Citizen_ID.HeaderText = "Citizen_ID";
+            this.Citizen_ID.MinimumWidth = 6;
             this.Citizen_ID.Name = "Citizen_ID";
             this.Citizen_ID.ReadOnly = true;
             this.Citizen_ID.Visible = false;
@@ -503,6 +526,7 @@
             // 
             this.Contract_No.DataPropertyName = "Contract_No";
             this.Contract_No.HeaderText = "Contract_No";
+            this.Contract_No.MinimumWidth = 6;
             this.Contract_No.Name = "Contract_No";
             this.Contract_No.ReadOnly = true;
             this.Contract_No.Visible = false;
@@ -511,6 +535,7 @@
             // 
             this.Auth_Group_ID.DataPropertyName = "Auth_Group_ID";
             this.Auth_Group_ID.HeaderText = "Auth_Group_ID";
+            this.Auth_Group_ID.MinimumWidth = 6;
             this.Auth_Group_ID.Name = "Auth_Group_ID";
             this.Auth_Group_ID.ReadOnly = true;
             this.Auth_Group_ID.Visible = false;
@@ -519,6 +544,7 @@
             // 
             this.Tax_Code.DataPropertyName = "Tax_Code";
             this.Tax_Code.HeaderText = "Tax_Code";
+            this.Tax_Code.MinimumWidth = 6;
             this.Tax_Code.Name = "Tax_Code";
             this.Tax_Code.ReadOnly = true;
             this.Tax_Code.Visible = false;
@@ -527,6 +553,7 @@
             // 
             this.Department_id.DataPropertyName = "Department_id";
             this.Department_id.HeaderText = "Department_id";
+            this.Department_id.MinimumWidth = 6;
             this.Department_id.Name = "Department_id";
             this.Department_id.ReadOnly = true;
             this.Department_id.Visible = false;
@@ -535,6 +562,7 @@
             // 
             this.Team_id.DataPropertyName = "Team_id";
             this.Team_id.HeaderText = "Team_id";
+            this.Team_id.MinimumWidth = 6;
             this.Team_id.Name = "Team_id";
             this.Team_id.ReadOnly = true;
             this.Team_id.Visible = false;
@@ -543,6 +571,7 @@
             // 
             this.Position_id.DataPropertyName = "Position_id";
             this.Position_id.HeaderText = "Position_id";
+            this.Position_id.MinimumWidth = 6;
             this.Position_id.Name = "Position_id";
             this.Position_id.ReadOnly = true;
             this.Position_id.Visible = false;
@@ -551,6 +580,7 @@
             // 
             this.Social_Insurance_No.DataPropertyName = "Social_Insurance_No";
             this.Social_Insurance_No.HeaderText = "Social_Insurance_No";
+            this.Social_Insurance_No.MinimumWidth = 6;
             this.Social_Insurance_No.Name = "Social_Insurance_No";
             this.Social_Insurance_No.ReadOnly = true;
             this.Social_Insurance_No.Visible = false;
@@ -559,6 +589,7 @@
             // 
             this.Photo.DataPropertyName = "Photo";
             this.Photo.HeaderText = "Photo";
+            this.Photo.MinimumWidth = 6;
             this.Photo.Name = "Photo";
             this.Photo.ReadOnly = true;
             this.Photo.Visible = false;
@@ -567,28 +598,30 @@
             // 
             this.Date_Hired.DataPropertyName = "Date_Hired";
             this.Date_Hired.HeaderText = "Date_Hired";
+            this.Date_Hired.MinimumWidth = 6;
             this.Date_Hired.Name = "Date_Hired";
             this.Date_Hired.ReadOnly = true;
             this.Date_Hired.Visible = false;
             // 
             // frmUserList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 529);
+            this.ClientSize = new System.Drawing.Size(1445, 651);
             this.Controls.Add(this.dtgvDepartmentDetail);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.TopBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUserList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUserList";
-            this.panel1.ResumeLayout(false);
+            this.TopBar.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
+            this.pn_Minimize.ResumeLayout(false);
+            this.pn_Maximize.ResumeLayout(false);
+            this.pn_Close.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDepartmentDetail)).EndInit();
@@ -598,14 +631,14 @@
 
         #endregion
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TopBar;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel pn_Minimize;
         private System.Windows.Forms.Button btnMinimize;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pn_Maximize;
         private System.Windows.Forms.Button btnMaximize;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel pn_Close;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAdd;

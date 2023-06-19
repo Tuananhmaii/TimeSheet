@@ -24,7 +24,7 @@ namespace Timesheets_System.Views
         public frmForgotPassword()
         {
             InitializeComponent();
-            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
+            TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
         }
 
         private void btForgotPassword_Click(object sender, EventArgs e)

@@ -13,9 +13,6 @@ namespace Timesheets_System.Views
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private static extern void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        private const int WM_NCLBUTTONDOWN = 0x00A1;
-        private const int HT_CAPTION = 0x0002;
-
         private Control titleBarControl;
         private Control minimizeButton;
         private Control maximizeButton;
@@ -28,10 +25,10 @@ namespace Timesheets_System.Views
             this.maximizeButton = maximizeButton;
             this.closeButton = closeButton;
 
-            InitializeTitleBar();
+            InitializeEventHandlers();
         }
 
-        private void InitializeTitleBar()
+        private void InitializeEventHandlers()
         {
             titleBarControl.MouseDown += TitleBarControl_MouseDown;
             minimizeButton.Click += MinimizeButton_Click;
@@ -52,7 +49,7 @@ namespace Timesheets_System.Views
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
-                SendMessage(((Control)sender).FindForm().Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                SendMessage(((Control)sender).FindForm().Handle, 0x112, 0xf012, 0);
             }
         }
 
