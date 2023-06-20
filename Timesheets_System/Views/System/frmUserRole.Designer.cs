@@ -108,6 +108,7 @@
             this.dtgvScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvScreen.Size = new System.Drawing.Size(884, 462);
             this.dtgvScreen.TabIndex = 3;
+            this.dtgvScreen.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvScreen_CellDoubleClick);
             // 
             // Username
             // 

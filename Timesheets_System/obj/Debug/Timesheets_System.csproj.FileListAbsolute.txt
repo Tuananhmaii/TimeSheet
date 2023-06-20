@@ -115,10 +115,8 @@ D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmDepar
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmForgotPassword.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmLogin.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTeam.resources
-D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmUser.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmMenu.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTimesheets.resources
-D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmAcceptDeleteUser.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserList.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserDetail.resources
 D:\Goline\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.GenerateResource.cache
