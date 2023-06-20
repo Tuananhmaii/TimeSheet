@@ -37,7 +37,14 @@ namespace Timesheets_System.Controllers
         {
             _screenAuthDAO.UpdateAllowScreenAuth(screen_id, auth_group_id, allowed_to_open);
         }
-
+        public void InsertAllFormsIntoDb(string screen_id, string screen_name)
+        {
+            _screenAuthDAO.InsertAllFormsIntoDb(screen_id, screen_name);
+        }
+        public void GrantAccessAllFormsToAdmin(string screen_id)
+        {
+            _screenAuthDAO.GrantAccessAllFormsToAdmin(screen_id);
+        }
 
 
     }

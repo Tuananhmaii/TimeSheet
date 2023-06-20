@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -47,7 +48,6 @@ namespace Timesheets_System.Views
                 return false;
             }
 
-            //Check username is empty
             if (txt_Password.Text == string.Empty)
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);

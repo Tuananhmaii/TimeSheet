@@ -51,10 +51,8 @@ D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmDepartment.r
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmForgotPassword.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmLogin.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTeam.resources
-D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmUser.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmMenu.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmTimesheets.resources
-D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmAcceptDeleteUser.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserList.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.User.frmUserDetail.resources
 D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.csproj.GenerateResource.cache

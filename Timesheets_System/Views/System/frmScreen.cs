@@ -1,6 +1,8 @@
 ﻿using System.Windows.Forms;
 using System;
 using Timesheets_System.Controllers;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace Timesheets_System.Views.Screen
 {
@@ -8,7 +10,7 @@ namespace Timesheets_System.Views.Screen
     {
         ScreenAuthController _screenAuthController = new ScreenAuthController();
         AuthGroupController _authGroupAuthController = new AuthGroupController();
-        private string selectedRoleId; // Store the selected role ID
+        private string selectedRoleId; 
 
         public frmScreen()
         {
@@ -53,6 +55,31 @@ namespace Timesheets_System.Views.Screen
         {
             selectedRoleId = cbRole.SelectedValue.ToString(); // Update the selected role ID
             LoadScreenRoles(); // Populate the DataGridView based on the new role selection
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<Type> formTypes = new List<Type>();
+            Type formType = typeof(Form);
+
+            foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
+            {
+                if (formType.IsAssignableFrom(type))
+                {
+                    formTypes.Add(type);
+                }
+            }
+
+            // formTypes now contains a list of all the form types in your project
+            foreach (Type form in formTypes)
+            {
+                _screenAuthController.InsertAllFormsIntoDb(form.Name, "");
+                _screenAuthController.GrantAccessAllFormsToAdmin(form.Name);
+                MessageBox.Show("Cập nhật màn hình thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadScreenRoles();
+                cbRole.SelectedValue = selectedRoleId;
+            }
         }
     }
 }

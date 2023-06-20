@@ -184,6 +184,12 @@
     <Compile Include="Common\Const\CONSTANTS.cs" />
     <Compile Include="Models\DAO\AuthGroupDAO.cs" />
     <Compile Include="Models\DTO\AuthGroupDTO.cs" />
+    <Compile Include="Views\Login\frmLogout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login\frmLogout.Designer.cs">
+      <DependentUpon>frmLogout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PartialViews\TitleBarModule.cs" />
     <Compile Include="Views\Personal\frmPersonalTimesheet.cs">
       <SubType>Form</SubType>
@@ -276,12 +282,6 @@
     <Compile Include="Views\HumanResource\frmTeam.Designer.cs">
       <DependentUpon>frmTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\frmUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\User\frmUser.Designer.cs">
-      <DependentUpon>frmUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,12 +293,6 @@
     </Compile>
     <Compile Include="Views\HumanResource\frmTimesheets.Designer.cs">
       <DependentUpon>frmTimesheets.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\User\frmAcceptDeleteUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\User\frmAcceptDeleteUser.Designer.cs">
-      <DependentUpon>frmAcceptDeleteUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\HumanResource\frmUserList.cs">
       <SubType>Form</SubType>
@@ -360,17 +354,11 @@
     <EmbeddedResource Include="Views\HumanResource\frmTeam.resx">
       <DependentUpon>frmTeam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\User\frmUser.resx">
-      <DependentUpon>frmUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HumanResource\frmTimesheets.resx">
       <DependentUpon>frmTimesheets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\User\frmAcceptDeleteUser.resx">
-      <DependentUpon>frmAcceptDeleteUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HumanResource\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>

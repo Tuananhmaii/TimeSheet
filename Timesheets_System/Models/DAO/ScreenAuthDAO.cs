@@ -91,5 +91,29 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("auth_group_id", auth_group_id);
             _dbConnection.Query(query, parameters);
         }
+
+        public void InsertAllFormsIntoDb(string screen_id, string screen_name)
+        {
+            string query = "INSERT INTO screen_tb SELECT @screen_id, @screen_name " +
+                "WHERE NOT EXISTS (SELECT 1 FROM screen_tb WHERE screen_id = @screen_id);";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("screen_id", screen_id);
+            parameters.Add("screen_name", screen_name);
+
+            _dbConnection.Query<ScreenAuthDTO>(query, parameters).ToList();
+        }
+
+        public void GrantAccessAllFormsToAdmin(string screen_id)
+        {
+            string query = "INSERT INTO screen_auth_tb SELECT 'Admin', @screen_id, '1' " +
+                "WHERE NOT EXISTS (SELECT 1 FROM screen_auth_tb " +
+                "WHERE auth_group_id = 'Admin' AND screen_id = @screen_id " +
+                "AND allowed_to_open = '1');";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("screen_id", screen_id);
+            _dbConnection.Query<ScreenAuthDTO>(query, parameters).ToList();
+        }
     }
 }
