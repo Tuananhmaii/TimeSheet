@@ -20,8 +20,8 @@ namespace Timesheets_System.Views.Permission
         string selectedUsername;
         public frmSubmitUserRole(string username, string fullname, string role)
         {
-            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(panel2, pn_Minimize, pn_Maximize, pn_Close);
             lblName.Text = fullname;
             cbRole.DataSource = _authGroupAuthController.GetAuthGroupDTO();
             cbRole.DisplayMember = "auth_group_name";

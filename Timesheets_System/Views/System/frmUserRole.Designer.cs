@@ -37,6 +37,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dtgvScreen = new System.Windows.Forms.DataGridView();
             this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fullname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +49,34 @@
             this.Team_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Auth_Group_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvScreen)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(31, 462);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(915, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(31, 462);
+            this.panel2.TabIndex = 4;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dtgvScreen);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(31, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(884, 462);
+            this.panel3.TabIndex = 5;
             // 
             // dtgvScreen
             // 
@@ -73,14 +102,12 @@
             this.Auth_Group_ID});
             this.dtgvScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvScreen.Location = new System.Drawing.Point(0, 0);
-            this.dtgvScreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgvScreen.Name = "dtgvScreen";
             this.dtgvScreen.RowHeadersVisible = false;
             this.dtgvScreen.RowHeadersWidth = 51;
             this.dtgvScreen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvScreen.Size = new System.Drawing.Size(1261, 569);
-            this.dtgvScreen.TabIndex = 2;
-            this.dtgvScreen.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvScreen_CellDoubleClick);
+            this.dtgvScreen.Size = new System.Drawing.Size(884, 462);
+            this.dtgvScreen.TabIndex = 3;
             // 
             // Username
             // 
@@ -184,19 +211,26 @@
             // 
             // frmUserRole
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1261, 569);
-            this.Controls.Add(this.dtgvScreen);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientSize = new System.Drawing.Size(946, 462);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "frmUserRole";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmUserRole";
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvScreen)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dtgvScreen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fullname;

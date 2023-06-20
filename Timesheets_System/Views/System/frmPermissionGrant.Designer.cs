@@ -41,31 +41,34 @@
             this.btnMaximize = new System.Windows.Forms.Button();
             this.pn_Close = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.TopBar.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pn_Minimize.SuspendLayout();
             this.pn_Maximize.SuspendLayout();
             this.pn_Close.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI Semilight", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(201, 96);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(265, 196);
-            this.tabControl1.TabIndex = 4;
+            this.tabControl1.Size = new System.Drawing.Size(800, 414);
+            this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(257, 164);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(792, 382);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Màn hình";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -74,7 +77,7 @@
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(257, 164);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quyền người dùng";
@@ -92,7 +95,7 @@
             this.TopBar.Location = new System.Drawing.Point(0, 0);
             this.TopBar.Name = "TopBar";
             this.TopBar.Size = new System.Drawing.Size(800, 36);
-            this.TopBar.TabIndex = 62;
+            this.TopBar.TabIndex = 1;
             // 
             // panel4
             // 
@@ -189,13 +192,22 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tabControl1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 414);
+            this.panel1.TabIndex = 3;
+            // 
             // frmPermissionGrant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.TopBar);
-            this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPermissionGrant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -208,6 +220,7 @@
             this.pn_Minimize.ResumeLayout(false);
             this.pn_Maximize.ResumeLayout(false);
             this.pn_Close.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -225,5 +238,6 @@
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Panel pn_Close;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -30,18 +30,21 @@ namespace Timesheets_System.Views
 
         private void InitializeEventHandlers()
         {
-            titleBarControl.MouseDown += TitleBarControl_MouseDown;
-            minimizeButton.Click += MinimizeButton_Click;
-            maximizeButton.Click += MaximizeButton_Click;
-            closeButton.Click += CloseButton_Click;
+            if ( titleBarControl != null)
+            {
+                titleBarControl.MouseDown += TitleBarControl_MouseDown;
+                minimizeButton.Click += MinimizeButton_Click;
+                maximizeButton.Click += MaximizeButton_Click;
+                closeButton.Click += CloseButton_Click;
 
-            minimizeButton.MouseEnter += Button_MouseEnter;
-            maximizeButton.MouseEnter += Button_MouseEnter;
-            closeButton.MouseEnter += Button_MouseEnter;
+                minimizeButton.MouseEnter += Button_MouseEnter;
+                maximizeButton.MouseEnter += Button_MouseEnter;
+                closeButton.MouseEnter += Button_MouseEnter;
 
-            minimizeButton.MouseLeave += Button_MouseLeave;
-            maximizeButton.MouseLeave += Button_MouseLeave;
-            closeButton.MouseLeave += Button_MouseLeave;
+                minimizeButton.MouseLeave += Button_MouseLeave;
+                maximizeButton.MouseLeave += Button_MouseLeave;
+                closeButton.MouseLeave += Button_MouseLeave;
+            }
         }
 
         private void TitleBarControl_MouseDown(object sender, MouseEventArgs e)
