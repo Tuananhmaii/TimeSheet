@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Timesheets_System.Models.DTO;
 
 namespace Timesheets_System.Models.DAO
@@ -62,6 +63,16 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("Name", department.Department_name);
             parameters.Add("Description", department.Descriptions);
             _dbConnection.Query(query, parameters);
+        }
+
+        public List<DepartmentDTO> checkUsedDepartmentID(string departmentID)
+        {
+            String query = "SELECT * FROM department_tb " +
+                "JOIN team_tb ON department_tb.department_id = team_tb.department_id " +
+                "WHERE department_tb.department_id = @departmentID";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("departmentID", departmentID);
+            return _dbConnection.Query<DepartmentDTO>(query, parameters).ToList();
         }
     }
 }

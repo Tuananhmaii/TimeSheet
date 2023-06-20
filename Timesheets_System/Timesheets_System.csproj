@@ -14,6 +14,22 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +49,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A874CBE0F92F6CA305A788AB2CE8D579D3F72E7D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Timesheets_System_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
@@ -144,6 +172,7 @@
     <Compile Include="Common\Const\PERMISSION_AUTH_GROUP.cs" />
     <Compile Include="Common\Const\PERMISSION_TO_OPEN_SCREEN.cs" />
     <Compile Include="Common\Util\StringUtil.cs" />
+    <Compile Include="Controllers\AuthGroupController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\PositionController.cs" />
     <Compile Include="Controllers\ScreenAuthController.cs" />
@@ -153,6 +182,15 @@
     <Compile Include="Controllers\TimesheetsRawDataController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Common\Const\CONSTANTS.cs" />
+    <Compile Include="Models\DAO\AuthGroupDAO.cs" />
+    <Compile Include="Models\DTO\AuthGroupDTO.cs" />
+    <Compile Include="Views\PartialViews\TitleBarModule.cs" />
+    <Compile Include="Views\Personal\frmPersonalTimesheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Personal\frmPersonalTimesheet.Designer.cs">
+      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAO\DepartmentDAO.cs" />
     <Compile Include="Models\DAO\PositionDAO.cs" />
     <Compile Include="Models\DAO\ScreenAuthDAO.cs" />
@@ -172,6 +210,30 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Views\System\frmPermissionGrant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\System\frmPermissionGrant.Designer.cs">
+      <DependentUpon>frmPermissionGrant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\System\frmScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\System\frmScreen.Designer.cs">
+      <DependentUpon>frmScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\System\frmSubmitUserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\System\frmSubmitUserRole.Designer.cs">
+      <DependentUpon>frmSubmitUserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\System\frmUserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\System\frmUserRole.Designer.cs">
+      <DependentUpon>frmUserRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TimeSheetReport\frmIndividualTimeSheetReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,16 +246,16 @@
     <Compile Include="Views\TimeSheetReport\frmGeneralTimeSheetReport.Designer.cs">
       <DependentUpon>frmGeneralTimeSheetReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmChangePassword.cs">
+    <Compile Include="Views\System\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmChangePassword.Designer.cs">
+    <Compile Include="Views\System\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Information\frmDepartment.cs">
+    <Compile Include="Views\HumanResource\frmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Information\frmDepartment.Designer.cs">
+    <Compile Include="Views\HumanResource\frmDepartment.Designer.cs">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\frmForgotPassword.cs">
@@ -208,16 +270,16 @@
     <Compile Include="Views\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Information\frmTeam.cs">
+    <Compile Include="Views\HumanResource\frmTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Information\frmTeam.Designer.cs">
+    <Compile Include="Views\HumanResource\frmTeam.Designer.cs">
       <DependentUpon>frmTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmUser.cs">
+    <Compile Include="Views\User\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmUser.Designer.cs">
+    <Compile Include="Views\User\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmMenu.cs">
@@ -226,23 +288,11 @@
     <Compile Include="Views\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\frmTimesheets.cs">
+    <Compile Include="Views\HumanResource\frmTimesheets.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\frmTimesheets.Designer.cs">
+    <Compile Include="Views\HumanResource\frmTimesheets.Designer.cs">
       <DependentUpon>frmTimesheets.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\frmPersonalTimesheet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmPersonalTimesheet.Designer.cs">
-      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\frmDepartmentDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\frmDepartmentDetail.Designer.cs">
-      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\frmAcceptDeleteUser.cs">
       <SubType>Form</SubType>
@@ -250,16 +300,16 @@
     <Compile Include="Views\User\frmAcceptDeleteUser.Designer.cs">
       <DependentUpon>frmAcceptDeleteUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\frmUserList.cs">
+    <Compile Include="Views\HumanResource\frmUserList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\User\frmUserList.Designer.cs">
+    <Compile Include="Views\HumanResource\frmUserList.Designer.cs">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\frmUserDetail.cs">
+    <Compile Include="Views\Personal\frmUserDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\User\frmUserDetail.Designer.cs">
+    <Compile Include="Views\Personal\frmUserDetail.Designer.cs">
       <DependentUpon>frmUserDetail.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -274,16 +324,31 @@
     </Compile>
     <EmbeddedResource Include="bin\Debug\RDLC\IndividualTimeSheetReport.rdlc" />
     <EmbeddedResource Include="bin\Debug\RDLC\GeneralTimeSheetReport.rdlc" />
+    <EmbeddedResource Include="Views\Personal\frmPersonalTimesheet.resx">
+      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\System\frmPermissionGrant.resx">
+      <DependentUpon>frmPermissionGrant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\System\frmScreen.resx">
+      <DependentUpon>frmScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\System\frmSubmitUserRole.resx">
+      <DependentUpon>frmSubmitUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\System\frmUserRole.resx">
+      <DependentUpon>frmUserRole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TimeSheetReport\frmIndividualTimeSheetReport.resx">
       <DependentUpon>frmIndividualTimeSheetReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TimeSheetReport\frmGeneralTimeSheetReport.resx">
       <DependentUpon>frmGeneralTimeSheetReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmChangePassword.resx">
+    <EmbeddedResource Include="Views\System\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Information\frmDepartment.resx">
+    <EmbeddedResource Include="Views\HumanResource\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\frmForgotPassword.resx">
@@ -292,31 +357,25 @@
     <EmbeddedResource Include="Views\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Information\frmTeam.resx">
+    <EmbeddedResource Include="Views\HumanResource\frmTeam.resx">
       <DependentUpon>frmTeam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmUser.resx">
+    <EmbeddedResource Include="Views\User\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmTimesheets.resx">
+    <EmbeddedResource Include="Views\HumanResource\frmTimesheets.resx">
       <DependentUpon>frmTimesheets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmPersonalTimesheet.resx">
-      <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\frmDepartmentDetail.resx">
-      <DependentUpon>frmDepartmentDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\frmAcceptDeleteUser.resx">
       <DependentUpon>frmAcceptDeleteUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\User\frmUserList.resx">
+    <EmbeddedResource Include="Views\HumanResource\frmUserList.resx">
       <DependentUpon>frmUserList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\User\frmUserDetail.resx">
+    <EmbeddedResource Include="Views\Personal\frmUserDetail.resx">
       <DependentUpon>frmUserDetail.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\MailKit.dll.config" />
@@ -336,6 +395,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Timesheets_System_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -433,6 +493,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

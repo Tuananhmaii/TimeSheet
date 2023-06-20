@@ -28,11 +28,14 @@ namespace Timesheets_System.Views
         ScreenAuthController _screenAuthController = new ScreenAuthController();
         public static UserDTO loggedUser;
         public static string user_id;
+        public static string userFullName;
 
 
         public frmLogin()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
+            txt_Username.Focus();
         }
 
         private Boolean ElementCheck()
@@ -136,40 +139,35 @@ namespace Timesheets_System.Views
                 }
 
                 //Get authentication of user with menu screen
-                //ScreenAuthDTO _screenAuthDTO = new ScreenAuthDTO();
-                //_screenAuthDTO.Auth_Group_ID = _userDTO.Auth_Group_ID;
-                //_screenAuthDTO.Screen_ID = "frmMenu";
-                //_screenAuthDTO.Allowed_To_Open = PERMISSION_TO_OPEN_SCREEN.ALLOWED;
+                ScreenAuthDTO _screenAuthDTO = new ScreenAuthDTO();
+                _screenAuthDTO.Auth_Group_ID = _userDTO.Auth_Group_ID;
+                _screenAuthDTO.Screen_ID = "frmMenu";
+                _screenAuthDTO.Allowed_To_Open = PERMISSION_TO_OPEN_SCREEN.ALLOWED;
 
-                //_screenAuthDTO = _screenAuthController.GetScreenAuthByAuthGrID(_screenAuthDTO);
+                _screenAuthDTO = _screenAuthController.GetScreenAuthByAuthGrID(_screenAuthDTO);
 
-                //if (_screenAuthDTO == null)
-                //{
-                //    //User not permission to access menu
-                //    MessageBox.Show("Bạn chưa có quyền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    return;
-                //}
-                //else
-                //{
-                //User can access menu
-                frmMenu frmMenu = new frmMenu();
-                loggedUser = _userDTO;
-                user_id = _userDTO.Username;
-                Thread.Sleep(500);
-                frmMenu.Show();
-                this.Hide();
-                //}
+                if (_screenAuthDTO == null)
+                {
+                    //User not permission to access menu
+                    MessageBox.Show("Bạn chưa có quyền truy cập", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    //User can access menu
+                    frmMenu frmMenu = new frmMenu();
+                    loggedUser = _userDTO;
+                    user_id = _userDTO.Username;
+                    userFullName = _userDTO.Fullname;
+                    Thread.Sleep(500);
+                    frmMenu.Show();
+                    this.Hide();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi đăng nhập: " + ex.Message);
             }
-        }
-        #region "Custom title"
-        private void panel6_MouseClick(object sender, MouseEventArgs e)
-        {
-            Color myColor = Color.FromArgb(25, 110, 191);
-            pn_Close.BackColor = myColor;
         }
 
         private void lblForgetPass_Click(object sender, EventArgs e)
@@ -177,38 +175,5 @@ namespace Timesheets_System.Views
             frmForgotPassword form = new frmForgotPassword();
             form.ShowDialog();
         }
-
-        private void pn_Minimize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Minimize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Maximize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Maximize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Close_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_ENTERCOLOR;
-            btnClose.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Close_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
-            btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-        #endregion
     }
 }

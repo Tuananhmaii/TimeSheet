@@ -61,5 +61,23 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("DepartmentId", team.Department_id);
             _dbConnection.Query(query, parameters);
         }
+
+        public List<TeamDTO> checkUsedTeamID(string teamID)
+        {
+            String query = "SELECT * FROM team_tb " +
+                "JOIN user_tb ON team_tb.team_id = user_tb.team_id " +
+                "WHERE team_tb.team_id = @teamID";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("teamID", teamID);
+            return _dbConnection.Query<TeamDTO>(query, parameters).ToList();
+        }
+
+        public List<TeamDTO> checkExistTeamID(string team_id)
+        {
+            String query = "SELECT * FROM public.team_tb WHERE LOWER(team_id)=LOWER(@team_id)";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("team_id", team_id);
+            return _dbConnection.Query<TeamDTO>(query, parameters).ToList();
+        }
     }
 }

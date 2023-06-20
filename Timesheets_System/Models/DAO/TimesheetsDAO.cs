@@ -25,7 +25,12 @@ namespace Timesheets_System.Models.DAO
 
         public List<TimesheetsDTO> GetTimeSheetsByMonth(TimesheetsDTO _timesheetsDTO)
         {
-            string query = "SELECT * FROM timesheets_tb WHERE year = @year AND month = @month";
+            string query = "SELECT * from timesheets_tb FULL JOIN user_tb ON timesheets_tb.username = user_tb.username " +
+                "FULL JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
+                "FULL JOIN department_tb ON team_tb.department_id = department_tb.department_id " +
+                "FULL JOIN position_tb on user_tb.position_id = position_tb.position_id " +
+                "WHERE year = @year and month = @month " +
+                "ORDER BY user_tb.username ASC";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("year", _timesheetsDTO.Year);
             parameters.Add("month", _timesheetsDTO.Month);
@@ -112,6 +117,15 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("year", year);
             parameters.Add("month", month);
             return _dbConnection.Query<TimesheetsDTO>(fullQuery, parameters).ToList();
+        }
+
+        public void DeleteTimeSheet(string username)
+        {
+            string query = "DELETE FROM public.timesheets_tb WHERE username = @username;";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("username", username);
+
+            _dbConnection.Execute(query, parameters);
         }
     }
 }

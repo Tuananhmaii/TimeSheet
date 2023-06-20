@@ -245,6 +245,12 @@ namespace Timesheets_System.Views
             frmIndividualTimeSheetReport form = new frmIndividualTimeSheetReport();
             form.ShowDialog();
         }
+
+        private void frmPermissionGrant_Click(object sender, EventArgs e)
+        {
+            frmPermissionGrant form = new frmPermissionGrant();
+            form.ShowDialog();
+        }
     }
 }
     

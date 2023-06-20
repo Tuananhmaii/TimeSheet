@@ -12,6 +12,16 @@ namespace Timesheets_System.Controllers
     {
         ScreenAuthDAO _screenAuthDAO = new ScreenAuthDAO();
 
+        public List<ScreenAuthDTO> GetScreen()
+        {
+            return _screenAuthDAO.GetScreen();
+        }
+
+        public List<ScreenAuthDTO> GetScreenRoles(string auth_group_id)
+        {
+            return _screenAuthDAO.GetScreenRoles(auth_group_id);
+        }
+
         public ScreenAuthDTO GetScreenAuthByAuthGrID(ScreenAuthDTO _screenAuthDTO)
         {
             return _screenAuthDAO.GetScreenAuthByAuthGrID(_screenAuthDTO);
@@ -23,7 +33,12 @@ namespace Timesheets_System.Controllers
             return _screenAuthDAO.GetScreenAuthList(_screenAuthDTO);
         }
 
+        public void UpdateAllowScreenAuth(string screen_id, string auth_group_id, string allowed_to_open)
+        {
+            _screenAuthDAO.UpdateAllowScreenAuth(screen_id, auth_group_id, allowed_to_open);
+        }
 
-     
+
+
     }
 }

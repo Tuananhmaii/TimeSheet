@@ -26,15 +26,16 @@ namespace Timesheets_System.Views
     {
         UserController _userController = new UserController();
         TimesheetsDetailsController _timesSheetDetailController = new TimesheetsDetailsController();
-        string userName = frmLogin.loggedUser.Username;
+        string fullName = frmLogin.userFullName;
         
         public frmIndividualTimeSheetReport()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
             Load();
         }
 
-        public void ExportToPDF()
+        public void ExportToPDF(List<TimesheetsDetailsDTO> list)
         {
             string deviceInfo = "";
             string[] streamIds;
@@ -48,8 +49,7 @@ namespace Timesheets_System.Views
             report.ProcessingMode = ProcessingMode.Local;
             report.LocalReport.ReportPath = "../../bin/debug/RDLC/IndividualTimeSheetReport.rdlc";
 
-            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDetailDS",
-                _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
+            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDetailDS", list));
 
             ReportParameter pName = new ReportParameter("pName", lName.Text.ToString());
             report.LocalReport.SetParameters(pName);
@@ -69,7 +69,7 @@ namespace Timesheets_System.Views
             var bytes = report.LocalReport.Render("PDF", deviceInfo, out mimeType,
                    out enCoding, out extension, out streamIds, out warnings);
 
-            saveFileDialog1.FileName = "IndividualTimeSheetReport";
+            saveFileDialog1.FileName = $"TimesheetsReport_{lName.Text}_{cbMonth.Text}_{cbYear.Text}" ;
             saveFileDialog1.DefaultExt = "pdf";
 
             saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
@@ -89,8 +89,7 @@ namespace Timesheets_System.Views
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = DateTime.Now.Year;
 
-            string userId = frmLogin.loggedUser.Username;
-            UserDTO user = _userController.GetForeignValue(userId);
+            UserDTO user = _userController.GetUserWithFullInfo(fullName);
 
             lName.Text = user.Fullname;
             lPosition.Text = user.Position_name;
@@ -100,7 +99,7 @@ namespace Timesheets_System.Views
         }
         private void btExportData_Click(object sender, EventArgs e)
         {
-            var list = _timesSheetDetailController.GetIndividualReport(userName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            var list = _timesSheetDetailController.GetUserTimeSheetDetailByMonth(fullName, Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (!list.Any())
             {
                 MessageBox.Show("Không có data, xin hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -108,75 +107,8 @@ namespace Timesheets_System.Views
             }
             else
             {
-                ExportToPDF();
+                ExportToPDF(list);
             }
         }
-        #region "Custom title"
-        private void panel2_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void pn_Minimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pn_Maximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
-        private void pn_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        private void pn_Minimize_MouseEnter_1(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Minimize_MouseLeave_1(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Maximize_MouseEnter_1(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Maximize_MouseLeave_1(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Close_MouseEnter_1(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_ENTERCOLOR;
-            btnClose.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Close_MouseLeave_1(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
-            btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-        #endregion
-
-
     }
 }

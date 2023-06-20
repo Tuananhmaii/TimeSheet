@@ -32,10 +32,11 @@ namespace Timesheets_System.Views
         public frmGeneralTimeSheetReport()
         {
             InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
             Load();
         }
 
-        public void ExportToPDF()
+        public void ExportToPDF(List<TimesheetsDTO> list)
         {
             string deviceInfo = "";
             string[] streamIds;
@@ -49,9 +50,7 @@ namespace Timesheets_System.Views
             report.ProcessingMode = ProcessingMode.Local;
             report.LocalReport.ReportPath = "../../bin/debug/RDLC/GeneralTimeSheetReport.rdlc";
 
-            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDS",
-                _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(),
-                Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text))));
+            report.LocalReport.DataSources.Add(new ReportDataSource("TimeSheetDS", list));
 
             ReportParameter pDepartment = new ReportParameter("pDepartment", cbDepartment.Text.ToString());
             report.LocalReport.SetParameters(pDepartment);
@@ -67,7 +66,7 @@ namespace Timesheets_System.Views
             var bytes = report.LocalReport.Render("PDF", deviceInfo, out mimeType,
                    out enCoding, out extension, out streamIds, out warnings);
 
-            saveFileDialog1.FileName = "GeneralTimeSheetReport";
+            saveFileDialog1.FileName = $"TimesheetsReport_{cbDepartment.Text}_{cbTeam.Text}_{cbMonth.Text}_{cbYear.Text}";
             saveFileDialog1.DefaultExt = "pdf";
 
             saveFileDialog1.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
@@ -81,7 +80,16 @@ namespace Timesheets_System.Views
 
         private void btExportData_Click_1(object sender, EventArgs e)
         {
-            var list = _timeSheetController.GetGeneralTimeSheet(cbDepartment.Text.ToString(), cbTeam.Text.ToString(), Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
+            if (cbDepartment.SelectedValue == null)
+            {
+                cbDepartment.SelectedValue = "";
+            }
+            if (cbTeam.SelectedValue == null)
+            {
+                cbTeam.SelectedValue = "";
+            }
+            var list = _timeSheetController.GetGeneralTimeSheet(cbDepartment.SelectedValue.ToString(), cbTeam.SelectedValue.ToString(),
+                                                            Int32.Parse(cbYear.Text), Int32.Parse(cbMonth.Text));
             if (!list.Any())
             {
                 MessageBox.Show("Không có data, xin hãy thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -89,7 +97,7 @@ namespace Timesheets_System.Views
             }
             else
             {
-                ExportToPDF();
+                ExportToPDF(list);
             }
         }
 
@@ -101,84 +109,51 @@ namespace Timesheets_System.Views
             cbYear.DataSource = Enumerable.Range(2022, DateTime.Now.Year - 2022 + 1).ToList();
             cbYear.SelectedItem = DateTime.Now.Year;
 
-            List<DepartmentDTO> departments = _departmentController.GetDepartmentDTO();
-            departments.Insert(0, new DepartmentDTO { Department_id = "", Department_name = "", Descriptions = "" });
-            cbDepartment.DataSource = departments;
-            cbDepartment.ValueMember = "department_id";
-            cbDepartment.SelectedIndex = -1;
-
-            List<TeamDTO> teams = _teamController.GetTeamDTO();
-            teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
-            cbTeam.DataSource = teams;
-            cbTeam.ValueMember = "team_id";
-            cbTeam.SelectedIndex = -1;
+            getAllDepartments();
+            getAllTeams(null);
         }
-
-        #region "Custom title"
-        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        private void cbDepartment_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private static extern void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void pn_Minimize_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pn_Maximize_Click_1(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
+            if (cbDepartment.SelectedValue != null)
             {
-                this.WindowState = FormWindowState.Maximized;
+                getAllTeams(cbDepartment.SelectedValue.ToString());
+            }
+            // Index 0 có value = null 
+            if (cbDepartment.SelectedIndex == 0)
+            {
+                getAllTeams(null);
+            }
+        }
+
+        private void getAllTeams(string department)
+        {
+            if (department == null)
+            {
+                List<TeamDTO> teams = _teamController.GetTeamDTO();
+                teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
+                cbTeam.DataSource = teams;
+                cbTeam.DisplayMember = "team_name";
+                cbTeam.ValueMember = "team_id";
+                cbTeam.SelectedIndex = -1;
             }
             else
             {
-                this.WindowState = FormWindowState.Normal;
+                List<TeamDTO> teams = _teamController.GetTeamDTO(department);
+                teams.Insert(0, new TeamDTO { Team_id = "", Team_name = "", Department_name = "", Department_id = "" });
+                cbTeam.DataSource = teams;
+                cbTeam.DisplayMember = "team_name";
+                cbTeam.ValueMember = "team_id";
+                cbTeam.SelectedIndex = -1;
             }
         }
-
-        private void pn_Close_Click_1(object sender, EventArgs e)
+        private void getAllDepartments()
         {
-            this.Close();
+            var departments = _departmentController.GetDepartmentDTO();
+            departments.Insert(0, new DepartmentDTO { Department_id = "", Department_name = "", Descriptions = "" });
+            cbDepartment.DataSource = departments;
+            cbDepartment.DisplayMember = "department_name";
+            cbDepartment.ValueMember = "department_id";
+            cbDepartment.SelectedIndex = -1;
         }
-        private void pn_Minimize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Minimize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Minimize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Maximize_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Maximize_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Maximize.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-
-        private void pn_Close_MouseEnter(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_ENTERCOLOR;
-            btnClose.BackColor = COLORS.TITLE_ENTERCOLOR;
-        }
-
-        private void pn_Close_MouseLeave(object sender, EventArgs e)
-        {
-            pn_Close.BackColor = COLORS.TITLE_BACKCOLOR;
-            btnClose.BackColor = COLORS.TITLE_BACKCOLOR;
-        }
-        #endregion
-
     }
 }

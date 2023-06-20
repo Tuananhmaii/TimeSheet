@@ -36,5 +36,15 @@ namespace Timesheets_System.Controllers
         {
             teamDAO.UpdateTeamDTO(team);
         }
+
+        public List<TeamDTO> checkUsedTeamID(string teamID)
+        {
+            return teamDAO.checkUsedTeamID(teamID);
+        }
+
+        public List<TeamDTO> checkExistTeamID(string team_id)
+        {
+            return teamDAO.checkExistTeamID(team_id);
+        }
     }
 }

@@ -23,17 +23,30 @@ namespace Timesheets_System.Models.DAO
             _dbConnection = new NpgsqlConnection(CONSTANTS.CONNECTIONSTRING);
         }
 
-        //Get tất cả người dùng trong Hệ thống
+        //Get tất cả username
+        public List<UserDTO> GetAllUsernames()
+        {
+            String query = "Select username from user_tb;";
+            return _dbConnection.Query<UserDTO>(query).ToList();
+        }
 
+        //Get tất cả người dùng trong Hệ thống
         public List<UserDTO> GetAllUsers()
         {
-            String query = "SELECT * FROM user_tb";
+            String query = "SELECT * FROM user_tb LEFT JOIN team_tb ON user_tb.team_id = team_tb.team_id LEFT JOIN department_tb ON team_tb.department_id = department_tb.department_id LEFT JOIN position_tb ON user_tb.position_id = position_tb.position_id";
             return _dbConnection.Query<UserDTO>(query).ToList();
         }
 
         public List<UserDTO> GetAllUsersHaveDepartmentYet()
         {
             String query = "SELECT * FROM user_tb INNER JOIN team_tb ON user_tb.team_id = team_tb.team_id INNER JOIN department_tb ON team_tb.department_id = department_tb.department_id INNER JOIN position_tb ON user_tb.position_id = position_tb.position_id ";
+            return _dbConnection.Query<UserDTO>(query).ToList();
+        }
+
+        //Get tất cả người dùng chưa có phòng
+        public List<UserDTO> GetUsersHaveNoDepartment()
+        {
+            String query = "SELECT * FROM public.user_tb WHERE team_id IS NULL;";
             return _dbConnection.Query<UserDTO>(query).ToList();
         }
 
@@ -67,6 +80,17 @@ namespace Timesheets_System.Models.DAO
             return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
         }
 
+        //Update Auth_Group_Id
+        public UserDTO UpdateAuth_Group_ID(string username, string auth_group_id)
+        {
+            String query = "UPDATE user_tb SET auth_group_id = @auth_group_id WHERE username = @username";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("auth_group_id", auth_group_id);
+            parameters.Add("username", username);
+
+            return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
+        }
+
         //Update ảnh đại diện bằng tên đăng nhập
         public UserDTO UpdatePhotoByID(string current_user, byte[] imageBytes)
         {
@@ -89,9 +113,13 @@ namespace Timesheets_System.Models.DAO
 
         public UserDTO CreateNewUser(UserDTO userDTO)
         {
-            String query = "INSERT INTO user_tb  (username, password, fullname, gender, birth_date, email, phone, address, ethnic, religion, citizen_id, tax_code, social_insurance_no, date_hired, contract_no, team_id, position_id) VALUES(@username, '', @fullname, @gender, @birth_date, @email, @phone, @address, @ethnic, @religion, @citizen_id, @tax_code, @social_insurance_no, @date_hired, @contract_no, @team_id, @position_id) ";
+            String query = "INSERT INTO user_tb  (username, password, fullname, gender, birth_date, email, phone, address, ethnic, religion, citizen_id, " + 
+                                    "tax_code, social_insurance_no, date_hired, contract_no, auth_group_id , team_id, position_id, photo) " + 
+                                    "VALUES(@username, @password, @fullname, @gender, @birth_date, @email, @phone, @address, @ethnic, @religion, " + 
+                                    "@citizen_id, @tax_code, @social_insurance_no, @date_hired, @contract_no, 'User', @team_id, @position_id, @photo) ";
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("username", userDTO.Username);
+            parameters.Add("password", userDTO.Password);
             parameters.Add("fullname", userDTO.Fullname);
             parameters.Add("gender", userDTO.Gender);
             parameters.Add("birth_date", userDTO.Birth_Date);
@@ -107,6 +135,7 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("contract_no", userDTO.Contract_No);
             parameters.Add("team_id", userDTO.Team_id);
             parameters.Add("position_id", userDTO.Position_id);
+            parameters.Add("photo", userDTO.Photo);
 
             return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
         }
@@ -165,15 +194,15 @@ namespace Timesheets_System.Models.DAO
         }
 
         // Lấy user với department, team và position
-        public UserDTO GetUserWithFullInfo(string username)
+        public UserDTO GetUserWithFullInfo(string fullname)
         {
             String query = "SELECT * FROM user_tb " +
                 "FULL JOIN team_tb ON user_tb.team_id = team_tb.team_id " +
                 "FULL JOIN department_tb ON team_tb.department_id = department_tb.department_id " +
                 "FULL JOIN position_tb ON user_tb.position_id = position_tb.position_id " +
-                "where username = @username";
+                "where fullname = @fullname";
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("username", username);
+            parameters.Add("fullname", fullname);
             return _dbConnection.QueryFirstOrDefault<UserDTO>(query, parameters);
         }
     }

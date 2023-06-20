@@ -36,5 +36,10 @@ namespace Timesheets_System.Controllers
         {
             departmentDAO.UpdateDepartmentDTO(department);
         }
+
+        public List<DepartmentDTO> checkUsedDepartmentID(string departmentID)
+        {
+            return departmentDAO.checkUsedDepartmentID(departmentID);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Office.Interop.Excel;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,32 @@ namespace Timesheets_System.Models.DAO
             _dbConnection = new NpgsqlConnection(CONSTANTS.CONNECTIONSTRING);
         }
 
+        public List<ScreenAuthDTO> GetScreenRoles(string auth_group_id)
+        {
+            //string query = "SELECT screen_auth_tb.screen_id, screen_tb.screen_name, allowed_to_open FROM screen_auth_tb " +
+            //    "JOIN screen_tb ON screen_auth_tb.screen_id = screen_tb.screen_id " +
+            //    "WHERE auth_group_id = @auth_group_id " +
+            //    "ORDER BY screen_auth_tb.screen_id ASC";
+            string query = "SELECT sc.screen_id, sc.screen_name, sa.auth_group_id, COALESCE(sa.allowed_to_open, '0') AS allowed_to_open " +
+                "FROM screen_tb sc LEFT JOIN screen_auth_tb sa ON sc.screen_id = sa.screen_id " +
+                "AND sa.auth_group_id = @auth_group_id";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("auth_group_id", auth_group_id);
+            return _dbConnection.Query<ScreenAuthDTO>(query, parameters).ToList();
+        }
+
+        public List<ScreenAuthDTO> GetScreen()
+        {
+            string query = "SELECT * FROM public.screen_tb ORDER BY screen_id ASC ";
+            return _dbConnection.Query<ScreenAuthDTO>(query).ToList();
+        }
+
+
+
         public ScreenAuthDTO GetScreenAuthByAuthGrID(ScreenAuthDTO _screenAuthDTO)
         {
             string query = @"SELECT auth_group_id, screen_id, allowed_to_open " +
-                                    "FROM screen_auth_tb " + 
+                                    "FROM screen_auth_tb " +
                                     "WHERE auth_group_id = @Auth_Group_ID AND screen_id = @Screen_ID AND allowed_to_open = @Allowed_To_Open";
 
             DynamicParameters parameters = new DynamicParameters();
@@ -30,7 +53,7 @@ namespace Timesheets_System.Models.DAO
             parameters.Add("Screen_ID", _screenAuthDTO.Screen_ID);
             parameters.Add("Allowed_To_Open", _screenAuthDTO.Allowed_To_Open);
 
-            return _dbConnection.QueryFirstOrDefault<ScreenAuthDTO>(query, parameters); 
+            return _dbConnection.QueryFirstOrDefault<ScreenAuthDTO>(query, parameters);
         }
 
 
@@ -54,6 +77,19 @@ namespace Timesheets_System.Models.DAO
                                     "FROM Timesheets_tb";
 
             return _dbConnection.Query<int>(query).ToList();
+        }
+
+        public void UpdateAllowScreenAuth(string screen_id, string auth_group_id, string allowed_to_open)
+        {
+            //String query = "UPDATE screen_auth_tb SET allowed_to_open = @allowed_to_open " +
+            //    "WHERE screen_id = @screen_id and auth_group_id = @auth_group_id";
+            string query = "INSERT INTO screen_auth_tb VALUES (@auth_group_id, @screen_id, @allowed_to_open) " +
+                "ON CONFLICT (auth_group_id, screen_id) DO UPDATE SET allowed_to_open = @allowed_to_open";
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("allowed_to_open", allowed_to_open);
+            parameters.Add("screen_id", screen_id);
+            parameters.Add("auth_group_id", auth_group_id);
+            _dbConnection.Query(query, parameters);
         }
     }
 }
