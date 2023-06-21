@@ -262,3 +262,9 @@ D:\Goline\TimeSheet-main\TimeSheet-main\Timesheets_System\obj\Debug\Timesheets_S
 D:\Goline\TimeSheet-main\TimeSheet-main\Timesheets_System\obj\Debug\Timesheets_System.csproj.CopyComplete
 D:\Goline\TimeSheet-main\TimeSheet-main\Timesheets_System\obj\Debug\Timesheets_System.exe
 D:\Goline\TimeSheet-main\TimeSheet-main\Timesheets_System\obj\Debug\Timesheets_System.pdb
+D:\TimeSheet\Timesheets_System\bin\Debug\en\Timesheets_System.resources.dll
+D:\TimeSheet\Timesheets_System\bin\Debug\vi\Timesheets_System.resources.dll
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmLogin.en.resources
+D:\TimeSheet\Timesheets_System\obj\Debug\Timesheets_System.Views.frmLogin.vi.resources
+D:\TimeSheet\Timesheets_System\obj\Debug\en\Timesheets_System.resources.dll
+D:\TimeSheet\Timesheets_System\obj\Debug\vi\Timesheets_System.resources.dll

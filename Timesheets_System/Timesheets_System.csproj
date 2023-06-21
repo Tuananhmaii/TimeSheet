@@ -318,6 +318,12 @@
     </Compile>
     <EmbeddedResource Include="bin\Debug\RDLC\IndividualTimeSheetReport.rdlc" />
     <EmbeddedResource Include="bin\Debug\RDLC\GeneralTimeSheetReport.rdlc" />
+    <EmbeddedResource Include="Views\Login\frmLogin.en.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\frmLogin.vi.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Personal\frmPersonalTimesheet.resx">
       <DependentUpon>frmPersonalTimesheet.cs</DependentUpon>
     </EmbeddedResource>

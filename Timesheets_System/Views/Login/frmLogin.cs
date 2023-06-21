@@ -37,6 +37,7 @@ namespace Timesheets_System.Views
             InitializeComponent();
             TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
             txt_Username.Focus();
+            comboBox1.SelectedIndex = 0;
         }
 
         private Boolean ElementCheck()
@@ -174,6 +175,23 @@ namespace Timesheets_System.Views
         {
             frmForgotPassword form = new frmForgotPassword();
             form.ShowDialog();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("vi-VN");
+                    break;
+                case 1:
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-150");
+                    break;
+            }
+            this.Controls.Clear();
+            InitializeComponent();
+            TitleBarManager titleBarManager = new TitleBarManager(TopBar, pn_Minimize, pn_Maximize, pn_Close);
+            txt_Username.Focus();
         }
     }
 }

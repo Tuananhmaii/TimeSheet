@@ -10,7 +10,7 @@ namespace Timesheets_System.Views.Screen
     {
         ScreenAuthController _screenAuthController = new ScreenAuthController();
         AuthGroupController _authGroupAuthController = new AuthGroupController();
-        private string selectedRoleId; 
+        private string selectedRoleId;
 
         public frmScreen()
         {
@@ -33,7 +33,7 @@ namespace Timesheets_System.Views.Screen
 
         private void Load()
         {
-            selectedRoleId = cbRole.SelectedValue.ToString(); 
+            selectedRoleId = cbRole.SelectedValue.ToString();
             LoadScreenRoles(); // Populate the DataGridView
         }
 

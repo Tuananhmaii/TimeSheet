@@ -30,7 +30,7 @@ namespace Timesheets_System.Views
 
         private void InitializeEventHandlers()
         {
-            if ( titleBarControl != null)
+            if (titleBarControl != null)
             {
                 titleBarControl.MouseDown += TitleBarControl_MouseDown;
                 minimizeButton.Click += MinimizeButton_Click;
